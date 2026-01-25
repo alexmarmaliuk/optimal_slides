@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.23)  25 JAN 2026 15:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.10.23)  25 JAN 2026 15:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2417,35 +2417,35 @@ Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 4
 <plots/density_plot.pdf, id=185, 247.65224pt x 66.71526pt>
 File: plots/density_plot.pdf Graphic file (type pdf)
 <use plots/density_plot.pdf>
-Package pdftex.def Info: plots/density_plot.pdf  used on input line 42.
-(pdftex.def)             Requested size: 181.25233pt x 48.82896pt.
+Package pdftex.def Info: plots/density_plot.pdf  used on input line 45.
+(pdftex.def)             Requested size: 130.4988pt x 35.15633pt.
 
-Overfull \vbox (16.64098pt too high) detected at line 42
+Overfull \vbox (6.62517pt too high) detected at line 45
  []
 
 File: resources//common/owl_pageno.pdf Graphic file (type pdf)
 <use resources//common/owl_pageno.pdf>
 Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 4
-2.
+5.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
 [16
 
  <./plots/density_plot.pdf>]
-Overfull \vbox (12.56772pt too high) detected at line 73
+Overfull \vbox (12.56772pt too high) detected at line 76
  []
 
 File: resources//common/owl_pageno.pdf Graphic file (type pdf)
 <use resources//common/owl_pageno.pdf>
 Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 7
-3.
+6.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
 [17
 
 ]
 File: resources//common/owl_pageno.pdf Graphic file (type pdf)
 <use resources//common/owl_pageno.pdf>
-Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 9
-9.
+Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 1
+02.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
  [18
 
@@ -2453,7 +2453,7 @@ Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 9
 File: resources//common/owl_pageno.pdf Graphic file (type pdf)
 <use resources//common/owl_pageno.pdf>
 Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 1
-26.
+29.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
  [19
 
@@ -2461,7 +2461,7 @@ Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 1
 File: resources//common/owl_pageno.pdf Graphic file (type pdf)
 <use resources//common/owl_pageno.pdf>
 Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 1
-44.
+47.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
  [20
 
@@ -2469,7 +2469,7 @@ Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 1
 File: resources//common/owl_pageno.pdf Graphic file (type pdf)
 <use resources//common/owl_pageno.pdf>
 Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 1
-70.
+73.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
  [21
 
@@ -2477,7 +2477,7 @@ Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 1
 File: resources//common/owl_pageno.pdf Graphic file (type pdf)
 <use resources//common/owl_pageno.pdf>
 Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 1
-80.
+83.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
  [22
 
@@ -2485,7 +2485,7 @@ Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 1
 File: resources//common/owl_pageno.pdf Graphic file (type pdf)
 <use resources//common/owl_pageno.pdf>
 Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 2
-31.
+34.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
  [23
 
@@ -2493,7 +2493,7 @@ Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 2
 File: resources//common/owl_pageno.pdf Graphic file (type pdf)
 <use resources//common/owl_pageno.pdf>
 Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 2
-39.
+42.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
  [24
 
@@ -2501,7 +2501,7 @@ Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 2
 File: resources//common/owl_pageno.pdf Graphic file (type pdf)
 <use resources//common/owl_pageno.pdf>
 Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 2
-68.
+71.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
  [25
 
@@ -2509,7 +2509,7 @@ Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 2
 File: resources//common/owl_pageno.pdf Graphic file (type pdf)
 <use resources//common/owl_pageno.pdf>
 Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 2
-75.
+78.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
  [26
 
@@ -2517,7 +2517,7 @@ Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 2
 File: resources//common/owl_pageno.pdf Graphic file (type pdf)
 <use resources//common/owl_pageno.pdf>
 Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 2
-95.
+98.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
  [27
 
@@ -2525,7 +2525,7 @@ Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 2
 File: resources//common/owl_pageno.pdf Graphic file (type pdf)
 <use resources//common/owl_pageno.pdf>
 Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 3
-25.
+28.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
  [28
 
@@ -2533,7 +2533,7 @@ Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 3
 File: resources//common/owl_pageno.pdf Graphic file (type pdf)
 <use resources//common/owl_pageno.pdf>
 Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 3
-56.
+59.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
  [29
 
@@ -2541,7 +2541,7 @@ Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 3
 File: resources//common/owl_pageno.pdf Graphic file (type pdf)
 <use resources//common/owl_pageno.pdf>
 Package pdftex.def Info: resources//common/owl_pageno.pdf  used on input line 3
-64.
+67.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
  [30
 
@@ -2590,7 +2590,7 @@ usr/local/texlive/2023/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/loc
 al/texlive/2023/texmf-dist/fonts/type1/public/txfonts/txsya.pfb></usr/local/tex
 live/2023/texmf-dist/fonts/type1/public/txfonts/txsyb.pfb></usr/local/texlive/2
 023/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on build/slides.pdf (30 pages, 465714 bytes).
+Output written on build/slides.pdf (30 pages, 465727 bytes).
 PDF statistics:
  368 PDF objects out of 1000 (max. 8388607)
  252 compressed objects within 3 object streams

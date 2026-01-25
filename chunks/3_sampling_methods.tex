@@ -22,18 +22,21 @@
     % \resizebox{1\textwidth}{!}
     %{
         \begin{example}
-            \begin{columns}
-                \begin{column}{0.5\textwidth}
-                    \includegraphics[width=\columnwidth]{plots/density_plot.pdf} 
-                \end{column}
-            \begin{column}{0.5\textwidth}
             Consider $T=5$ units, $N=4$ samples, and the following sampling instants
+
+            \begin{columns}
+            \begin{column}{0.5\textwidth}
             \begin{itemize}
                 \item $\sigma_4\,(t) = \frac{1}{4\,\cdot\,1} = \frac{1}{4}, \quad \forall t \in [0,1)$
                 \item $\sigma_4\,(t) = \frac{1}{4\,\cdot\,3} = \frac{1}{12}, \quad \forall t \in [1,4)$
             \end{itemize}
             \end{column}
-            \end{columns}
+
+                \begin{column}{0.4\textwidth}
+                    \includegraphics[width=0.9\columnwidth]{plots/density_plot.pdf} 
+                \end{column}
+
+        \end{columns}
 
               
         \end{example}
