@@ -1,0 +1,45 @@
+\documentclass[tikz]{standalone}
+
+\usepackage{amsmath}
+\usepackage{tikz,pgfplots}
+\usepackage{pgfplotstable}
+
+\usepackage{amsmath}
+\usepackage{tikz}
+
+\begin{document}
+\begin{tikzpicture}
+
+
+\begin{axis}[
+    width=11cm,
+    height=5cm,
+    axis y line=none,
+    axis lines=middle,
+    axis line style={line width=1.5pt},
+    line width=1.5pt,
+    xlabel={Time \,$t$},
+    xlabel style={at={(axis description cs:0.5,-0.1)}, anchor=north},
+    xtick={0,2,...,6},
+    minor xtick={0.5,1.5,2.5},
+    tick style={line width=0.8pt},
+    extra x ticks={0,0.25,0.4,0.8,1.75},
+    extra x tick labels={$t_0$,$t_1$,$t_2$,$t_3$,$t_4$},
+    extra x tick style={tick label style={text=prediction, xshift=-4.5pt}, grid=none, tick style={draw=none}},
+    set layers=standard,
+    ]
+    \definecolor{sample dots}{RGB}{238,119,51}
+    \definecolor{prediction}{HTML}{ffa300}
+    \definecolor{stateRed}{HTML}{b30000}
+    \definecolor{controlBlue}{HTML}{0d88e6}
+
+
+    
+\end{axis}
+
+\end{tikzpicture}
+
+
+
+
+\end{document}
