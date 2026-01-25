@@ -1,0 +1,40 @@
+\begin{frame}{Dynamic Programming: Bellman Equation}
+
+\textbf{Idea:}
+We define a \emph{recursive cost-to-go function} that minimizes the
+remaining cost given the current state.
+
+\vspace{1em}
+
+\[
+J_k(x_k)
+=
+\min_{u}
+\Big[
+\underbrace{x_k^\top Q_k x_k}_{\text{State penalty}}
++
+\underbrace{u^\top R_k u}_{\text{Control penalty}}
++
+\underbrace{2 x_k^\top S_k u}_{\text{Cross term}}
++
+J_{k+1}(x_{k+1})
+\Big]
+\]
+
+\vspace{1em}
+
+\[
+J_N(x) = x^\top S x
+\]
+
+\vspace{0.5em}
+
+\[
+x_{k+1} = A_k x_k + B_k u_k
+\]
+
+
+\begin{commentbox}
+    This slide not reviewed yet! Just a test. DP slides to be added later!
+\end{commentbox}
+\end{frame}

@@ -1,0 +1,138 @@
+\makeatletter
+
+% #1 – box name
+% #2 – left color
+% #3 – right color
+% #4 – Title (may contain #1)
+\newcommand{\newlargebox}[4]{
+    \newtcolorbox{#1}[1][]{
+        beamer,
+        %width=\textwidth+7pt,
+        oversize=4pt,
+        titlerule=3mm,
+        colframe=white,
+        coltitle={#2},
+        bottom=2pt, 
+        top=-4pt,
+        left=6pt,
+        right=6pt,
+        toptitle=2pt,
+        bottomtitle=-2pt,
+        fonttitle=\bfseries\large,
+        adjusted title={#4},
+        outer arc=.5mm,
+        arc=.5mm,
+        no shadow,
+        fuzzy shadow={.4mm}{-.4mm}{-.6mm}{.3mm}{black!20},
+        interior titled code={
+            \path [left color={#2}, right color={#3}] 
+                (title.south west) + (8pt, 0) rectangle ++(\textwidth+14pt, 0.02);
+        }
+      }
+}
+
+% #1 – box name
+% #2 – color
+% #3 – Title (may contain #1)
+\newcommand{\newsmallbox}[3]{
+    \newtcolorbox{#1}[1][]{
+        beamer,
+        oversize=4pt,
+        titlerule=0mm,
+        colframe=white,
+        coltitle={#2},
+        bottom=2pt, 
+        top=-4pt,
+        left=6pt,
+        right=6pt,
+        toptitle=5pt,
+        bottomtitle=-2pt,
+        fonttitle=\bfseries\large,
+        adjusted title={#3},
+        outer arc=.5mm,
+        arc=.5mm,
+        no shadow,
+        fuzzy shadow={1mm}{-1mm}{-1.2mm}{.7mm}{black!20},
+        interior titled code={}
+    }
+}
+
+\newtcolorbox{emptybox}[1][]{
+    beamer,
+    oversize=4pt,
+    titlerule=0mm,
+    colframe=white,
+    coltitle=black,
+    bottom=8pt, 
+    top=-10pt,
+    left=6pt,  
+    right=6pt,
+    notitle, 
+    adjusted title={},
+    outer arc=.5mm,
+    arc=.5mm,
+    no shadow,
+    fuzzy shadow={.4mm}{-.4mm}{-.6mm}{.3mm}{black!20},
+    interior titled code={}
+}
+
+\newtcolorbox{slidebox}[1][]{
+    beamer,
+    width=\textwidth,
+    % enlarge left by=-3pt,
+    colframe=white,
+    coltitle=black,
+    bottom=0pt, 
+    top=-0pt,
+    left*=0pt,  
+    notitle,
+    outer arc=.5mm,
+    arc=.5mm,
+    no shadow,
+    fuzzy shadow={1mm}{-1mm}{-1.2mm}{.7mm}{black!20},
+}
+
+
+\newlargebox{defaultbox}{darkcerulean}{scooter}{#1} 
+\newlargebox{alertbox}{alertboxleft}{alertboxright}{#1} 
+\newlargebox{darkbox}{mineshaft}{tingray}{#1} 
+\newlargebox{graybox}{tingray}{white}{#1} 
+\newlargebox{examplebox}{exampleboxleft}{exampleboxright}{Example {\ifthenelse{\equal{#1}{}}{}{(#1)}}}
+\newlargebox{examplebox*}{exampleboxleft}{exampleboxright}{#1}
+
+\newsmallbox{smalldefaultbox}{darkcerulean}{#1} 
+\newsmallbox{smallgraybox}{gray}{#1} 
+\newsmallbox{smallalertbox}{fireenginered}{#1}
+
+
+\setbeamertemplate{proof begin}{%
+    \normalfont\begin{darkbox}[{%
+    \insertproofname
+}]}
+\setbeamertemplate{proof end}{\end{darkbox}}
+
+\setbeamertemplate{block begin}{%
+    \normalfont\begin{defaultbox}[{%
+    \insertblocktitle
+}]}
+\setbeamertemplate{block end}{\end{defaultbox}}
+
+\setbeamertemplate{block example begin}{%
+    \normalfont\begin{examplebox*}[{\insertblocktitle}]%
+    \setbeamertemplate{itemize items}{
+        \textcolor{exampleboxleft}{$\blacktriangleright$}%
+    }%
+}
+\setbeamertemplate{block example end}{\end{examplebox*}}
+
+\setbeamertemplate{block alerted begin}{%
+    \normalfont\begin{alertbox}[{\insertblocktitle}]%
+    \setbeamertemplate{itemize items}{
+        \textcolor{alertboxleft}{$\blacktriangleright$}%
+    }%
+}
+\setbeamertemplate{block alerted end}{\end{alertbox}}
+
+\newcommand{\DisplayScaledProof}{\maxsizebox{\linewidth}{!}{\DisplayProof}}
+
+\newtheorem{axiom}[theorem]{Axiom}

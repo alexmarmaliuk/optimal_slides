@@ -1,0 +1,356 @@
+
+
+\begin{frame}{Comparing Sampling Methods: Sampling Density}
+    % \begin{columns}
+    % \begin{column}{0.7\textwidth}
+
+    %\resizebox{1.\textwidth}{!}{
+
+        \begin{block}{Sampling Density}
+            Given $x_0$, $A$, $B$, $Q$, $R$, and $S$, and interval length $T$, and a number of samples $N$, the \emph{sampling density} $\sigma_{N,m}:[0,T] \to \mathbb{R}^{+}$ of any sampling method $m$ is defined as
+            \[
+                \sigma_{N,m}(t) = \frac{1}{N\,\tau_{k}} \quad \forall t \in [t_k, t_{k+1}), \quad k \in \{0, \ldots, N-1\}
+            \]
+            \vspace{-1em}
+
+            \begin{itemize}
+                \item Temporal distrubtion of sampling instants
+                \item Sampling density is normalized
+            \end{itemize}
+        \end{block}
+    % }
+    % \resizebox{1\textwidth}{!}
+    %{
+        \begin{example}
+            Consider $T=5$ units, $N=4$ samples, and the following sampling instants
+            \begin{itemize}
+                \item $\sigma_4\,(t) = \frac{1}{4\,\cdot\,1} = \frac{1}{4}, \quad \forall t \in [0,1)$
+                \item $\sigma_4\,(t) = \frac{1}{4\,\cdot\,3} = \frac{1}{12}, \quad \forall t \in [1,4)$
+            \end{itemize}    
+        \end{example}
+    %}
+
+\end{frame}
+
+\begin{frame}{Comparing Sampling Methods: Sampling Density}
+    % \begin{columns}
+    % \begin{column}{0.7\textwidth}
+
+    %\resizebox{1.\textwidth}{!}{
+
+        \begin{block}{Sampling Density}
+            Given $x_0$, $A$, $B$, $Q$, $R$, and $S$, and interval length $T$, and a number of samples $N$, the \emph{sampling density} $\sigma_{N,m}:[0,T] \to \mathbb{R}^{+}$ of any sampling method $m$ is defined as
+            \[
+                \sigma_{N,m}(t) = \frac{1}{N\,\tau_{k}} \quad \forall t \in [t_k, t_{k+1}), \quad k \in \{0, \ldots, N-1\}
+            \]
+            \vspace{-1em}
+
+            \begin{itemize}
+                \item Temporal distrubtion of sampling instants
+                \item Sampling density is normalized
+            \end{itemize}
+        \end{block}
+    %}
+    %\resizebox{1\textwidth}{!}
+    %{
+        \begin{block}{Asymptotic Sampling Density}
+            To remove the dependency on $N$, we define the \emph{asymptotic sampling density} as $\sigma_{m}:[0,T] \to \mathbb{R}^{+}$ as the limit
+            \[
+                \sigma_{m}(t) = \lim_{N \to \infty} \sigma_{N,m}(t)
+            \]
+        \end{block}
+    %}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Normalized Cost %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Comparing Sampling Methods: Normalized Cost}
+    % \begin{columns}
+    % \begin{column}{0.7\textwidth}
+
+    %\resizebox{1.\textwidth}{!}{
+
+        \begin{block}{Normalized Cost}
+            Given $x_0$, $A$, $B$, $Q$, $R$, and $S$, and interval length $T$, and a number of samples $N$, the \emph{normalized cost} of any sampling method $m$ is defined as
+            \[
+                c_{N,m} =\frac{N^2}{T^2} \frac{\mathcal{J}_{N,m} - \mathcal{J}_\infty}{\mathcal{J}_\infty} 
+            \]
+        where $\mathcal{J}_{N,m}$ is the minimal cost of the sampling method $m$ with $N$ samples, and $\mathcal{J}_\infty$ is the minimal cost of the continuous-time system.
+        \end{block}
+    % }
+    % \resizebox{1\textwidth}{!}
+    %{
+        \begin{example}
+            TODO
+        \end{example}
+    %}
+
+\end{frame}
+
+
+\begin{frame}{Comparing Sampling Methods: Normalized Cost}
+    % \begin{columns}
+    % \begin{column}{0.7\textwidth}
+
+    %\resizebox{1.\textwidth}{!}{
+
+        \begin{block}{Normalized Cost}
+            Given $x_0$, $A$, $B$, $Q$, $R$, and $S$, and interval length $T$, and a number of samples $N$, the \emph{normalized cost} of any sampling method $m$ is defined as
+            \[
+                c_{N,m} =\frac{N^2}{T^2} \frac{\mathcal{J}_{N,m} - \mathcal{J}_\infty}{\mathcal{J}_\infty} 
+            \]
+        where $\mathcal{J}_{N,m}$ is the minimal cost of the sampling method $m$ with $N$ samples, and $\mathcal{J}_\infty$ is the minimal cost of the continuous-time system.
+        \end{block}
+    % }
+    % \resizebox{1\textwidth}{!}
+    %{
+        \begin{block}{Asymptotic Normalized Cost}
+            To remove the dependency on $N$, we define the \emph{asymptotic normalized cost} as the limit
+            \[
+                c_{m} = \lim_{N \to \infty} c_{N,m}
+            \]
+        \end{block}
+    %}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Periodic Sampling %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Periodic Sampling}
+    We divide the interval $[0,T]$ into $N$ parts of equal size 
+    \[
+\begin{array}{>{\displaystyle}ll}
+            \tau_k = \tau = \frac{T}{N},& k \in \{0, \ldots, N-1\}\\[8pt]
+            t_k = k \cdot \frac{T}{N},& k \in \{0, \ldots, N\}
+        \end{array}
+    \]
+
+    For $N \in \mathbb{N}$, we get the constant sampling density
+    \[
+        \sigma_{per, N}(t) = \frac{1}{N\cdot t_k} 
+        = \frac{1}{N}\cdot \frac{N}{T}
+        = \frac{1}{T} 
+    \]
+\end{frame}
+    
+\begin{frame}{Periodic Sampling: Optimal Control}
+    For sampling period $\tau$, the solution $\overline{K}\,(\tau)$ of the discrete-time Riccati equation can be determined analytically as
+
+    \[
+        \overline{K}\,(\tau) = K_{\infty} + X \cdot \frac{\tau^2}{2} + o(\tau^2)
+    \]
+
+    where $K_{\infty}$ is the solution of the continuous-time Riccati equation, and $X$ is the solution of a particular equation.
+    
+    \bigskip
+
+    % \pause
+    \begin{columns}
+        \begin{column}{0.7\textwidth}
+
+    {
+        \color{gray!80}
+        \textit{
+            $\ldots$ informally, optimal controller of the discrete-time can be expressed as the continuous-time solution $K_\infty$ plus a correction term that is proportional to the square of the sampling period $\tau$.
+        }  
+    }
+    \end{column}
+    \end{columns}
+        
+\end{frame}
+
+% Question slide
+\begin{frame}{NOTES}
+        \begin{questionbox}
+            How do we do a reference? just as a bibliography entry?
+        \end{questionbox}
+        \begin{questionbox}
+            phrasing of the $X$ intro? maybe some more precise reference. Feels out of blue.
+        \end{questionbox}
+\end{frame}
+
+    
+\begin{frame}{Periodic Sampling: Asymptotic Normalized Cost}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{tcolorbox}[
+                width=\textwidth,
+                colback=darkcerulean!30!white,
+                colframe=darkcerulean,
+                ]
+                        \centering
+
+            \[
+                c_{N,\text{per}} =\frac{N^2}{T^2} \frac{\mathcal{J}_{N,\text{per}} - \mathcal{J}_\infty}{\mathcal{J}_\infty}
+            \]  
+            \end{tcolorbox}
+        \end{column}
+
+
+        \begin{column}{0.5\textwidth}
+            \begin{tcolorbox}[
+                width=\textwidth,
+                colback=darkcerulean!30!white,
+                colframe=darkcerulean,
+                ]
+                        \centering
+
+           \[
+                \overline{K}\,(\tau) = K_{\infty} + X \cdot \frac{\tau^2}{2} + o(\tau^2)
+            \]
+            
+            \end{tcolorbox}
+
+        \end{column}
+    \end{columns}
+
+    
+        % \resizebox{1.1\textwidth}{!}{$
+    \[
+        \begin{array}{>{\displaystyle}rcl}
+            c_{\text{per}} &=& \lim\limits_{N \to \infty} \frac{N^2}{T^2} \, \frac{x_{0}' \, \overline{K}(\tau)\, x_0 - x_{0}' \, {K}_{\infty}\, x_0}{x_{0}' \, K_\infty \,x_0}\\
+            &=& \lim\limits_{N \to \infty} \frac{N^2}{T^2} \, \frac{x_{0}' \,   \left( K_\infty + X\cdot \frac{\tau^2}{2} + o(\tau^2) \right)    \, x_0 - x_{0}' \, {K}_{\infty}\, x_0}{x_{0}' \, K_\infty \,x_0}\\
+            &=& \lim\limits_{N \to \infty} \frac{N^2}{T^2} \, \frac{x_{0}' \,   \left( K_\infty + X\cdot \frac{T^2}{2N^2} + o\left(\frac{T^2}{2N^2}\right) \right)    \, x_0 - x_{0}' \, {K}_{\infty}\, x_0}{x_{0}' \, K_\infty \,x_0}\\
+            &=& \lim\limits_{N \to \infty} \frac{N^2}{T^2} \, \frac{
+                x_0' \,\frac{XT^2}{2N^2} \, x_0 + x_0' \,o\left(N^{-2}\right)\,x_0
+            }{x_{0}' \, K_\infty \,x_0}\\
+            &=& \frac{x_0' \, X \, x_0}{2\, x_0'\, K_{\infty} \, x_0}
+        \end{array}
+    \]
+    % $}
+\end{frame}
+
+
+% Question slide
+\begin{frame}{NOTES}
+        \begin{questionbox}
+            The boxes are not boxing :(
+        \end{questionbox}
+\end{frame}
+
+
+
+\begin{frame}{Periodic Sampling: Example}
+    \centering
+    \begin{tcolorbox}[
+                width=0.5\textwidth,
+                colback=darkcerulean!30!white,
+                colframe=darkcerulean,
+                ]
+       $$c_{\text{per}} = \frac{x_0' \, X \, x_0}{2\, x_0'\, K_{\infty} \, x_0}$$
+    \end{tcolorbox}
+
+\begin{example}
+For a first-order system $(n=1)$, wlog\ $B = R = 1$, we obtain
+\[
+\begin{aligned}
+X &= \frac{1}{12} (K_\infty - A) K_\infty^2, \\
+K_\infty &= A + \sqrt{A^2 + Q}.
+\end{aligned}
+\]
+
+which gives us the asymptotic normalized cost
+\[
+c_{\text{per}} = \frac{1}{24} A \sqrt{A^2 + Q} + A^2 + Q .
+\]
+\end{example}
+
+\end{frame}
+
+% Question slide
+\begin{frame}{NOTES}
+        \begin{questionbox}
+            should we do italics every time we use a defined instance? Like \textit{asymptotic normalized cost}.
+        \end{questionbox}
+\end{frame}
+
+
+\begin{frame}{Deterministic Lebesgue Sampling}
+    \begin{itemize}
+        \item \textbf{Intuition:} Sample more frequently where the optimal control changes faster
+        \item Sample whenever the optimal $u$ changes by a fixed threshold $\Delta$, so after any sampling instant $t_k$, the next $t_{k+1}$ is determined s.t.
+        $$
+    \left\| \,u\,(t_{t+1}) - u(t_k)\, \right\|=\,\Delta
+    $$
+
+    where $u$ is the optimal continuous-time input
+    \end{itemize}
+
+    
+
+    \begin{example}
+        TODO
+    \end{example}
+
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}{Deterministic Lebesgue Sampling}
+
+    \centering
+    \begin{tcolorbox}[
+                width=0.5\textwidth,
+                colback=darkcerulean!30!white,
+                colframe=darkcerulean,
+                ]
+    $$\left\| \,u\,(t_{t+1}) - u(t_k)\, \right\|=\,\Delta$$
+    \end{tcolorbox}
+
+    In the case of a scalar input ($m=1$) and a given number $N$ of sampling instance in $[0,T]$, we compute the sampling instants $t_k$
+
+    \[
+        \begin{array}{>{\displaystyle}rcl}
+            \int_{t_k}^{t_{k+1}} |\,\dot{u}\,(t)\,|\,dt &=& |\,u\,(t_{k+1}) - u\,(t_{k})\,|\\
+            &=& \Delta 
+            \\
+            &=& \frac{1}{N} \cdot \underbrace{\int_{0}^T \, |\, \dot{u}\,(t) \,| \, dt}_{N\cdot\Delta}
+        \end{array}
+    \]
+
+    
+\end{frame}
+
+\begin{frame}{Deterministic Lebesgue Sampling: Sampling Density}
+
+    \centering
+    \begin{tcolorbox}[
+                width=0.7\textwidth,
+                colback=darkcerulean!30!white,
+                colframe=darkcerulean,
+                ]
+        $$
+        \int_{t_k}^{t_{k+1}} |\,\dot{u}\,(t)\,|\,dt = 
+        \frac{1}{N} \cdot {\int_{0}^T \, |\, \dot{u}\,(t) \,| \, dt}
+        $$
+    \end{tcolorbox}
+
+    \[
+        \begin{array}{>{\displaystyle}rcl}
+            \sigma_{\text{dls}}\, (t) &=& \frac{1}{N\cdot\tau_k}\\
+
+            &=& \frac{\int_{t_k}^{t_{k+1}} |\,\dot{u}\,(t)\,|\,dt}{\int_{0}^T \, |\, \dot{u}\,(t) \,| \, dt} \cdot \frac{1}{\tau_k}\\
+            &=& \frac{\int_{t_k}^{t_{k+1}} |\,\dot{u}\,(t)\,|\,dt}{\tau_k} \cdot \frac{1}{\int_{0}^T \, |\, \dot{u}\,(t) \,| \, dt}\\
+            &=& \frac{|\,u\,(t_{k+1}) - u\,(t_{k})\,|}{t_{k+1} - t_k} \cdot \frac{1}{\int_{0}^T \, |\, \dot{u}\,(t) \,| \, dt}
+        \end{array}
+    \]
+
+\begin{itemize}
+    \item Sampling intervals vary depending on $|\,\dot{u \, (t)}\,|$
+    \item No closed formula for the asymptotic normalized cost $c_{\text{dls}}$
+\end{itemize}
+
+\end{frame}
+
+
+% Question slide
+\begin{frame}{NOTES}
+        \begin{questionbox}
+            integrals are inlined, even with \textbackslash displaystyle
+        \end{questionbox}
+\end{frame}
+

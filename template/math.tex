@@ -1,0 +1,71 @@
+% Mathematical 
+
+
+\newcommand{\dif}{\mathop{}\!\mathrm{d}} % Differential - d
+\newcommand{\dgr}{^{\circ}} % Degree sign
+\newcommand{\degre}{\ensuremath{^\circ}} % Another degree sign (for GeoGebra exports)
+\newcommand{\mvect}[1]{\left(\begin{matrix} #1 \end{matrix}\right)} % Vector in matrix notation
+\newcommand{\abs}[1]{\left| #1 \right|} % Setzt den Inhalt in Betragsstriche
+\newcommand{\brk}[1]{\left( #1 \right)} % Setzt den Inhalt in große Klammern
+\newcommand{\set}[1]{\left\lbrace #1 \right\rbrace} % Setzt den Inhalt in Mengenklammern (geschweifte Klammern)
+\newcommand{\where}{\;\middle|\;} % Mengenbedingung { | } (innerhalb von \set{})
+
+\newcommand{\curly}[1]{\left\lbrace#1\right\rbrace} % Geschweifte Klammern
+\newcommand{\angles}[1]{\left\langle#1\right\rangle} % Winkelklammern
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor} % Gaußklammern unten
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil} % Gaußklammern oben
+\newcommand{\sema}[1]{\llbracket #1\rrbracket} % Semantikklammern
+\newcommand{\semantics}[2][]{\left\llbracket#2\ifthenelse{\isempty{#1}}{\right\rrbracket}{\right\rrbracket_{#1}}}
+
+\newcommand{\NN}{\mathbb{N}} % Mengenzeichen: Natürliche Zahlen
+\newcommand{\ZZ}{\mathbb{Z}} % Mengenzeichen: Ganze Zahlen
+\newcommand{\QQ}{\mathbb{Q}} % Mengenzeichen: Rationale Zahlen
+\newcommand{\RR}{\mathbb{R}} % Mengenzeichen: Reelle Zahlen
+\newcommand{\CC}{\mathbb{C}} % Mengenzeichen: Komplexe Zahlen
+\newcommand{\PP}{\mathbb{P}} % Mengenzeichen: Primzahlen
+\newcommand{\HH}{\mathbb{H}} % Mengenzeichen: Quarternionen
+\newcommand{\BB}{\mathbb{B}} % Mengenzeichen: Booleans
+\newcommand{\universe}{\mathcal{U}} % Universe
+\newcommand{\powerset}[1]{\mathcal{P}\left(#1\right)} % Power set
+\newcommand{\rel}{\mathcal{R}}
+\newcommand{\dom}{\mathrm{dom}} % Domain of def. (Definitionsbereich)
+\newcommand{\im}{\mathrm{im}} % Image (Wertebereich)
+\newcommand{\Id}{\mathrm{Id}} % Identity relation
+\newcommand{\unirel}{\mathrm{U}} % Univeral relation
+\newcommand{\refrel}{\mathrm{Ref}} % Reflexive relation
+
+\newcommand{\true}{\mathtt{true}} % True
+\newcommand{\false}{\mathtt{false}} % False
+
+\newcommand{\lnor}{\mathbin{\overline{\lor}}}
+\newcommand{\lnand}{\mathbin{\overline{\land}}}
+
+\newcommand{\tx}[1]{\times 10^{#1}} % Powers of ten (scientific notation)
+
+\newcommand{\lists}{\mathcal{L}} % List
+\newcommand{\trees}{\mathcal{T}} % Tree
+\newcommand{\binarytrees}{\mathcal{B}} % Binary tree
+\newcommand{\listsof}[1]{\mathcal{L}\round{#1}} % List of
+
+
+% Rechenschritte in align
+\newcommand{\resetaligncount}{\setcounter{equation}{0}} % Setzt den Gleichungszähler zurück
+\newcommand{\ad}[1]{&& | \: #1} % Beschreibung für einen Schritt (Mathe)
+\newcommand{\adt}[1]{&& | \: \text{#1}} % Beschreibung für einen Schritt (Text)
+
+% Statistik
+\newcommand{\EE}{\mathbb{E}} % Erwartungswert
+\newcommand{\Cov}{\mathrm{Cov}} % Covarianz
+\newcommand{\Ave}{\mathrm{Ave}} % Mittelwert
+\newcommand{\Var}{\mathrm{Var}} % Varianz
+
+% Prog1-Definitions
+\newcommand{\nil}{[]} %{\textsf{nil}}
+\newcommand{\eset}{\ensuremath{\emptyset}}
+\newcommand{\cc}{\,{:}\,}
+\newcommand{\ltd}{{\mathrel{\dot{<}}}}
+\newcommand{\cld}{,\dots,}  % ,...,
+\DeclareMathOperator\eva{\,\triangleright\,}
+
+\newcommand{\mi}[1]{\mathit{#1}}
+\newcommand{\bnfmid}{\:\mid\:}

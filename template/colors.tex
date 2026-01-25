@@ -1,0 +1,52 @@
+% Base colors
+\definecolor{baseblue}{HTML}{004877}
+
+\definecolor{darkcerulean}{rgb}{0.063661, 0.257392, 0.477463}
+\definecolor{scooter}{rgb}{0.161162, 0.775760, 0.885416}
+\definecolor{fireenginered}{rgb}{0.757398, 0.151664, 0.177088}
+\definecolor{pomegranate}{rgb}{0.927557, 0.260794, 0.138377}
+\definecolor{mineshaft}{rgb}{0.199974, 0.200015, 0.199971}
+\definecolor{tingray}{rgb}{0.501904, 0.501994, 0.501898}
+\definecolor{bluegreen}{rgb}{0.089966, 0.635931, 0.735038}
+\definecolor{trinidad}{rgb}{0.859854, 0.307332, 0.048339}
+\definecolor{buttercup}{rgb}{0.955223, 0.690239, 0.123137}
+\definecolor{mediumturquoise}{rgb}{0.335814, 0.846074, 0.749070}
+
+% Box color definitions
+\definecolor{defaultboxleft}{HTML}{084071} % dark blue
+\definecolor{defaultboxright}{HTML}{14C9CE} % light blue
+
+\definecolor{darkboxleft}{HTML}{444444} % gray
+\definecolor{darkboxright}{HTML}{AAAAAA} % light gray
+
+\definecolor{grayboxleft}{HTML}{AAAAAA} % light gray
+\definecolor{grayboxright}{HTML}{FFFFFF} % white
+
+\definecolor{alertboxleft}{HTML}{7F1D1D} % dark red
+\definecolor{alertboxright}{HTML}{D8463F} % red
+
+\definecolor{exampleboxleft}{HTML}{1D7F1D} % dark green
+\definecolor{exampleboxright}{HTML}{50D83e} % green
+
+% Book color definitions
+\definecolor{goalsbox}{HTML}{7F1D1D} % red
+\definecolor{examplebox}{HTML}{14532D} % green
+\definecolor{inotherwordsbox}{HTML}{134E4A} % teal
+\definecolor{goingbeyondbox}{HTML}{233A8A} % blue
+\definecolor{theorembox}{HTML}{164E63} % cyan
+\definecolor{proofbox}{HTML}{444444} % light gray
+\definecolor{definitionmargin}{HTML}{AAAAAA} % light gray
+\definecolor{personbox}{HTML}{4C1D95} % purple
+\definecolor{checkpointbox}{HTML}{78350F} % amber/orange
+
+
+% Presentation Commands
+\newcommand<>{\highlight}[2][primary]{%
+\alt#3{\ifthenelse{\equal{#1}{primary}}{{\color{bluegreen}{#2}}}{}%
+\ifthenelse{\equal{#1}{secondary}}{{\color{trinidad}{#2}}}{}%
+\ifthenelse{\equal{#1}{warning}}{{\color{buttercup}{#2}}}{}%
+\ifthenelse{\equal{#1}{blue}}{{\color{darkcerulean}{#2}}}{}%
+\ifthenelse{\equal{#1}{red}}{{\color{fireenginered}{#2}}}{}%
+\ifthenelse{\equal{#1}{green}}{{\color{OliveGreen}{#2}}}{}%
+\ifthenelse{\equal{#1}{alert}}{{\color{alertboxleft}{#2}}}{}%
+\ifthenelse{\equal{#1}{black}}{{\color{black}{#2}}}{}}{#2}}

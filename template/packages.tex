@@ -1,0 +1,84 @@
+\usepackage{array}
+
+% packages.tex
+% Import of relevant packages
+
+% Character encoding and language
+%\usepackage{ifxetex}
+%\ifxetex
+%\usepackage{fontspec}
+%\else
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\fi
+\usepackage[english]{babel}
+
+% Technical packages
+\usepackage{etex}
+\usepackage{etoolbox}
+\usepackage{xifthen}
+\usepackage{xstring}
+\usepackage{mathtools}
+
+% Maths
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{xfrac}
+
+% Layout and (font) style
+\usepackage{csquotes}
+\usepackage{censor}
+\usepackage{soul}
+\usepackage{transparent}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{stackengine}
+\usepackage{setspace}
+\usepackage{multicol}
+
+% Content blocks
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{trees, shapes, shapes.callouts, matrix, calc, positioning, shadows, tikzmark, arrows, arrows.meta}
+\usepackage{pgfplots}
+\usepackage{empheq}
+\usepackage[most]{tcolorbox}
+\pgfplotsset{compat=1.9}
+
+% Fonts
+\usepackage{pifont}
+\usepackage[tt=false, type1=true]{libertine}
+\usepackage[varqu]{zi4}
+\usepackage[libertine]{newtxmath}
+\usepackage{fontawesome5}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+\let\Lightning\lightning
+\usepackage{wasysym}
+\usepackage[normalem]{ulem} % Please do not remove normalem here, otherwise \emph gets broken!
+\usepackage{twemojis}
+
+% Miscellanious
+\usepackage{xkeyval}
+\usepackage{todonotes}
+\presetkeys{todonotes}{inline}{}
+\usepackage{catchfile}
+\usepackage[export]{adjustbox}
+
+% Fix to load transparent package at the same time as tikz
+\makeatletter
+\begingroup\expandafter\expandafter\expandafter\endgroup
+\expandafter\ifx\csname pgfutil@addpdfresource@extgs\endcsname\relax
+\else
+  \AtBeginDocument{%
+    % \pgf@sys@addpdfresource@extgs@plain{%
+    \pgfutil@addpdfresource@extgs{%
+      \TRP@list
+    }%
+  }%  
+  \let\TRP@addresource\relax
+\fi
+\makeatother

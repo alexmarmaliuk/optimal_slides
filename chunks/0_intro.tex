@@ -1,0 +1,198 @@
+% \include{template/}
+
+\begin{frame}{The Problem}
+
+    \begin{columns}
+        \begin{column}{0.9\textwidth}
+            Given
+            \medskip
+            {
+                \begin{itemize}
+                    \setlength{\itemsep}{\bulletSpacing}
+                    \item
+                    \(
+                    \left\{
+                    \begin{array}{rcl}
+                        \dot{x}(t) &=& A \,x\,(t) + B \,u\,(t) \\
+                        x\,(0)      &=& x_0
+                    \end{array}
+                    \right.
+                    \)
+                    \item We restrict $u\,(t)$ to be in the class of piecewise constant functions and denote it as $\overline{u}\,(t)$
+                    \item Finite horizon $[0, T]$
+                    \item Number $N$ of control updates
+                \end{itemize}
+            }
+            find
+            \begin{itemize}
+                \item Sampling instants $0=t_1<\ldots<t_N=T$
+                \item Piecewise constant $\overline{u}\,(t)=u_k \quad \forall t \in [t_{k-1}, t_k)$
+            \end{itemize}
+            that minimizes the performance index
+            \begin{itemize}
+                \item $\mathcal{J}(\overline{u}) = \int_0^T \big( x'(t)\,Q\,x\,(t) + \overline{u}'(t)\,R\,\overline{u}\,(t) \big) dt + x'(T)\,S\,x\,(T)$
+            \end{itemize}
+       \end{column}
+    \end{columns}
+\end{frame}
+
+% Question slide
+\begin{frame}{NOTES}
+        \begin{questionbox}
+            How can we separate the system more, 
+            but keep the same spacing for other bulletpoints?
+        \end{questionbox}
+        \begin{questionbox}
+            For all quantifier in the items
+        \end{questionbox}
+\end{frame}
+
+
+% ==========================================================================
+
+\begin{frame}{Quadratic Performance Index}
+    \[
+    \mathcal{J}(\overline{u}) = \int_0^T \big( x'(t)\underbracket{\,Q\,}_{\succeq} x\,(t) + \overline{u}'(t) \underbracket{\,R\,}_{\succ} \overline{u}'(t) \big) dt + x'(T) \underbracket{\,S\,}_{\succeq} x\,(T)
+    \]
+    
+    \centering
+s.t.    
+    \(
+        \left\{
+            \begin{array}{rcl}
+                \dot{x}(t) &=& A\, x\,(t) + B \, u\,(t) \\
+                x\,(0)      &=& x_0
+            \end{array}
+        \right.
+    \)
+\bigskip
+\begin{tcolorbox}[
+        width=7cm,  
+        colback=darkcerulean!30!white,
+        colframe=darkcerulean,
+        ]
+        \centering
+    \begin{itemize}
+        \item $x\,(t) \in \mathbb{R}^n$: system state
+        \item $u\,(t) \in \mathbb{R}^m$: system input
+        \item $A,\,B,\,Q,\,R,\,S$ : constant matrices 
+    \end{itemize}
+    \end{tcolorbox}
+
+\end{frame}
+
+
+% ==========================================================================
+
+\begin{frame}{Outline}
+    \begin{itemize}
+        \setlength{\itemsep}{\bulletSpacing}
+        \item Computation of optimal control $u\,(t)$ for continuous-time systems
+        \item Discretization Process for given $\{t_0, \, \ldots, t_N \}$
+        \begin{enumerate}
+            \item System Discretization
+            \item Computation of optimal control $\{u_1, \, \ldots, u_{N} \}$  for the discrete-time system
+        \end{enumerate}
+        \item Sampling Density and Sampling Method Cost
+    \end{itemize}
+    \begin{todobox}
+        Slide animation with the plot
+    \end{todobox}
+    \begin{todobox}
+        Update Results bullet point
+    \end{todobox}
+\end{frame}
+% ==========================================================================
+
+\begin{frame}{Outline}
+    \begin{itemize}
+        \setlength{\itemsep}{\bulletSpacing}
+        \item Computation of optimal control $u\,(t)$ for continuous-time systems
+        \item Discretization Process for given $\{t_0, \, \ldots, t_N \}$
+        \begin{enumerate}
+            \item System Discretization
+            \item Computation of optimal control $\{u_1, \, \ldots, u_{N} \}$  for the discrete-time system
+        \end{enumerate}
+        \item Sampling Density and Sampling Method Cost
+        \item Sampling Methods for finding $\{t_0, \, \ldots, t_N \}$
+        \begin{enumerate}
+            \item Periodic sampling
+            \item Lebesgue sampling
+            \item Quantization-based sampling
+        \end{enumerate}
+        \item Results
+    \end{itemize}
+\end{frame}
+
+% Question slide
+\begin{frame}{NOTES}
+        \begin{questionbox}
+            In the def, $u_k$ or a set of $u$s?
+        \end{questionbox}
+\end{frame}
+
+% ==========================================================================
+
+\begin{frame}{Optimal Control: Continuous-Time Systems}
+
+\medskip
+\begin{tcolorbox}[
+        width=13cm,  
+        colback=darkcerulean!30!white,
+        colframe=darkcerulean,
+        ]
+\[
+\operatorname{minimize}_{u}
+\;
+\int_{0}^{T}
+\Big(
+x'(t) \,Q\, x\,(t)
++
+u'(t) \,R\, u\,(t)
+\Big)\, dt
++
+x(T)' \,S\, x\,(T)
+\]
+
+\end{tcolorbox}
+
+\medskip
+
+
+Riccati equation for continuous-time systems
+    {
+        \[
+\left\{
+\begin{array}{rcl}
+\dot{K}\,(t) &=& K\,(t)\,B\,R^{-1}\,B'\,K\,(t) - A' K\,(t) - K\,(t)\,A - Q, \\[6pt]
+K\,(T) &=& S
+\end{array}
+\right.
+\]
+
+}
+
+which gives us the optimal control $u\,(t)$
+    {
+        \[
+u\,(t) = - R^{-1} B'\, K\,(t)\, x\,(t)
+\]
+    }
+
+with achieved cost
+{
+    \[
+\mathcal{J}_{\infty} = x_0'\,K\,(0)\, x_0
+\]
+
+}
+
+\end{frame}
+
+% Question slide
+\begin{frame}{NOTES}
+        \begin{questionbox}
+            $K$ or $K(t)$?
+        \end{questionbox}
+\end{frame}
+

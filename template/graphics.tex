@@ -1,0 +1,200 @@
+% Graphic paths are relative to resources folder
+\graphicspath{{resources/}}
+
+% TikZ - Definitions
+\usepgfplotslibrary{fillbetween}
+\pgfdeclarelayer{tree}
+\pgfdeclarelayer{lines}
+\pgfdeclarelayer{scope1}
+\pgfdeclarelayer{scope2}
+\pgfdeclarelayer{scope3}
+\pgfplotsset{compat=1.15}
+\usetikzlibrary{
+	arrows.meta,
+	automata,
+	shapes,
+	shapes.geometric,
+	decorations,
+	decorations.pathreplacing,
+	angles,
+	quotes,
+	positioning,
+	calc,
+	shadows,
+	trees,
+	matrix,
+	patterns,
+	patterns.meta,
+	calligraphy,
+	fadings
+}
+
+% Special symbols
+\newcommand{\checkyes}{\ding{51}~}
+
+\newcommand{\correct}{\highlight{\ding{51}}}
+\newcommand{\incorrect}{\highlight[secondary]{\ding{55}}}
+\newcommand{\good}[1]{\textcolor{basebluegreen}{#1}}
+\newcommand{\medium}[1]{\textcolor{orange}{#1}}
+\newcommand{\bad}[1]{\textcolor{basered}{#1}}
+
+% Married symbol, from https://tex.stackexchange.com/questions/180297/does-a-symbol-for-married-exist-in-some-package-or-font
+\newcommand{\marriedto}[1][white]{\mathrel{\begin{tikzpicture}[x=1ex, y=1ex, scale=0.5, baseline=-.6ex]
+			\begin{scope}
+				\clip (-2,-.2) rectangle ++(5.5,2.2);
+				\path[draw=#1,line width=.08ex,
+					fill=black,even odd rule]
+				(0, 0) circle (2ex)
+				(0, 0) ellipse (1.5ex and 1.3ex);
+				\path[draw=#1,line width=.08ex,
+					fill=black,even odd rule]
+				(1.5, 0) circle (2ex)
+				(1.5, 0) ellipse (1.5ex and 1.3ex);
+			\end{scope}
+			\begin{scope}
+				\clip (-2,-2) rectangle ++(5.5,2.2);
+				\path[draw=#1,line width=.08ex,
+					fill=black,even odd rule]
+				(1.5, 0) circle (2ex)
+				(1.5, 0) ellipse (1.5ex and 1.3ex);
+				\path[draw=#1,line width=.08ex,
+					fill=black,even odd rule]
+				(0, 0) circle (2ex)
+				(0, 0) ellipse (1.5ex and 1.3ex);
+			\end{scope}
+		\end{tikzpicture}}}
+
+% Labeled trees in TikZ
+\NewDocumentEnvironment{tikzltr}{O{1.5cm}O{}}{
+\tikzpicture[sibling distance=#1, level distance=0.7cm, every node/.style={inner sep=3pt, minimum size=2mm}, edge from parent path={(\tikzparentnode) -- (\tikzchildnode)}, #2]
+}{
+\endtikzpicture
+}
+
+
+% QR code with link underneath
+\newcommand*{\qrlink}[1]{{\qrcode{#1}\\[2ex]\url{#1}}}
+
+% Source annotation for graphics
+\newcommand{\source}[1]{%
+	\caption*{\centering \fontsize{8}{0} \selectfont \thinspace{\url{#1}}}%
+}
+\newcommand{\tsource}[1]{%
+	\caption*{\centering \fontsize{8}{0} \selectfont \thinspace{#1}}
+}
+
+
+% "Schleudern-Schild": Danger of vehicle skidding when road is wet or soiled (see German road traffic regulations [Straßenverkehrsordnung], sign no. 114)
+\newcommand{\dangerOfVehicleSkiddingWhenRoadIsWetOrSoiled}{\includegraphics[scale=0.2]{common/slippery.pdf}}
+\newcommand{\slippery}{\dangerOfVehicleSkiddingWhenRoadIsWetOrSoiled}
+
+
+%******************************************************************************
+% Magic which allows to cross out a frame
+% taken from http://tex.stackexchange.com/a/109162
+\usetikzlibrary{calc,decorations.pathmorphing,patterns}
+
+\makeatletter
+
+\pgfdeclaredecoration{penciline}{initial}{
+	\state{initial}[width=+\pgfdecoratedinputsegmentremainingdistance,auto corner on length=1mm,]{
+		\pgfpathcurveto%
+		{% From
+			\pgfqpoint{\pgfdecoratedinputsegmentremainingdistance}{\pgfdecorationsegmentamplitude}
+		}
+		{%  Control 1
+			\pgfmathrand
+			\pgfpointadd{\pgfqpoint{\pgfdecoratedinputsegmentremainingdistance}{10pt}}
+			{\pgfqpoint{-\pgfdecorationsegmentaspect\pgfdecoratedinputsegmentremainingdistance}%
+				{\pgfmathresult\pgfdecorationsegmentamplitude}
+			}
+		}
+		{%TO
+			\pgfpointadd{\pgfpointdecoratedinputsegmentlast}{\pgfpoint{8pt}{5pt}}
+		}
+	}
+	\state{final}{}
+}
+
+%% Environment crossedOutFrame
+% behaves like frame, but allows putting a big cross over the slide
+% if option animate is given, the slide is crossed out on the last overlay
+\newenvironment{crossedOutFrame}[2][]{
+	\def\cofo{#1}
+	\begin{frame}{#2}
+		}{
+		\IfSubStr{\cofo}{animate}{\pause}{ }
+		\begin{tikzpicture}[remember picture,overlay,decoration=penciline]
+			\draw[decorate,line width=30pt,red!60!black]
+			(current page.north west) -- (current page.south east);
+			\draw[decorate,line width=30pt,red!60!black]
+			(current page.north east) -- (current page.center) -- (current page.south west);
+		\end{tikzpicture}
+	\end{frame}
+}
+
+
+% TikZ defaults
+\tikzset{
+	normal/.style={draw, semithick},
+	n/.style={style=normal, circle, inner sep=1mm, minimum size=8mm},
+	l/.style={style=normal, rounded corners=1mm, inner sep=1mm, minimum size=6mm},
+	e/.style={style=normal, shorten >=1mm, shorten <=1mm, ->},
+	syntax/.style={style=normal, ellipse, minimum height=6mm, minimum width=8mm}, % nodes in syntax trees
+	inner/.style={style=normal, minimum size=4mm}, % inner leaves or root in normal trees
+	leaf/.style={style=normal, circle, minimum size=4mm}, % leaves in normal trees
+	te/.style={style=normal}, % edges in a tree
+	be/.style={style=e, dashed} % binding edge
+}
+
+% TikZ syntax trees
+\newenvironment{tikzsyntaxtree}[1][]{
+	\begin{tikzpicture}[baseline=(current bounding box.north), #1]
+		\tikzset{grow=down}
+		\tikzset{every tree node/.style={syntax}}
+		\tikzset{edge from parent/.style={te, edge from parent path={(\tikzparentnode) -- (\tikzchildnode)}}}
+		}{
+	\end{tikzpicture}
+}
+
+% Rectangular drop shadows
+% code adapted from https://tex.stackexchange.com/a/11483/3954
+\def\shadowshift{1pt,-1pt}
+\def\shadowradius{8pt}
+\colorlet{innercolor}{black!40}
+\colorlet{outercolor}{gray!05}
+
+% this draws a shadow under a rectangle node
+\newcommand\drawshadow[1]{
+	\begin{pgfonlayer}{shadow}
+		\shade[outercolor,inner color=innercolor,outer color=outercolor] ($(#1.south west)+(\shadowshift)+(\shadowradius/2,\shadowradius/2)$) circle (\shadowradius);
+		\shade[outercolor,inner color=innercolor,outer color=outercolor] ($(#1.north west)+(\shadowshift)+(\shadowradius/2,-\shadowradius/2)$) circle (\shadowradius);
+		\shade[outercolor,inner color=innercolor,outer color=outercolor] ($(#1.south east)+(\shadowshift)+(-\shadowradius/2,\shadowradius/2)$) circle (\shadowradius);
+		\shade[outercolor,inner color=innercolor,outer color=outercolor] ($(#1.north east)+(\shadowshift)+(-\shadowradius/2,-\shadowradius/2)$) circle (\shadowradius);
+		\shade[top color=innercolor,bottom color=outercolor] ($(#1.south west)+(\shadowshift)+(\shadowradius/2,-\shadowradius/2)$) rectangle ($(#1.south east)+(\shadowshift)+(-\shadowradius/2,\shadowradius/2)$);
+		\shade[left color=innercolor,right color=outercolor] ($(#1.south east)+(\shadowshift)+(-\shadowradius/2,\shadowradius/2)$) rectangle ($(#1.north east)+(\shadowshift)+(\shadowradius/2,-\shadowradius/2)$);
+		\shade[bottom color=innercolor,top color=outercolor] ($(#1.north west)+(\shadowshift)+(\shadowradius/2,-\shadowradius/2)$) rectangle ($(#1.north east)+(\shadowshift)+(-\shadowradius/2,\shadowradius/2)$);
+		\shade[outercolor,right color=innercolor,left color=outercolor] ($(#1.south west)+(\shadowshift)+(-\shadowradius/2,\shadowradius/2)$) rectangle ($(#1.north west)+(\shadowshift)+(\shadowradius/2,-\shadowradius/2)$);
+		\filldraw ($(#1.south west)+(\shadowshift)+(\shadowradius/2,\shadowradius/2)$) rectangle ($(#1.north east)+(\shadowshift)-(\shadowradius/2,\shadowradius/2)$);
+	\end{pgfonlayer}
+}
+
+% create a shadow layer, so that we don't need to worry about overdrawing other things
+\pgfdeclarelayer{shadow}
+\pgfsetlayers{shadow,main}
+\newsavebox\shadowbox
+\newlength\shadowlen
+\newcommand\shadowimage[2][]{%
+	\setbox\shadowbox=\hbox{\includegraphics[#1]{#2}}
+	\setlength\shadowlen{\wd\shadowbox}
+	\ifnum\shadowlen<\ht\shadowbox
+		\setlength\shadowlen{\ht\shadowbox}
+	\fi
+	\divide \shadowlen by 120
+	\def\shadowshift{\shadowlen,-\shadowlen}
+	\def\shadowradius{\the\dimexpr\shadowlen+\shadowlen+\shadowlen\relax}
+	\begin{tikzpicture}
+		\node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[#1]{#2}};
+		\drawshadow{image}
+	\end{tikzpicture}%
+}
