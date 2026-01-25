@@ -2834,6 +2834,11 @@ INPUT ./chunks/3_sampling_methods.tex
 INPUT chunks/3_sampling_methods.tex
 INPUT ./chunks/3_sampling_methods.tex
 INPUT chunks/3_sampling_methods.tex
+INPUT ./plots/density_plot.pdf
+INPUT ./plots/density_plot.pdf
+INPUT plots/density_plot.pdf
+INPUT ./plots/density_plot.pdf
+INPUT ./plots/density_plot.pdf
 INPUT ./resources//common/owl_pageno.pdf
 INPUT resources//common/owl_pageno.pdf
 INPUT ./resources//common/owl_pageno.pdf

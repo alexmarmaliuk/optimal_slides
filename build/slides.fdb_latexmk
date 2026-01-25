@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1769344454 "slides.tex" "build/slides.pdf" "slides" 1769344457 0
+["pdflatex"] 1769350961 "slides.tex" "build/slides.pdf" "slides" 1769350964 0
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc" 1490131464 2933 9ad527ce78d7c5fa0a642dead095f172 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc" 1490131464 2934 a4a9158faed2e9e89c771b4e3b7fc12f ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/libertine/lbtn_ncsllp.enc" 1490131464 3288 25b5d43be7be8cba51d85b642598b3b0 ""
@@ -487,15 +487,16 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1698086853 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1698086828 7883459 61287813dae301a1d2cbb8529065429f ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "build/slides.aux" 1769344457 4920 fac6e0870afb2c3611ab019e39e1077d "pdflatex"
-  "build/slides.nav" 1769344457 2969 989db9b782c673697a36763db760baec "pdflatex"
-  "build/slides.out" 1769344455 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "build/slides.aux" 1769350964 4920 fac6e0870afb2c3611ab019e39e1077d "pdflatex"
+  "build/slides.nav" 1769350964 2969 989db9b782c673697a36763db760baec "pdflatex"
+  "build/slides.out" 1769350962 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   "chunks/0_intro.tex" 1769344452 6169 9efe114dde2846363510aa144d320abd ""
   "chunks/1_disrcetization.tex" 1769342241 2750 f44bcd4e080fdd78c8d4e0402963f205 ""
   "chunks/2_dp.tex" 1769342241 624 fc98eda108bf5d9cdac9668925b317d4 ""
-  "chunks/3_sampling_methods.tex" 1769342241 12578 372c65ccbea4e0f4bb78fa97469aec93 ""
+  "chunks/3_sampling_methods.tex" 1769350959 12868 a1155a25006fc1e7393a7ce8bdba13ec ""
   "pc-beamer.cls" 1769342241 311 434df0abef7ba8834d9949adbb5f0cad ""
-  "plots/state_plot.pdf" 1769344054 43600 1be85b9476fa0fb66897fddbd60f78c5 ""
+  "plots/density_plot.pdf" 1769350869 30432 e94acc99a42fbcaa8896e97f2c0eadea ""
+  "plots/state_plot.pdf" 1769347452 43583 127c7cf62235752fd9161c0d682a0cf7 ""
   "resources//common/owl_pageno.pdf" 1769342241 91012 0e76f88be3eba0ccc1fbc293b06c96a3 ""
   "slides.tex" 1769342241 340 1ed7d5508659d018f878ce85e4e31f6e ""
   "template/beamer.tex" 1769342241 4996 abfcc456b38e1824c6ceb769f5d13046 ""
