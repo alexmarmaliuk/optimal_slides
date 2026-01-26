@@ -29,9 +29,9 @@
     xtick={0,1,...,5},
     %minor xtick={0.5,1.5,2.5},
     tick style={line width=0.8pt},
-    extra x ticks={0,0.36,0.8,1.6,2.6,4.4},
+    extra x ticks={0,0.34,0.8,1.6,2.6,5.4},
     extra x tick labels={$t_0$,$t_1$,$t_2$,$t_3$,$t_4$,$t_5$},
-    extra x tick style={tick label style={text=prediction, xshift=-4.5pt}, grid=none, tick style={draw=none}},
+    extra x tick style={tick label style={text=prediction, xshift=-5pt}, grid=none, tick style={draw=none}},
     set layers=standard,
     %grid=both,
     %xticklabels=\empty
@@ -41,26 +41,26 @@
     \definecolor{stateRed}{HTML}{b30000}
     \definecolor{controlBlue}{HTML}{0d88e6}
 
-\addplot[on layer=axis background, no marks, stateRed, ultra thick] table[x index=0, y index=1, col sep=comma] {./lqr_system.csv}; 
+\addplot[on layer=axis background, no marks, stateRed, ultra thick] table[x index=0, y index=1, col sep=comma] {./lqr_system_r1.csv}; 
 
-\addplot[color = prediction, mark=*,  mark size=1.5pt, only marks, ultra thick] coordinates {(0,4) (0.36,-4.98342214233515) (0.8,-5.77873595698874) (1.6,-3.18148671536654) (2.6, -1.21011116052119) (4.4, -0.200830969009072)};
+\addplot[color = prediction, mark=*,  mark size=1.5pt, only marks, ultra thick] coordinates {(0,4) (0.34,-0.865846661207054) (0.8,-3.5716937004464) (1.6,-3.79994053142567) (2.6, -2.30578295858188) (5.4,-0.264231333039561)};
 
 \addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0,\tauplace) (0,4)};
-\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0.36,\tauplace) (0.36,-4.98342214233515)};
-\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0.8,\tauplace) (0.8,-5.77873595698874)};
-\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(1.6,\tauplace) (1.6,-3.18148671536654)};
-\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(2.6,\tauplace) (2.6,-1.21011116052119)};
-\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(4.4,\tauplace) (4.4,-0.200830969009072)};
+\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0.34,\tauplace) (0.34,-0.865846661207054)};
+\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0.8,\tauplace) (0.8,-3.5716937004464)};
+\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(1.6,\tauplace) (1.6,-3.79994053142567)};
+\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(2.6,\tauplace) (2.6,-2.30578295858188)};
+\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(5.4,\tauplace) (5.4,-0.264231333039561)};
 
 
 \colorlet{tauarrows}{darkgray}
 
 \draw[<->, thick, tauarrows]
-(axis cs:0,\tauplace) -- (axis cs:0.36,\tauplace)
+(axis cs:0,\tauplace) -- (axis cs:0.34,\tauplace)
 node[midway, below] {$\tau_0$};
 
 \draw[<->, thick, tauarrows]
-(axis cs:0.36,\tauplace) -- (axis cs:0.8,\tauplace)
+(axis cs:0.34,\tauplace) -- (axis cs:0.8,\tauplace)
 node[midway, below] {$\tau_1$};
 \draw[<->, thick, tauarrows]
 (axis cs:0.8,\tauplace) -- (axis cs:1.6,\tauplace)
@@ -71,7 +71,7 @@ node[midway, below] {$\tau_2$};
 node[midway, below] {$\tau_3$};
 
 \draw[<->, thick, tauarrows]
-(axis cs:2.6,\tauplace) -- (axis cs:4.4,\tauplace)
+(axis cs:2.6,\tauplace) -- (axis cs:5.4,\tauplace)
 node[midway, below] {$\tau_4$};
 
 

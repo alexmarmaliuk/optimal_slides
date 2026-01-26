@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[tikz]{standalone}
 
 \usepackage{amsmath}
 \usepackage{tikz,pgfplots}
@@ -8,7 +8,7 @@
 
 \begin{tikzpicture}
 
-\newcommand{\tauplace}{-2.9}
+\newcommand{\tauplace}{4}
 
    
 \begin{axis}[
@@ -23,15 +23,15 @@
     ylabel style={at={(axis description cs:-0.06,0.5)}, rotate=90, anchor=south},
     grid=both,
     grid style = {black!20, densely dashed},
-    ymin=-10, ymax=6,
-    minor ytick={-8,-4,...,4},
-    ytick={-6,-2,2},
-    xtick={0,1,2},
-    minor xtick={0.5,1.5,2.5},
+    ymin=-30, ymax=10,
+    %minor ytick={-8,-4,...,4},
+    ytick={-20,-10,0},
+    xtick={0,1,...,5},
+    %minor xtick={0.5,1.5,2.5},
     tick style={line width=0.8pt},
-    extra x ticks={0,0.25,0.4,0.8,1.75},
-    extra x tick labels={$t_0$,$t_1$,$t_2$,$t_3$,$t_4$},
-    extra x tick style={tick label style={text=prediction, xshift=-4.5pt}, grid=none, tick style={draw=none}},
+    extra x ticks={0,0.34,0.8,1.6,2.6,5.4},
+    extra x tick labels={$t_0$,$t_1$,$t_2$,$t_3$,$t_4$,$t_5$},
+    extra x tick style={tick label style={text=prediction, xshift=-5pt}, grid=none, tick style={draw=none}},
     set layers=standard,
     %grid=both,
     %xticklabels=\empty
@@ -41,34 +41,44 @@
     \definecolor{stateRed}{HTML}{b30000}
     \definecolor{controlBlue}{HTML}{0d88e6}
 
-\addplot[on layer=axis background, no marks, stateRed, ultra thick] table[x index=0, y index=2, col sep=comma] {./x.csv}; 
+\addplot[on layer=axis background, no marks, controlBlue, ultra thick] table[x index=0, y index=6, col sep=comma] {./lqr_system_r1.csv}; 
 
-\addplot[color = prediction, mark=*,  mark size=1.5pt, only marks, ultra thick] coordinates {(0,4) (0.25,-8.1387) (0.4,-7.0096) (0.8,-4.6987) (1.75,-1.8172)};
+\addplot[color = prediction, mark=*,  mark size=1.5pt, only marks, ultra thick] coordinates {(0,-26.6524758424985) (0.34,-14.623269567667) (0.8,-5.68958348067886) (1.6,0.013544041170317) (2.6, 1.0679270414344) (5.4,0.210141789096175)};
 
-\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0,0) (0,4)};
-\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0.25,0) (0.25,-8.1387)};
-\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0.4,0) (0.4,-7.0096)};
-\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0.8,0) (0.8,-4.6987)};
-\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(1.75,0) (1.75,\tauplace)};
+\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0,\tauplace) (0,-26.6524758424985)};
+\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0.34,\tauplace) (0.34,-14.623269567667)};
+\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0.8,\tauplace) (0.8,-5.68958348067886)};
+\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(1.6,\tauplace) (1.6,0)};
+\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(2.6,\tauplace) (2.6,0)};
+\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(5.4,\tauplace) (5.4,0)};
 
 
 \colorlet{tauarrows}{darkgray}
 
 \draw[<->, thick, tauarrows]
-(axis cs:0,\tauplace) -- (axis cs:0.25,\tauplace)
+(axis cs:0,\tauplace) -- (axis cs:0.34,\tauplace)
 node[midway, below] {$\tau_0$};
 
 \draw[<->, thick, tauarrows]
-(axis cs:0.25,\tauplace) -- (axis cs:0.4,\tauplace)
+(axis cs:0.34,\tauplace) -- (axis cs:0.8,\tauplace)
 node[midway, below] {$\tau_1$};
+\draw[<->, thick, tauarrows]
+(axis cs:0.8,\tauplace) -- (axis cs:1.6,\tauplace)
+node[midway, below] {$\tau_2$};
 
 \draw[<->, thick, tauarrows]
-(axis cs:0.4,\tauplace) -- (axis cs:0.8,\tauplace)
-node[midway, below] {$\tau_2$};
-\draw[<->, thick, tauarrows]
-(axis cs:0.8,\tauplace) -- (axis cs:1.75,\tauplace)
+(axis cs:1.6,\tauplace) -- (axis cs:2.6,\tauplace)
 node[midway, below] {$\tau_3$};
 
+\draw[<->, thick, tauarrows]
+(axis cs:2.6,\tauplace) -- (axis cs:5.4,\tauplace)
+node[midway, below] {$\tau_4$};
+
+\addplot[color=controlBlue, thick, mark=none] coordinates {(0, -26.65) (0.34, -26.65)};
+\addplot[color=controlBlue, thick, mark=none] coordinates {(0.34, -14.62) (0.8, -14.62)};
+\addplot[color=controlBlue, thick, mark=none] coordinates {(0.8, -5.69) (1.6, -5.69)};
+\addplot[color=controlBlue, thick, mark=none] coordinates {(1.6, 0.01) (2.6, 0.01)};
+\addplot[color=controlBlue, thick, mark=none] coordinates {(2.6, 1.06) (5.4, 1.06)};
 
 
 
