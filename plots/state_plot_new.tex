@@ -1,0 +1,86 @@
+\documentclass[tikz]{standalone}
+
+\usepackage{amsmath}
+\usepackage{tikz,pgfplots}
+\usepackage{pgfplotstable}
+
+\begin{document}
+
+\begin{tikzpicture}
+
+\newcommand{\tauplace}{4}
+
+   
+\begin{axis}[
+    width=11cm,
+    height=7cm,
+    axis lines=middle,
+    axis line style={line width=1.5pt},
+    line width=1.5pt,
+    xlabel={Time \,$t$},
+    xlabel style={at={(axis description cs:0.5,-0.1)}, anchor=north},
+    ylabel={State \,$x\,(t)$},
+    ylabel style={at={(axis description cs:-0.06,0.5)}, rotate=90, anchor=south},
+    grid=both,
+    grid style = {black!20, densely dashed},
+    ymin=-6, ymax=6,
+    minor ytick={-8,-4,...,4},
+    ytick={-4,-2,2,4},
+    xtick={0,1,...,5},
+    %minor xtick={0.5,1.5,2.5},
+    tick style={line width=0.8pt},
+    extra x ticks={0,0.36,0.8,1.6,2.6,4.4},
+    extra x tick labels={$t_0$,$t_1$,$t_2$,$t_3$,$t_4$,$t_5$},
+    extra x tick style={tick label style={text=prediction, xshift=-4.5pt}, grid=none, tick style={draw=none}},
+    set layers=standard,
+    %grid=both,
+    %xticklabels=\empty
+    ]
+    \definecolor{sample dots}{RGB}{238,119,51}
+    \definecolor{prediction}{HTML}{ffa300}
+    \definecolor{stateRed}{HTML}{b30000}
+    \definecolor{controlBlue}{HTML}{0d88e6}
+
+\addplot[on layer=axis background, no marks, stateRed, ultra thick] table[x index=0, y index=1, col sep=comma] {./lqr_system.csv}; 
+
+\addplot[color = prediction, mark=*,  mark size=1.5pt, only marks, ultra thick] coordinates {(0,4) (0.36,-4.98342214233515) (0.8,-5.77873595698874) (1.6,-3.18148671536654) (2.6, -1.21011116052119) (4.4, -0.200830969009072)};
+
+\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0,\tauplace) (0,4)};
+\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0.36,\tauplace) (0.36,-4.98342214233515)};
+\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0.8,\tauplace) (0.8,-5.77873595698874)};
+\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(1.6,\tauplace) (1.6,-3.18148671536654)};
+\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(2.6,\tauplace) (2.6,-1.21011116052119)};
+\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(4.4,\tauplace) (4.4,-0.200830969009072)};
+
+
+\colorlet{tauarrows}{darkgray}
+
+\draw[<->, thick, tauarrows]
+(axis cs:0,\tauplace) -- (axis cs:0.36,\tauplace)
+node[midway, below] {$\tau_0$};
+
+\draw[<->, thick, tauarrows]
+(axis cs:0.36,\tauplace) -- (axis cs:0.8,\tauplace)
+node[midway, below] {$\tau_1$};
+\draw[<->, thick, tauarrows]
+(axis cs:0.8,\tauplace) -- (axis cs:1.6,\tauplace)
+node[midway, below] {$\tau_2$};
+
+\draw[<->, thick, tauarrows]
+(axis cs:1.6,\tauplace) -- (axis cs:2.6,\tauplace)
+node[midway, below] {$\tau_3$};
+
+\draw[<->, thick, tauarrows]
+(axis cs:2.6,\tauplace) -- (axis cs:4.4,\tauplace)
+node[midway, below] {$\tau_4$};
+
+
+
+
+%\draw[->] (axis cs:1.5,0.5) node[above] {my text} -- (axis cs:1.5,-0.25);
+
+\end{axis}
+
+\end{tikzpicture}
+
+\end{document}
