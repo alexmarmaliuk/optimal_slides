@@ -38,6 +38,28 @@
     \end{columns}
 \end{frame}
 
+
+% \begin{frame}{Sampling}
+%     \centering
+%     \begin{tikzpicture}
+%     \begin{groupplot}[
+%         group style={
+%         group size=1 by 2,
+%         vertical sep=1.2cm
+%         },
+%         width=0.9\textwidth,
+%         height=0.38\textheight,
+%         ]
+%         \nextgroupplot
+%         \input{plots/state_plot_new.tex}
+%         \nextgroupplot
+%         \input{plots/control_plot.tex}
+%         \end{groupplot}
+%     \end{tikzpicture}
+
+
+% \end{frame}
+
     
 \begin{frame}{The Problem}
 
@@ -73,17 +95,6 @@
             \end{itemize}
        \end{column}
     \end{columns}
-\end{frame}
-
-% Question slide
-\begin{frame}{NOTES}
-        \begin{questionbox}
-            How can we separate the system more, 
-            but keep the same spacing for other bulletpoints?
-        \end{questionbox}
-        \begin{questionbox}
-            For all quantifier in the items
-        \end{questionbox}
 \end{frame}
 
 
@@ -130,7 +141,7 @@ s.t.
         \item Discretization Process for given $\{t_0, \, \ldots, t_N \}$
         \begin{enumerate}
             \item System Discretization
-            \item Computation of optimal control $\{u_1, \, \ldots, u_{N} \}$  for the discrete-time system
+            \item Computation of optimal control $\left(u_k\right)_{k \in \{0, \, \ldots, \, N\}}$  for the discrete-time system
         \end{enumerate}
         \item Sampling Density and Sampling Method Cost
     \end{itemize}
@@ -161,13 +172,6 @@ s.t.
         \end{enumerate}
         \item Results
     \end{itemize}
-\end{frame}
-
-% Question slide
-\begin{frame}{NOTES}
-        \begin{questionbox}
-            In the def, $u_k$ or a set of $u$s?
-        \end{questionbox}
 \end{frame}
 
 % ==========================================================================
@@ -211,13 +215,9 @@ K\,(T) &=& S
 
 }
 
-which gives us the optimal control $u\,(t)$
-    {
-        \[
-u\,(t) = - R^{-1} B'\, K\,(t)\, x\,(t)
-\]
-    }
-
+which gives us the optimal control $\,u\,(t) = - R^{-1} B'\, K\,(t)\, x\,(t)$
+    
+\vspace{0.5cm}
 with achieved cost
 {
     \[
@@ -226,12 +226,5 @@ with achieved cost
 
 }
 
-\end{frame}
-
-% Question slide
-\begin{frame}{NOTES}
-        \begin{questionbox}
-            $K$ or $K(t)$?
-        \end{questionbox}
 \end{frame}
 

@@ -34,17 +34,19 @@
     extra x tick labels={$t_0$,$t_1$,$t_2$,$t_3$,$t_4$,$t_5$},
     extra x tick style={tick label style={text=prediction, yshift=2.7cm}, grid=none, tick style={draw=none}},
     set layers=standard,
+    axis line style={black!50}
     %grid=both,
     %xticklabels=\empty
     ]
+    
     \definecolor{sample dots}{RGB}{238,119,51}
-    \definecolor{prediction}{HTML}{ffa300}
-    \definecolor{stateRed}{HTML}{b30000}
-    \definecolor{controlBlue}{HTML}{0d88e6}
-    \definecolor{piecewise}{HTML}{5ad45a}
+    \definecolor{prediction}{HTML}{b30000}
+    \colorlet{stateRed}{black}
+    \colorlet{controlColor}{black}
+    \definecolor{piecewise}{HTML}{0d88e6}
 
 
-\addplot[on layer=axis background, no marks, controlBlue, ultra thick] table[x index=0, y index=6, col sep=comma] {./lqr_system_r1.csv}; 
+\addplot[on layer=axis background, no marks, controlColor, ultra thick] table[x index=0, y index=6, col sep=comma] {./lqr_system_r1.csv}; 
 
 \addplot[color = prediction, mark=*,  mark size=1.5pt, only marks, ultra thick] coordinates {(0,-26.6524758424985) (0.34,-14.623269567667) (0.8,-5.68958348067886) (1.6,0.013544041170317) (2.6, 1.0679270414344) (5.4,0.210141789096175)};
 

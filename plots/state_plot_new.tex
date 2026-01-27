@@ -34,12 +34,13 @@
     extra x tick labels={$t_0$,$t_1$,$t_2$,$t_3$,$t_4$,$t_5$},
     extra x tick style={tick label style={text=prediction,yshift=4.1cm}, grid=none, tick style={draw=none}},
     set layers=standard,
+    axis line style={black!50}
     %grid=both,
     %xticklabels=\empty
     ]
     \definecolor{sample dots}{RGB}{238,119,51}
-    \definecolor{prediction}{HTML}{ffa300}
-    \definecolor{stateRed}{HTML}{b30000}
+    \definecolor{prediction}{HTML}{b30000}
+    \colorlet{stateRed}{black}
     \definecolor{controlBlue}{HTML}{0d88e6}
 
 \addplot[on layer=axis background, no marks, stateRed, ultra thick] table[x index=0, y index=1, col sep=comma] {./lqr_system_r1.csv}; 
