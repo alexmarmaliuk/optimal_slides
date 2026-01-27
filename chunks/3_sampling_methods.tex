@@ -21,7 +21,7 @@
     % }
     % \resizebox{1\textwidth}{!}
     %{
-        \begin{example}
+        \only<1>{\begin{example}
             Consider $T=5$ units, $N=4$ samples, and the following sampling instants
 
             \begin{columns}
@@ -33,13 +33,18 @@
             \end{column}
 
                 \begin{column}{0.4\textwidth}
-                    \includegraphics[width=0.9\columnwidth]{plots/density_plot.pdf} 
+                    \hspace{-1.5cm}\includegraphics[width=1\columnwidth]{plots/density_plot.pdf} 
                 \end{column}
 
-        \end{columns}
-
-              
-        \end{example}
+        \end{columns}  
+        \end{example}}
+        \only<2>{\begin{block}{Asymptotic Sampling Density}
+            To remove the dependency on $N$, we define the \emph{asymptotic sampling density} as $\sigma_{m}:[0,T] \to \mathbb{R}^{+}$ as the limit
+            \[
+                \sigma_{m}(t) = \lim_{N \to \infty} \sigma_{N,m}(t)
+            \]
+        \end{block}
+        }
     %}
 
 \end{frame}
@@ -190,12 +195,10 @@
                 width=\textwidth,
                 colback=darkcerulean!30!white,
                 colframe=darkcerulean,
-                ]
-                        \centering
-
-            \[
+            ]
+            \begin{equation*}\topsep0pt\partopsep0pt
                 c_{N,\text{per}} =\frac{N^2}{T^2} \frac{\mathcal{J}_{N,\text{per}} - \mathcal{J}_\infty}{\mathcal{J}_\infty}
-            \]  
+            \end{equation*}
             \end{tcolorbox}
         \end{column}
 
@@ -206,11 +209,10 @@
                 colback=darkcerulean!30!white,
                 colframe=darkcerulean,
                 ]
-                        \centering
 
-           \[
+            \begin{equation*}\topsep0pt\partopsep0pt
                 \overline{K}\,(\tau) = K_{\infty} + X \cdot \frac{\tau^2}{2} + o(\tau^2)
-            \]
+            \end{equation*}
             
             \end{tcolorbox}
 
@@ -279,6 +281,7 @@ c_{\text{per}} = \frac{1}{24} A \sqrt{A^2 + Q} + A^2 + Q .
 
 
 \begin{frame}{Deterministic Lebesgue Sampling}
+
     \begin{itemize}
         \item \textbf{Intuition:} Sample more frequently where the optimal control changes faster
         \item Sample whenever the optimal $u$ changes by a fixed threshold $\Delta$, so after any sampling instant $t_k$, the next $t_{k+1}$ is determined s.t.
@@ -289,10 +292,13 @@ c_{\text{per}} = \frac{1}{24} A \sqrt{A^2 + Q} + A^2 + Q .
     where $u$ is the optimal continuous-time input
     \end{itemize}
 
-    
-
     \begin{example}
-        TODO
+        Consider $\Delta=7$ and the optimal control for our example system
+        \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \includegraphics[width=\textwidth]{plots/lebesgue_plot.pdf}
+        \end{column}
+        \end{columns}
     \end{example}
 
 \end{frame}

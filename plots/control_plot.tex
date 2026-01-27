@@ -8,19 +8,20 @@
 
 \begin{tikzpicture}
 
-\newcommand{\tauplace}{4}
+\newcommand{\tauplace}{15}
 
    
 \begin{axis}[
     width=11cm,
     height=7cm,
     axis lines=middle,
+    clip=false,
     axis line style={line width=1.5pt},
     line width=1.5pt,
     xlabel={Time \,$t$},
     xlabel style={at={(axis description cs:0.5,-0.1)}, anchor=north},
     ylabel={State \,$x\,(t)$},
-    ylabel style={at={(axis description cs:-0.06,0.5)}, rotate=90, anchor=south},
+    ylabel style={at={(axis description cs:-0.08,0.5)}, rotate=90, anchor=south},
     grid=both,
     grid style = {black!20, densely dashed},
     ymin=-30, ymax=10,
@@ -31,7 +32,7 @@
     tick style={line width=0.8pt},
     extra x ticks={0,0.34,0.8,1.6,2.6,5.4},
     extra x tick labels={$t_0$,$t_1$,$t_2$,$t_3$,$t_4$,$t_5$},
-    extra x tick style={tick label style={text=prediction, xshift=-5pt}, grid=none, tick style={draw=none}},
+    extra x tick style={tick label style={text=prediction, yshift=2.7cm}, grid=none, tick style={draw=none}},
     set layers=standard,
     %grid=both,
     %xticklabels=\empty
@@ -40,6 +41,8 @@
     \definecolor{prediction}{HTML}{ffa300}
     \definecolor{stateRed}{HTML}{b30000}
     \definecolor{controlBlue}{HTML}{0d88e6}
+    \definecolor{piecewise}{HTML}{5ad45a}
+
 
 \addplot[on layer=axis background, no marks, controlBlue, ultra thick] table[x index=0, y index=6, col sep=comma] {./lqr_system_r1.csv}; 
 
@@ -56,30 +59,30 @@
 \colorlet{tauarrows}{darkgray}
 
 \draw[<->, thick, tauarrows]
-(axis cs:0,\tauplace) -- (axis cs:0.34,\tauplace)
+(axis cs:0.02,\tauplace) -- (axis cs:0.32,\tauplace)
 node[midway, below] {$\tau_0$};
 
 \draw[<->, thick, tauarrows]
-(axis cs:0.34,\tauplace) -- (axis cs:0.8,\tauplace)
+(axis cs:0.36,\tauplace) -- (axis cs:0.78,\tauplace)
 node[midway, below] {$\tau_1$};
 \draw[<->, thick, tauarrows]
-(axis cs:0.8,\tauplace) -- (axis cs:1.6,\tauplace)
+(axis cs:0.82,\tauplace) -- (axis cs:1.58,\tauplace)
 node[midway, below] {$\tau_2$};
 
 \draw[<->, thick, tauarrows]
-(axis cs:1.6,\tauplace) -- (axis cs:2.6,\tauplace)
+(axis cs:1.62,\tauplace) -- (axis cs:2.58,\tauplace)
 node[midway, below] {$\tau_3$};
 
 \draw[<->, thick, tauarrows]
-(axis cs:2.6,\tauplace) -- (axis cs:5.4,\tauplace)
+(axis cs:2.62,\tauplace) -- (axis cs:5.38,\tauplace)
 node[midway, below] {$\tau_4$};
 
-\addplot[color=controlBlue, thick, mark=none] coordinates {(0, -26.65) (0.34, -26.65)};
-\addplot[color=controlBlue, thick, mark=none] coordinates {(0.34, -14.62) (0.8, -14.62)};
-\addplot[color=controlBlue, thick, mark=none] coordinates {(0.8, -5.69) (1.6, -5.69)};
-\addplot[color=controlBlue, thick, mark=none] coordinates {(1.6, 0.01) (2.6, 0.01)};
-\addplot[color=controlBlue, thick, mark=none] coordinates {(2.6, 1.06) (5.4, 1.06)};
 
+\addplot[color=piecewise, ultra thick, mark=none] coordinates {(0, -26.65) (0.34, -26.65)};
+\addplot[color=piecewise, ultra thick, mark=none] coordinates {(0.34, -14.62) (0.8, -14.62)};
+\addplot[color=piecewise, ultra thick, mark=none] coordinates {(0.8, -5.69) (1.6, -5.69)};
+\addplot[color=piecewise, ultra thick, mark=none] coordinates {(1.6, 0.01) (2.6, 0.01)};
+\addplot[color=piecewise, ultra thick, mark=none] coordinates {(2.6, 1.06) (5.4, 1.06)};
 
 
 %\draw[->] (axis cs:1.5,0.5) node[above] {my text} -- (axis cs:1.5,-0.25);

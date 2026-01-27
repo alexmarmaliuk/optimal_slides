@@ -33,28 +33,27 @@
 % ==========================================================================
 \begin{frame}{Performance Index for Discrete-Time Systems}
    
-    \resizebox{1.1\textwidth}{!}{$
-    \begin{array}{>{\displaystyle}l}
-        \int_0^T \left( x'(t)\,Q\,x\,(t) + \overline{u}'(t)\,R\,\overline{u}\,(t) \right) dt + x'(T)\,S\,x\,(T)\\    
-        = \sum_{k=0}^{N-1} \int_{t_k}^{t_{k+1}} \left( x'(t)\,Q\,x\,(t) + \overline{u}'(t)\,R\,\overline{u}\,(t) \right) dt + x'(T)\,S\,x\,(T)\\
-        = \sum_{k=0}^{N-1} \left[ \int_{t_k}^{t_{k+1}} \left( \Phi\,x_k + \Gamma\,u_k\right)'\,Q\, \left( \Phi\,x_k + \Gamma\,u_k \right)dt + \int_{t_k}^{t_{k+1}} u'_{k} \,R\,u_{k} \right] + x'(T)\,S\,x\,(T)\\
+    % \\resizebox{1.1\textwidth}{!}{
+    
+    \begin{eqnarray*}
+        &\!\!\!\int_0^T &\left( x'(t)\,Q\,x\,(t) + \overline{u}'(t)\,R\,\overline{u}\,(t) \right) dt + x'(T)\,S\,x\,(T)\\[3mm]    
+        &&= \sum_{k=0}^{N-1} \int_{t_k}^{t_{k+1}} \left( x'(t)\,Q\,x\,(t) + \overline{u}'(t)\,R\,\overline{u}\,(t) \right) dt + x'(T)\,S\,x\,(T)\\[3mm]
+        &&= \sum_{k=0}^{N-1} \left[ \int_{t_k}^{t_{k+1}} \left( \Phi\,x_k + \Gamma\,u_k\right)'\,Q\, \left( \Phi\,x_k + \Gamma\,u_k \right)dt + \int_{t_k}^{t_{k+1}} u'_{k} \,R\,u_{k} \right] + x'(T)\,S\,x\,(T)\\[3mm]
         % \pause
-        = x_k' \underbrace{\left( \int_{t_k}^{t_{k+1}} \Phi' Q\, \Phi \, dt \right) }_{\overline{Q}}x_k +u_k'\underbrace{ \Big( \int_{t_k}^{t_{k+1}} \Gamma' Q\,\Gamma dt + \underbrace{\int_{t_k}^{t_{k+1}} R\,dt}_{\tau_k \, R} \Big)}_{\overline{R}} u_k + 2 x_k' \underbrace{\left( \int_{t_k}^{t_{k+1}} \Phi' Q\, \Gamma \,dt \right)}_{\overline{P}}u_k + x'(T)\,S\,x\,(T)\\
-    \end{array}
-    $}
+        &&= x_k' \underbrace{\left( \int_{t_k}^{t_{k+1}} \Phi' Q\, \Phi \, dt \right) }_{\overline{Q}}x_k +u_k'\underbrace{ \Big( \int_{t_k}^{t_{k+1}} \Gamma' Q\,\Gamma dt + \underbrace{\int_{t_k}^{t_{k+1}} R\,dt}_{\tau_k \, R} \Big)}_{\overline{R}} u_k + 2 x_k' \underbrace{\left( \int_{t_k}^{t_{k+1}} \Phi' Q\, \Gamma \,dt \right)}_{\overline{P}}u_k + x'(T)\,S\,x\,(T)\\
+    \end{eqnarray*}
+    % \}
 
     % \pause
-    \begin{tcolorbox}[
-        width=13cm,  
-        colback=darkcerulean!30!white,
-        colframe=darkcerulean,
-        ]
-    \[  
-    \mathcal{J}(\overline{u}) = \sum_{k=0}^{N-1} \Big( x_k' \,\overline{Q}\, x_k + u_k' \,\overline{R}\, u_k + 2 x_k' \,\overline{P}\, u_k \Big) + x_N' \,S\, x_N
-    \]
-    \end{tcolorbox}
-
-
+    % \\begin{tcolorbox}[
+    % \    width=13cm,  
+    % \    colback=darkcerulean!30!white,
+    % \    colframe=darkcerulean,
+    % \    ]
+   % \ \[  
+    % \\mathcal{J}(\overline{u}) = \sum_{k=0}^{N-1} \Big( x_k' \,\overline{Q}\, x_k + u_k' \,\overline{R}\, u_k + 2 x_k' \,\overline{P}\, u_k \Big) + x_N' \,S\, x_N
+    % \\]
+    % \\end{tcolorbox}
 
 \end{frame}
 

@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1769440127 "plots/control_plot.tex" "plots/control_plot.pdf" "control_plot" 1769440128 0
-  "/dev/null" 1769440099 0 d41d8cd98f00b204e9800998ecf8427e ""
+["pdflatex"] 1769439405 "plots/state_plot_new.tex" "plots/state_plot_new.pdf" "state_plot_new" 1769439405 0
+  "/dev/null" 1769439376 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
@@ -151,10 +151,10 @@
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1698086828 7883459 61287813dae301a1d2cbb8529065429f ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
   "plots/./lqr_system_r1.csv" 1769424202 67194 c01c60c20d05ef27c4be7fc2c6b97bcf ""
-  "plots/control_plot.aux" 1769440128 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "plots/control_plot.tex" 1769440126 3455 092552488540b8677bf59661ad322e69 ""
+  "plots/state_plot_new.aux" 1769439405 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "plots/state_plot_new.tex" 1769439395 2985 3a957fbdf9b72d986123af6ad6b70e8d ""
   (generated)
-  "plots/control_plot.aux"
-  "plots/control_plot.log"
-  "plots/control_plot.pdf"
+  "plots/state_plot_new.aux"
+  "plots/state_plot_new.log"
+  "plots/state_plot_new.pdf"
   (rewritten before read)

@@ -24,6 +24,20 @@
     \end{columns}
 \end{frame}
 
+\begin{frame}{Sampling}
+    \begin{columns}
+        % Left column: half the slide width
+        \begin{column}{0.6\textwidth}
+            \includegraphics[width=\textwidth]{plots/state_plot_new.pdf}
+        \end{column}
+        
+        % Optional: right column for text or empty space
+        \begin{column}{0.6\textwidth}
+            \includegraphics[width=\textwidth]{plots/control_plot.pdf}
+        \end{column}
+    \end{columns}
+\end{frame}
+
     
 \begin{frame}{The Problem}
 
@@ -32,17 +46,17 @@
             Given
             \medskip
             {
-                \begin{itemize}
-                    \setlength{\itemsep}{\bulletSpacing}
-                    \item
-                    \(
+                $$
                     \left\{
                     \begin{array}{rcl}
                         \dot{x}(t) &=& A \,x\,(t) + B \,u\,(t) \\
                         x\,(0)      &=& x_0
                     \end{array}
                     \right.
-                    \)
+                    $$
+
+                \begin{itemize}
+                    \setlength{\itemsep}{\bulletSpacing}
                     \item We restrict $u\,(t)$ to be in the class of piecewise constant functions and denote it as $\overline{u}\,(t)$
                     \item Finite horizon $[0, T]$
                     \item Number $N$ of control updates
@@ -51,7 +65,7 @@
             find
             \begin{itemize}
                 \item Sampling instants $0=t_1<\ldots<t_N=T$
-                \item Piecewise constant $\overline{u}\,(t)=u_k \quad \forall t \in [t_{k-1}, t_k)$
+                \item Piecewise constant $\overline{u}\,(t)=u_k, \quad \forall t \in [t_{k-1}, t_k)$
             \end{itemize}
             that minimizes the performance index
             \begin{itemize}
@@ -77,7 +91,7 @@
 
 \begin{frame}{Quadratic Performance Index}
     \[
-    \mathcal{J}(\overline{u}) = \int_0^T \big( x'(t)\underbracket{\,Q\,}_{\succeq} x\,(t) + \overline{u}'(t) \underbracket{\,R\,}_{\succ} \overline{u}'(t) \big) dt + x'(T) \underbracket{\,S\,}_{\succeq} x\,(T)
+    \mathcal{J}(\overline{u}) = \int_0^T \big( x'(t)\underbracket{\,Q\,}_{\succeq} x\,(t) + \overline{u}'(t) \underbracket{\,R\vphantom{Q}\,}_{\succ} \overline{u}'(t) \big) dt + x'(T) \underbracket{\,S\vphantom{Q}\,}_{\succeq} x\,(T)
     \]
     
     \centering
