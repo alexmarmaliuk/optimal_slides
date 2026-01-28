@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1769610555.0918 "/Users/oleksandrmarmaliuk/uds/control/template/slides.tex" "slides.pdf" "slides" 1769610557.71988 0
+["pdflatex"] 1769610753.58467 "/Users/oleksandrmarmaliuk/uds/control/template/slides.tex" "slides.pdf" "slides" 1769610756.26561 0
   "/Users/oleksandrmarmaliuk/uds/control/template/slides.tex" 1769604179.82407 341 92443e954d997f66551f70b02e37f3dc ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc" 1490131464 2933 9ad527ce78d7c5fa0a642dead095f172 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc" 1490131464 2934 a4a9158faed2e9e89c771b4e3b7fc12f ""
@@ -481,7 +481,7 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1756763479 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1756763402 3345735 4f396d654ffb241ad14c85d2aee79c01 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "chunks/0_intro.tex" 1769610241.43398 5826 4c0898f7070bfb04060f48094bc55750 ""
+  "chunks/0_intro.tex" 1769610750.47655 7288 3f075f4ddba308964e9a3041110679e1 ""
   "chunks/1_disrcetization.tex" 1769604548.66205 5624 2e9e5e255a11c9f8574749de7896651b ""
   "chunks/2_dp.tex" 1769604179.89355 5369 fa9e916fd9efaa9e7afc9851868507e5 ""
   "chunks/3_sampling_methods.tex" 1769610554.90003 17096 78076af40209413377741ba3bc48e8c2 ""
@@ -491,9 +491,9 @@
   "plots/lebesgue_plot.pdf" 1769604847.84796 46478 e5cd79198f7ff83da0a27bba3d045ef1 ""
   "plots/state_plot_new.pdf" 1769556340.66846 47123 b7ec75ee9ecea3f28007e93411cc91b9 ""
   "resources/common/owl_pageno.pdf" 1758261659 91012 0e76f88be3eba0ccc1fbc293b06c96a3 ""
-  "slides.aux" 1769610557.59348 4574 3cc8030a8c6929de71fe3affaa7a0ea0 "pdflatex"
-  "slides.nav" 1769610557.59424 2977 d5bc907d159107474317c4f0caaf3dc1 "pdflatex"
-  "slides.out" 1769610556.12231 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "slides.aux" 1769610756.13899 4701 70a29b085ff79431c1c0450ee63b11cc "pdflatex"
+  "slides.nav" 1769610756.13983 3068 405c5804e8cfa86bbf20155fcb424b6f "pdflatex"
+  "slides.out" 1769610754.60037 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   "slides.tex" 1769604179.82407 341 92443e954d997f66551f70b02e37f3dc ""
   "template/beamer.tex" 1769604179.75562 4736 fe315f8ca299a285fb3167d39befe720 ""
   "template/colors.tex" 1769604179.76774 2255 a950381bf27b6db1db84b8fac1b2f7a8 ""
