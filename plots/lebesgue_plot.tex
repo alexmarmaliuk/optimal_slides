@@ -5,80 +5,75 @@
 \usepackage{pgfplotstable}
 \usetikzlibrary{decorations.pathreplacing}
 
+\input{../template/custom_colors.tex}
+
+\newcommand{\DeltaX}{2.58}
+\newcommand{\DeltaLinesX}{2.54} % default 2.54
+\newcommand{\tauplace}{13}
+
+
 \begin{document}
 
 \begin{tikzpicture}
 
-\newcommand{\tauplace}{13}
+	\begin{axis}[
+			width=11cm,
+			height=7cm,
+			axis lines=middle,
+			axis line style={line width=1.5pt},
+			line width=1.5pt,
+			xlabel={Time \,$t$},
+			xlabel style={at={(axis description cs:0.5,-0.1)}, anchor=north},
+			ylabel={State \,$x\,(t)$},
+			ylabel style={at={(axis description cs:-0.08,0.5)}, rotate=90, anchor=south},
+			grid=both,
+			grid style = {black!20, densely dashed},
+			ymin=-22, ymax=10,
+			%minor ytick={-8,-4,...,4},
+			ytick={-20,-10,0},
+			xtick={0,1,...,5},
+			%minor xtick={0.5,1.5,2.5},
+			tick style={line width=0.8pt},
+			extra x ticks={0,0.19,0.44,0.85,2.54},
+			extra x tick labels={$t_0$,$t_1$,$t_2$,$t_3$,$t_4$},
+			extra x tick style={tick label style={text=prediction, yshift=2.3cm}, grid=none, tick style={draw=none}},
+			set layers=standard,
+			axis line style={black!50}
+		]
 
-   
-\begin{axis}[
-    width=11cm,
-    height=7cm,
-    axis lines=middle,
-    clip=false,
-    axis line style={line width=1.5pt},
-    line width=1.5pt,
-    xlabel={Time \,$t$},
-    xlabel style={at={(axis description cs:0.5,-0.1)}, anchor=north},
-    ylabel={State \,$x\,(t)$},
-    ylabel style={at={(axis description cs:-0.08,0.5)}, rotate=90, anchor=south},
-    grid=both,
-    grid style = {black!20, densely dashed},
-    ymin=-30, ymax=10,
-    %minor ytick={-8,-4,...,4},
-    ytick={-20,-10,0},
-    xtick={0,1,...,5},
-    %minor xtick={0.5,1.5,2.5},
-    tick style={line width=0.8pt},
-    extra x ticks={0,0.19,0.44,0.85,2.54},
-    extra x tick labels={$t_0$,$t_1$,$t_2$,$t_3$,$t_4$},
-    extra x tick style={tick label style={text=prediction, yshift=2.3cm}, grid=none, tick style={draw=none}},
-    set layers=standard,
-    axis line style={black!50}
-    ]
-    
+		\addplot[on layer=axis background, no marks, controlColor, ultra thick] table[x index=0, y index=6, col sep=comma] {./lqr_system_r1.csv};
 
-    \definecolor{sample dots}{RGB}{238,119,51}
-    \definecolor{prediction}{HTML}{b30000}
-    \colorlet{stateRed}{black}
-    \colorlet{controlColor}{black}
-    \definecolor{piecewise}{HTML}{0d88e6}
+		\addplot[color = prediction, mark=*,  mark size=1.5pt, only marks, ultra thick] coordinates {(0,-26.6524758424985) (0.19,-19.1930968872663) (0.44,-12.1044988669404) (0.85,-5.05679292680688) (2.54, 1.06993515408551)};
+
+		%\addplot[stateColor, thick,opacity=0.6] coordinates {(0.19,-19.1930968872663) (0,-19.1930968872663)};
+		%\addplot[stateColor, thick, opacity=0.6] coordinates {(0.44,-12.1044988669404) (0,-12.1044988669404)};
+		%\addplot[stateColor, thick, opacity=0.6] coordinates {(0.85,-5.05679292680688) (0,-5.05679292680688)};
+		%\addplot[stateColor, thick,opacity=0.6] coordinates {(2.54, 1.06993515408551) (0, 1.06993515408551)};
 
 
-\addplot[on layer=axis background, no marks, controlColor, ultra thick] table[x index=0, y index=6, col sep=comma] {./lqr_system_r1.csv}; 
+		\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0,\tauplace) (0,-19.1930968872663)};
+		\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0.19,\tauplace) (0.19,-19.1930968872663)};
+		\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0.44,\tauplace) (0.44,-12.1044988669404)};
+		\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0.85,\tauplace) (0.85,-5.05679292680688)};
+		\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(2.54, \tauplace) (2.54, 1.06993515408551)};
 
-\addplot[color = prediction, mark=*,  mark size=1.5pt, only marks, ultra thick] coordinates {(0,-26.6524758424985) (0.19,-19.1930968872663) (0.44,-12.1044988669404) (0.85,-5.05679292680688) (2.54, 1.06993515408551)};
+		% Delta lines
+		\addplot[piecewise, thick] coordinates {(\DeltaLinesX,-19.1930968872663) (0,-19.1930968872663)};
+		\addplot[piecewise, thick] coordinates {(\DeltaLinesX,-12.1044988669404) (0,-12.1044988669404)};
+		\addplot[piecewise, thick] coordinates {(\DeltaLinesX,-5.05679292680688) (0,-5.05679292680688)};
+		\addplot[piecewise, thick] coordinates {(\DeltaLinesX, 1.06993515408551) (0, 1.06993515408551)};
 
-%\addplot[stateRed, thick,opacity=0.6] coordinates {(0.19,-19.1930968872663) (0,-19.1930968872663)};
-%\addplot[stateRed, thick, opacity=0.6] coordinates {(0.44,-12.1044988669404) (0,-12.1044988669404)};
-%\addplot[stateRed, thick, opacity=0.6] coordinates {(0.85,-5.05679292680688) (0,-5.05679292680688)};
-%\addplot[stateRed, thick,opacity=0.6] coordinates {(2.54, 1.06993515408551) (0, 1.06993515408551)};
+		% braces for Deltas
+		\
+		\draw[decorate, decoration={brace, mirror}, thick]
+		(axis cs:\DeltaX, -19) -- (axis cs:\DeltaX, -12.2)
+		node[midway, right] {$\Delta$};
 
-\addplot[piecewise, thick] coordinates {(2.54,-19.1930968872663) (0,-19.1930968872663)};
-\addplot[piecewise, thick] coordinates {(2.54,-12.1044988669404) (0,-12.1044988669404)};
-\addplot[piecewise, thick] coordinates {(2.54,-5.05679292680688) (0,-5.05679292680688)};
-\addplot[piecewise, thick] coordinates {(2.54, 1.06993515408551) (0, 1.06993515408551)};
+		\draw[decorate, decoration={brace, mirror}, thick]
+		(axis cs:\DeltaX, -11.8) -- (axis cs:\DeltaX, -5)
+		node[midway, right] {$\Delta$};
 
-\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0,\tauplace) (0,-19.1930968872663)};
-\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0.19,\tauplace) (0.19,-19.1930968872663)};
-\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0.44,\tauplace) (0.44,-12.1044988669404)};
-\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0.85,\tauplace) (0.85,-5.05679292680688)};
-\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(2.54, \tauplace) (2.54, 1.06993515408551)};
-
-\draw[decorate, decoration={brace, mirror}, thick] 
-  (axis cs:2.58, -19) -- (axis cs:2.58, -12.2)
-  node[midway, right] {$\Delta$};
-
-\draw[decorate, decoration={brace, mirror}, thick] 
-  (axis cs:2.58, -11.8) -- (axis cs:2.58, -5)
-  node[midway, right] {$\Delta$};
-  
-%\draw[decorate, decoration={brace, mirror}, thick] 
-%  (axis cs:2.58, -12) -- (axis cs:2.58, -5)
-%  node[midway, right] {$\Delta$};
-
-\end{axis}
+	\end{axis}
 
 \end{tikzpicture}
 

@@ -1,33 +1,65 @@
 \newtcolorbox{commentbox}{
-  title=Comment,
-  colback=gray!10,
-  colframe=gray!50,
-  left=6pt,
-  right=6pt,
-  top=6pt,
-  bottom=6pt,
-  sharp corners,
+	title=Comment,
+	colback=gray!10,
+	colframe=gray!50,
+	left=6pt,
+	right=6pt,
+	top=6pt,
+	bottom=6pt,
+	sharp corners,
 }
 
 \newtcolorbox{todobox}{
-  title=TODO,
-  colback=olive!10,
-  colframe=olive!50,
-  left=6pt,
-  right=6pt,
-  top=6pt,
-  bottom=6pt,
-  sharp corners,
+	title=TODO,
+	colback=olive!10,
+	colframe=olive!50,
+	left=6pt,
+	right=6pt,
+	top=6pt,
+	bottom=6pt,
+	sharp corners,
 }
 
 \newtcolorbox{questionbox}{
-  title=Question,
-  colback=magenta!20,
-  colframe=magenta!80,
-  left=6pt,
-  right=6pt,
-  top=6pt,
-  bottom=6pt,
-  sharp corners,
+	title=Question,
+	colback=magenta!20,
+	colframe=magenta!80,
+	left=6pt,
+	right=6pt,
+	top=6pt,
+	bottom=6pt,
+	sharp corners,
 }
 
+\newcommand{\commentslide}[1]{%
+	\begin{frame}[noframenumbering]{COMMENTS}
+		\begin{commentbox}
+			#1
+		\end{commentbox}
+	\end{frame}
+}
+
+\newcommand{\questionslide}[1]{%
+	\begin{frame}[noframenumbering]{QUESTIONS}
+		\begin{questionbox}
+			#1
+		\end{questionbox}
+	\end{frame}
+}
+
+\usepackage[most]{tcolorbox}
+
+\newtcolorbox{equationbox}[1][13cm]{
+	enhanced,
+	math,
+	center upper,
+	width=#1,
+	colback=darkcerulean!30!white,
+	colframe=darkcerulean,
+	boxrule=0.8pt,
+	arc=2mm,
+	left=6pt,
+	right=6pt,
+	top=6pt,
+	bottom=6pt
+}

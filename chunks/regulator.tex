@@ -2,17 +2,17 @@
 
 \begin{frame}{Control law}
 
-Non-dynamic control law (control signal is a function $k$ of state and time):
-$$
-u\,(t) = k\,(x\,(t),t)
-$$
-\begin{alertblock}{Linearity (and time-invariance)}
-For ease of implementation, we are looking for a linear function, i.e.,
-$$
-u\,(t) = \underbracket{K^\top(t)}_{\text{Controller}}\,x\,(t)
-$$
-and in some cases we have $K \in \mathbb{R}^{n \times m}$ (linear time-invariant control law).
-\end{alertblock}
+	Non-dynamic control law (control signal is a function $k$ of state and time):
+	$$
+		u\,(t) = k\,(x\,(t),t)
+	$$
+	\begin{alertblock}{Linearity (and time-invariance)}
+		For ease of implementation, we are looking for a linear function, i.e.,
+		$$
+			u\,(t) = \underbracket{K^\top(t)}_{\text{Controller}}\,x\,(t)
+		$$
+		and in some cases we have $K \in \mathbb{R}^{n \times m}$ (linear time-invariant control law).
+	\end{alertblock}
 \end{frame}
 
 % -------------------------------------------------------------------------
@@ -23,38 +23,38 @@ and in some cases we have $K \in \mathbb{R}^{n \times m}$ (linear time-invariant
 
 \begin{frame}{Dynamic Programming: Bellman Equation}
 
-\textbf{Idea:}
-We define a \emph{recursive cost-to-go function} that minimizes the
-remaining cost given the current state.
+	\textbf{Idea:}
+	We define a \emph{recursive cost-to-go function} that minimizes the
+	remaining cost given the current state.
 
-\vspace{1em}
+	\vspace{1em}
 
-\[
-J_k(x_k)
-=
-\min_{u}
-\Big[
-\underbrace{x_k^\top Q_k x_k}_{\text{State penalty}}
-+
-\underbrace{u^\top R_k u}_{\text{Control penalty}}
-+
-\underbrace{2 x_k^\top S_k u}_{\text{Cross term}}
-+
-J_{k+1}(x_{k+1})
-\Big]
-\]
+	\[
+		J_k(x_k)
+		=
+		\min_{u}
+		\Big[
+			\underbrace{x_k^\top Q_k x_k}_{\text{State penalty}}
+			+
+			\underbrace{u^\top R_k u}_{\text{Control penalty}}
+			+
+			\underbrace{2 x_k^\top S_k u}_{\text{Cross term}}
+			+
+			J_{k+1}(x_{k+1})
+			\Big]
+	\]
 
-\vspace{1em}
+	\vspace{1em}
 
-\[
-J_N(x) = x^\top S x
-\]
+	\[
+		J_N(x) = x^\top S x
+	\]
 
-\vspace{0.5em}
+	\vspace{0.5em}
 
-\[
-x_{k+1} = A_k x_k + B_k u_k
-\]
+	\[
+		x_{k+1} = A_k x_k + B_k u_k
+	\]
 
 \end{frame}
 
@@ -71,14 +71,14 @@ x_{k+1} = A_k x_k + B_k u_k
 
 \begin{frame}{Can we solve the regulator problem?}
 
-\begin{tcolorbox}[width=6cm]
-\textbf{Problem:}\\
-$x\,(t_0) \neq 0 \overbracket{\rightsquigarrow}^{u\,(t),\, t \in [t_0, T)} x\,(T) = 0$
-\end{tcolorbox}
+	\begin{tcolorbox}[width=6cm]
+		\textbf{Problem:}\\
+		$x\,(t_0) \neq 0 \overbracket{\rightsquigarrow}^{u\,(t),\, t \in [t_0, T)} x\,(T) = 0$
+	\end{tcolorbox}
 
-If $F$ and $G$ are constant, and $\langle F, G \rangle$ is controllable
+	If $F$ and $G$ are constant, and $\langle F, G \rangle$ is controllable
 
-Not only we can solve the problem, also $T$ can be as close to $t_0$ as desired
+	Not only we can solve the problem, also $T$ can be as close to $t_0$ as desired
 
 \end{frame}
 

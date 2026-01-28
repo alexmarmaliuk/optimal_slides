@@ -77,12 +77,12 @@
 \begingroup\expandafter\expandafter\expandafter\endgroup
 \expandafter\ifx\csname pgfutil@addpdfresource@extgs\endcsname\relax
 \else
-  \AtBeginDocument{%
-    % \pgf@sys@addpdfresource@extgs@plain{%
-    \pgfutil@addpdfresource@extgs{%
-      \TRP@list
-    }%
-  }%  
-  \let\TRP@addresource\relax
+	\AtBeginDocument{%
+		% \pgf@sys@addpdfresource@extgs@plain{%
+		\pgfutil@addpdfresource@extgs{%
+			\TRP@list
+		}%
+	}%  
+	\let\TRP@addresource\relax
 \fi
 \makeatother

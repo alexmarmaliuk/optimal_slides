@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.9.1)  27 JAN 2026 21:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.9.1)  28 JAN 2026 15:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1745,39 +1745,39 @@ Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 9.
 <plots/state_plot_new.pdf, id=73, 322.269pt x 241.06662pt>
 File: plots/state_plot_new.pdf Graphic file (type pdf)
 <use plots/state_plot_new.pdf>
-Package pdftex.def Info: plots/state_plot_new.pdf  used on input line 25.
+Package pdftex.def Info: plots/state_plot_new.pdf  used on input line 31.
 (pdftex.def)             Requested size: 215.105pt x 160.90318pt.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 10.95pt on input line 25.
+(Font)              scaled to size 10.95pt on input line 31.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
-(Font)              scaled to size 12.0pt on input line 25.
+(Font)              scaled to size 12.0pt on input line 31.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 14.4pt on input line 25.
+(Font)              scaled to size 14.4pt on input line 31.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
-(Font)              scaled to size 14.4pt on input line 25.
+(Font)              scaled to size 14.4pt on input line 31.
 
 
 File: resources/common/owl_pageno.pdf Graphic file (type pdf)
 <use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 25.
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 31.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
 [2
 
-{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/libertine/lbtn_ncsllp.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6f.enc} <./plots/state_plot_new.pdf>]
+{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/libertine/lbtn_ncsllp.enc} <./plots/state_plot_new.pdf>]
 File: plots/state_plot_new.pdf Graphic file (type pdf)
 <use plots/state_plot_new.pdf>
-Package pdftex.def Info: plots/state_plot_new.pdf  used on input line 39.
+Package pdftex.def Info: plots/state_plot_new.pdf  used on input line 31.
 (pdftex.def)             Requested size: 215.105pt x 160.90318pt.
-<plots/control_plot.pdf, id=112, 307.62932pt x 219.7821pt>
+<plots/control_plot.pdf, id=111, 307.62932pt x 219.7821pt>
 File: plots/control_plot.pdf Graphic file (type pdf)
 <use plots/control_plot.pdf>
-Package pdftex.def Info: plots/control_plot.pdf  used on input line 39.
+Package pdftex.def Info: plots/control_plot.pdf  used on input line 31.
 (pdftex.def)             Requested size: 215.105pt x 153.67873pt.
 
 
 File: resources/common/owl_pageno.pdf Graphic file (type pdf)
 <use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 39.
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 31.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
 [3
 
@@ -1785,7 +1785,7 @@ Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 39.
 
 File: resources/common/owl_pageno.pdf Graphic file (type pdf)
 <use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 98.
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 35.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
 [4
 
@@ -1793,89 +1793,15 @@ Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 98.
 
 File: resources/common/owl_pageno.pdf Graphic file (type pdf)
 <use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 132.
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 80.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
 [5
 
 ]
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 154.
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 154.
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.3pt on input line 154.
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 5.5pt on input line 154.
-LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
-(Font)              scaled to size 10.0pt on input line 154.
-LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
-(Font)              scaled to size 7.3pt on input line 154.
-LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
-(Font)              scaled to size 5.5pt on input line 154.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 10.0pt on input line 154.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 7.3pt on input line 154.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 5.5pt on input line 154.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 10.0pt on input line 154.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 7.3pt on input line 154.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 5.5pt on input line 154.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 10.0pt on input line 154.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 7.3pt on input line 154.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 5.5pt on input line 154.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 10.0pt on input line 154.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 7.3pt on input line 154.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 5.5pt on input line 154.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 10.0pt on input line 154.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 7.3pt on input line 154.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 5.5pt on input line 154.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 10.0pt on input line 154.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 7.3pt on input line 154.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 5.5pt on input line 154.
-
-
-LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 154.
-
-
-LaTeX Font Warning: Font shape `U/stmry/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 154.
-
-
-LaTeX Font Warning: Font shape `U/wasy/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 154.
-
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.3pt on input line 154.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 5.5pt on input line 154.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 10.0pt on input line 154.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 7.3pt on input line 154.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 5.5pt on input line 154.
-
 
 File: resources/common/owl_pageno.pdf Graphic file (type pdf)
 <use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 154.
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 82.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
 [6
 
@@ -1883,107 +1809,87 @@ Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 154
 
 File: resources/common/owl_pageno.pdf Graphic file (type pdf)
 <use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 175.
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 116.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
 [7
 
 ]
-Overfull \hbox (11.38113pt too wide) in paragraph at lines 229--229
-[]  
- []
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 10.0pt on input line 192.
+LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 10.0pt on input line 192.
+LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 7.3pt on input line 192.
+LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 5.5pt on input line 192.
+LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
+(Font)              scaled to size 10.0pt on input line 192.
+LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
+(Font)              scaled to size 7.3pt on input line 192.
+LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
+(Font)              scaled to size 5.5pt on input line 192.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 10.0pt on input line 192.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 7.3pt on input line 192.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 5.5pt on input line 192.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 10.0pt on input line 192.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 7.3pt on input line 192.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 5.5pt on input line 192.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 10.0pt on input line 192.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 7.3pt on input line 192.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 5.5pt on input line 192.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 10.0pt on input line 192.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 7.3pt on input line 192.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 5.5pt on input line 192.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 10.0pt on input line 192.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 7.3pt on input line 192.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 5.5pt on input line 192.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 10.0pt on input line 192.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 7.3pt on input line 192.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 5.5pt on input line 192.
 
 
-
-File: resources/common/owl_pageno.pdf Graphic file (type pdf)
-<use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 229.
-(pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
-[8
-
-]) (./chunks/1_disrcetization.tex
-
-File: resources/common/owl_pageno.pdf Graphic file (type pdf)
-<use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 21.
-(pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
-[9
-
-]
-
-File: resources/common/owl_pageno.pdf Graphic file (type pdf)
-<use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 28.
-(pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
-[10
-
-]
-Overfull \hbox (34.79863pt too wide) in alignment at lines 61--61
- [][][] []
- []
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 192.
 
 
-
-File: resources/common/owl_pageno.pdf Graphic file (type pdf)
-<use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 61.
-(pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
-[11
-
-]
-Overfull \hbox (38.32687pt too wide) in alignment at lines 88--88
- [][][] []
- []
+LaTeX Font Warning: Font shape `U/stmry/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 192.
 
 
-Overfull \hbox (11.38113pt too wide) in paragraph at lines 88--88
-[]  
- []
+LaTeX Font Warning: Font shape `U/wasy/m/n' in size <5.5> not available
+(Font)              size <5> substituted on input line 192.
 
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 7.3pt on input line 192.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 5.5pt on input line 192.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
+(Font)              scaled to size 10.0pt on input line 192.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
+(Font)              scaled to size 7.3pt on input line 192.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
+(Font)              scaled to size 5.5pt on input line 192.
 
-
-File: resources/common/owl_pageno.pdf Graphic file (type pdf)
-<use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 88.
-(pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
-[12
-
-]
-
-File: resources/common/owl_pageno.pdf Graphic file (type pdf)
-<use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 96.
-(pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
-[13
-
-]) (./chunks/2_dp.tex
-Underfull \hbox (badness 10000) in paragraph at lines 51--51
-
- []
-
-
-
-File: resources/common/owl_pageno.pdf Graphic file (type pdf)
-<use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 51.
-(pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
-[14
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 110--110
-
- []
-
-
-
-File: resources/common/owl_pageno.pdf Graphic file (type pdf)
-<use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 110.
-(pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
-[15
-
-]
-Overfull \hbox (50.06216pt too wide) in paragraph at lines 192--192
- [][] 
+Overfull \hbox (56.30652pt too wide) in paragraph at lines 192--192
+[]|  [] 
  []
 
 
@@ -1992,75 +1898,181 @@ File: resources/common/owl_pageno.pdf Graphic file (type pdf)
 <use resources/common/owl_pageno.pdf>
 Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 192.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
+[8
+
+]
+
+File: resources/common/owl_pageno.pdf Graphic file (type pdf)
+<use resources/common/owl_pageno.pdf>
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 192.
+(pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
+[9
+
+]
+Overfull \hbox (11.38113pt too wide) in paragraph at lines 240--240
+[]  
+ []
+
+
+
+File: resources/common/owl_pageno.pdf Graphic file (type pdf)
+<use resources/common/owl_pageno.pdf>
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 240.
+(pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
+[10
+
+{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/libertine/lbtn_oexx6f.enc}]) (./chunks/1_disrcetization.tex
+Overfull \hbox (11.38113pt too wide) in paragraph at lines 42--42
+ [] 
+ []
+
+
+
+File: resources/common/owl_pageno.pdf Graphic file (type pdf)
+<use resources/common/owl_pageno.pdf>
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 42.
+(pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
+[11
+
+]
+Overfull \hbox (35.31865pt too wide) in alignment at lines 141--141
+ [][][] []
+ []
+
+
+
+File: resources/common/owl_pageno.pdf Graphic file (type pdf)
+<use resources/common/owl_pageno.pdf>
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 141.
+(pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
+[12
+
+]
+Overfull \hbox (35.31865pt too wide) in alignment at lines 141--141
+ [][][] []
+ []
+
+
+Overfull \hbox (11.38113pt too wide) in paragraph at lines 141--141
+[]  
+ []
+
+
+
+File: resources/common/owl_pageno.pdf Graphic file (type pdf)
+<use resources/common/owl_pageno.pdf>
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 141.
+(pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
+[13
+
+]
+
+File: resources/common/owl_pageno.pdf Graphic file (type pdf)
+<use resources/common/owl_pageno.pdf>
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 148.
+(pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
+[14
+
+]) (./chunks/2_dp.tex
+Underfull \hbox (badness 10000) in paragraph at lines 53--53
+
+ []
+
+
+
+File: resources/common/owl_pageno.pdf Graphic file (type pdf)
+<use resources/common/owl_pageno.pdf>
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 53.
+(pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
+[15
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 53--53
+
+ []
+
+
+
+File: resources/common/owl_pageno.pdf Graphic file (type pdf)
+<use resources/common/owl_pageno.pdf>
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 53.
+(pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
 [16
 
 ]
 
 File: resources/common/owl_pageno.pdf Graphic file (type pdf)
 <use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 204.
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 57.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
 [17
 
 ]
+Overfull \hbox (56.08467pt too wide) in paragraph at lines 131--131
+ [][] 
+ []
+
+
 
 File: resources/common/owl_pageno.pdf Graphic file (type pdf)
 <use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 263.
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 131.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
 [18
 
 ]
+Overfull \hbox (46.15004pt too wide) in paragraph at lines 131--131
+ [][] 
+ []
+
+
 
 File: resources/common/owl_pageno.pdf Graphic file (type pdf)
 <use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 335.
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 131.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
 [19
 
-]) (./chunks/3_sampling_methods.tex
-<plots/density_plot.pdf, id=224, 247.65224pt x 66.71526pt>
-File: plots/density_plot.pdf Graphic file (type pdf)
-<use plots/density_plot.pdf>
-Package pdftex.def Info: plots/density_plot.pdf  used on input line 51.
-(pdftex.def)             Requested size: 144.99965pt x 39.06235pt.
-
-Overfull \vbox (6.94847pt too high) detected at line 51
- []
-
-
+]
 
 File: resources/common/owl_pageno.pdf Graphic file (type pdf)
 <use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 51.
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 198.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
 [20
 
- <./plots/density_plot.pdf>]
-Overfull \vbox (10.89842pt too high) detected at line 51
- []
-
-
+]
 
 File: resources/common/owl_pageno.pdf Graphic file (type pdf)
 <use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 51.
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 273.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
 [21
 
-]
-Overfull \vbox (10.89842pt too high) detected at line 82
+]) (./chunks/3_sampling_methods.tex
+Overfull \hbox (51.07071pt too wide) in paragraph at lines 57--57
+[]|  []  
  []
 
 
 
 File: resources/common/owl_pageno.pdf Graphic file (type pdf)
 <use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 82.
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 57.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
 [22
 
 ]
+<plots/density_plot.pdf, id=239, 247.65224pt x 66.71526pt>
+File: plots/density_plot.pdf Graphic file (type pdf)
+<use plots/density_plot.pdf>
+Package pdftex.def Info: plots/density_plot.pdf  used on input line 108.
+(pdftex.def)             Requested size: 144.99965pt x 39.06235pt.
+
+Overfull \vbox (6.94847pt too high) detected at line 108
+ []
+
+
 
 File: resources/common/owl_pageno.pdf Graphic file (type pdf)
 <use resources/common/owl_pageno.pdf>
@@ -2068,19 +2080,27 @@ Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 108
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
 [23
 
-]
+ <./plots/density_plot.pdf>]
+Overfull \vbox (10.89842pt too high) detected at line 108
+ []
+
+
 
 File: resources/common/owl_pageno.pdf Graphic file (type pdf)
 <use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 135.
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 108.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
 [24
 
 ]
+Overfull \vbox (10.89842pt too high) detected at line 139
+ []
+
+
 
 File: resources/common/owl_pageno.pdf Graphic file (type pdf)
 <use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 153.
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 139.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
 [25
 
@@ -2088,7 +2108,7 @@ Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 153
 
 File: resources/common/owl_pageno.pdf Graphic file (type pdf)
 <use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 179.
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 165.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
 [26
 
@@ -2096,7 +2116,7 @@ Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 179
 
 File: resources/common/owl_pageno.pdf Graphic file (type pdf)
 <use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 189.
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 193.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
 [27
 
@@ -2104,11 +2124,52 @@ Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 189
 
 File: resources/common/owl_pageno.pdf Graphic file (type pdf)
 <use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 237.
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 211.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
 [28
 
 ]
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 9.0pt on input line 245.
+LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 9.0pt on input line 245.
+LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 6.6pt on input line 245.
+LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
+(Font)              scaled to size 9.0pt on input line 245.
+LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
+(Font)              scaled to size 6.6pt on input line 245.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 9.0pt on input line 245.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 6.6pt on input line 245.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 9.0pt on input line 245.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 6.6pt on input line 245.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 9.0pt on input line 245.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 6.6pt on input line 245.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 9.0pt on input line 245.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 6.6pt on input line 245.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 9.0pt on input line 245.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 6.6pt on input line 245.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 9.0pt on input line 245.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 6.6pt on input line 245.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 6.6pt on input line 245.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
+(Font)              scaled to size 9.0pt on input line 245.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
+(Font)              scaled to size 6.6pt on input line 245.
+
 
 File: resources/common/owl_pageno.pdf Graphic file (type pdf)
 <use resources/common/owl_pageno.pdf>
@@ -2120,7 +2181,7 @@ Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 245
 
 File: resources/common/owl_pageno.pdf Graphic file (type pdf)
 <use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 274.
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 250.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
 [30
 
@@ -2128,107 +2189,171 @@ Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 274
 
 File: resources/common/owl_pageno.pdf Graphic file (type pdf)
 <use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 281.
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 314.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
 [31
 
 ]
+
+File: resources/common/owl_pageno.pdf Graphic file (type pdf)
+<use resources/common/owl_pageno.pdf>
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 353.
+(pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
+[32
+
+]
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 12.0pt on input line 304.
+(Font)              scaled to size 12.0pt on input line 377.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 8.8pt on input line 304.
-LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 6.6pt on input line 304.
+(Font)              scaled to size 8.8pt on input line 377.
 LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
-(Font)              scaled to size 12.0pt on input line 304.
+(Font)              scaled to size 12.0pt on input line 377.
 LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
-(Font)              scaled to size 8.8pt on input line 304.
-LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
-(Font)              scaled to size 6.6pt on input line 304.
+(Font)              scaled to size 8.8pt on input line 377.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 12.0pt on input line 304.
+(Font)              scaled to size 12.0pt on input line 377.
 LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 8.8pt on input line 304.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 6.6pt on input line 304.
+(Font)              scaled to size 8.8pt on input line 377.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 12.0pt on input line 304.
+(Font)              scaled to size 12.0pt on input line 377.
 LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 8.8pt on input line 304.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 6.6pt on input line 304.
+(Font)              scaled to size 8.8pt on input line 377.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 12.0pt on input line 304.
+(Font)              scaled to size 12.0pt on input line 377.
 LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 8.8pt on input line 304.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 6.6pt on input line 304.
+(Font)              scaled to size 8.8pt on input line 377.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 12.0pt on input line 304.
+(Font)              scaled to size 12.0pt on input line 377.
 LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 8.8pt on input line 304.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 6.6pt on input line 304.
+(Font)              scaled to size 8.8pt on input line 377.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 12.0pt on input line 304.
+(Font)              scaled to size 12.0pt on input line 377.
 LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 8.8pt on input line 304.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 6.6pt on input line 304.
+(Font)              scaled to size 8.8pt on input line 377.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 12.0pt on input line 304.
+(Font)              scaled to size 12.0pt on input line 377.
 LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 8.8pt on input line 304.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 6.6pt on input line 304.
+(Font)              scaled to size 8.8pt on input line 377.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 8.8pt on input line 304.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 6.6pt on input line 304.
+(Font)              scaled to size 8.8pt on input line 377.
 LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 8.8pt on input line 304.
-LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
-(Font)              scaled to size 6.6pt on input line 304.
-<plots/lebesgue_plot.pdf, id=303, 307.62932pt x 208.40158pt>
+(Font)              scaled to size 8.8pt on input line 377.
+<plots/lebesgue_plot.pdf, id=307, 307.5791pt x 198.76257pt>
 File: plots/lebesgue_plot.pdf Graphic file (type pdf)
 <use plots/lebesgue_plot.pdf>
-Package pdftex.def Info: plots/lebesgue_plot.pdf  used on input line 304.
-(pdftex.def)             Requested size: 217.50502pt x 147.34605pt.
+Package pdftex.def Info: plots/lebesgue_plot.pdf  used on input line 377.
+(pdftex.def)             Requested size: 217.50502pt x 140.55527pt.
 
-Overfull \vbox (46.43588pt too high) detected at line 304
+Overfull \vbox (39.6451pt too high) detected at line 377
  []
 
 
 
 File: resources/common/owl_pageno.pdf Graphic file (type pdf)
 <use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 304.
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 377.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
-[32
+[33
 
  <./plots/lebesgue_plot.pdf>]
 
 File: resources/common/owl_pageno.pdf Graphic file (type pdf)
 <use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 334.
-(pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
-[33
-
-]
-
-File: resources/common/owl_pageno.pdf Graphic file (type pdf)
-<use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 365.
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 413.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
 [34
 
 ]
+LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 14.4pt on input line 447.
+LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 10.5pt on input line 447.
+LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 7.9pt on input line 447.
+LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
+(Font)              scaled to size 14.4pt on input line 447.
+LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
+(Font)              scaled to size 10.5pt on input line 447.
+LaTeX Font Info:    Font shape `OML/nxlmi/m/it' will be
+(Font)              scaled to size 7.9pt on input line 447.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 14.4pt on input line 447.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 10.5pt on input line 447.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 7.9pt on input line 447.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 14.4pt on input line 447.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 10.5pt on input line 447.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 7.9pt on input line 447.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 14.4pt on input line 447.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 10.5pt on input line 447.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 7.9pt on input line 447.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 14.4pt on input line 447.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 10.5pt on input line 447.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 7.9pt on input line 447.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 14.4pt on input line 447.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 10.5pt on input line 447.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 7.9pt on input line 447.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 14.4pt on input line 447.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 10.5pt on input line 447.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 7.9pt on input line 447.
+
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <10.5> not available
+(Font)              size <10.95> substituted on input line 447.
+
+
+LaTeX Font Warning: Font shape `U/stmry/m/n' in size <10.5> not available
+(Font)              size <10.95> substituted on input line 447.
+
+
+LaTeX Font Warning: Font shape `U/wasy/m/n' in size <10.5> not available
+(Font)              size <10.95> substituted on input line 447.
+
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 10.5pt on input line 447.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 7.9pt on input line 447.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
+(Font)              scaled to size 14.4pt on input line 447.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
+(Font)              scaled to size 10.5pt on input line 447.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
+(Font)              scaled to size 7.9pt on input line 447.
+
+Overfull \vbox (13.69397pt too high) detected at line 447
+ []
+
+
 
 File: resources/common/owl_pageno.pdf Graphic file (type pdf)
 <use resources/common/owl_pageno.pdf>
-Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 373.
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 447.
 (pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
 [35
+
+]
+
+File: resources/common/owl_pageno.pdf Graphic file (type pdf)
+<use resources/common/owl_pageno.pdf>
+Package pdftex.def Info: resources/common/owl_pageno.pdf  used on input line 452.
+(pdftex.def)             Requested size: 19.20438pt x 21.33955pt.
+[36
 
 ])
 \tf@nav=\write7
@@ -2254,18 +2379,18 @@ Package rerunfilecheck Info: File `slides.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 70261 strings out of 473190
- 1661118 string characters out of 5715801
- 2252017 words of memory out of 5000000
- 92148 multiletter control sequences out of 15000+600000
- 759637 words of font info for 251 fonts, out of 8000000 for 9000
+ 70430 strings out of 473190
+ 1664210 string characters out of 5715801
+ 2253533 words of memory out of 5000000
+ 92282 multiletter control sequences out of 15000+600000
+ 825572 words of font info for 334 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 142i,22n,137p,807b,1516s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/LibertineMathMI5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/LibertineMathRM.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/txexas.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
-Output written on slides.pdf (35 pages, 516474 bytes).
+ 142i,22n,137p,807b,1740s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/LibertineMathMI.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/LibertineMathMI7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/LibertineMathRM.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/txexas.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/txexs.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/txsym.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/newtx/txsys.pfb>
+Output written on slides.pdf (36 pages, 519368 bytes).
 PDF statistics:
- 426 PDF objects out of 1000 (max. 8388607)
- 297 compressed objects within 3 object streams
- 71 named destinations out of 1000 (max. 500000)
+ 428 PDF objects out of 1000 (max. 8388607)
+ 300 compressed objects within 3 object streams
+ 73 named destinations out of 1000 (max. 500000)
  224 words of extra memory for PDF output out of 10000 (max. 10000000)
 

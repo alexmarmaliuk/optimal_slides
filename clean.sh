@@ -17,6 +17,7 @@ find . -type f \( \
     -o -name "*.snm"   \
     -o -name "*.toc"   \
     -o -name "*.gz" \
+    -o -name "*.bak0" \
 \) -delete
 
 echo "LaTeX junk cleaned."

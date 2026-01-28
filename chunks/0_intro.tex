@@ -1,230 +1,241 @@
-% \include{template/}
-
-
 \begin{frame}{Sampling}
-    \begin{columns}
-        % Left column: half the slide width
-        \begin{column}{0.6\textwidth}
-            \includegraphics[width=\textwidth]{plots/state_plot_new.pdf}
-        \end{column}
-        
-        % Optional: right column for text or empty space
-        \begin{column}{0.5\textwidth}
+	\begin{columns}
 
-            \begin{block}{Sampling}
-                \begin{itemize}
-                    \item $\{\,t_0,\, t_1, \,\ldots,\,,t_{N}\}:$ Sampling Pattern
-                    \item $t_k:$ Sampling Instants
-                    \item $\tau_k = t_{k+1} - t_k:$ Interarrival Times
-                \end{itemize}
-            
-            \end{block}
-            % You can leave it empty or put text here
-        \end{column}
-    \end{columns}
+		% LEFT: always visible
+		\begin{column}{0.6\textwidth}
+			\includegraphics[width=\textwidth]{plots/state_plot_new.pdf}
+		\end{column}
+
+		% RIGHT: changes by overlay
+		\begin{column}{0.6\textwidth}
+
+			% Overlay 1: text block
+			\only<1>{
+				\begin{block}{Sampling}
+					\begin{itemize}
+						\item $\{\,t_0,\, t_1, \ldots, t_N\}$: Sampling pattern
+						\item $t_k$: Sampling instants
+						\item $\tau_k = t_{k+1} - t_k$: Interarrival times
+					\end{itemize}
+				\end{block}
+			}
+
+			% Overlay 2: control plot
+			\only<2>{
+				\includegraphics[width=\textwidth]{plots/control_plot.pdf}
+			}
+
+		\end{column}
+
+	\end{columns}
 \end{frame}
 
-\begin{frame}{Sampling}
-    \begin{columns}
-        % Left column: half the slide width
-        \begin{column}{0.6\textwidth}
-            \includegraphics[width=\textwidth]{plots/state_plot_new.pdf}
-        \end{column}
-        
-        % Optional: right column for text or empty space
-        \begin{column}{0.6\textwidth}
-            \includegraphics[width=\textwidth]{plots/control_plot.pdf}
-        \end{column}
-    \end{columns}
-\end{frame}
+\questionslide{
+	left plot jumps with \textbackslash only. how to fix?
+}
 
+% ==========================================================================
 
-% \begin{frame}{Sampling}
-%     \centering
-%     \begin{tikzpicture}
-%     \begin{groupplot}[
-%         group style={
-%         group size=1 by 2,
-%         vertical sep=1.2cm
-%         },
-%         width=0.9\textwidth,
-%         height=0.38\textheight,
-%         ]
-%         \nextgroupplot
-%         \input{plots/state_plot_new.tex}
-%         \nextgroupplot
-%         \input{plots/control_plot.tex}
-%         \end{groupplot}
-%     \end{tikzpicture}
-
-
-% \end{frame}
-
-    
 \begin{frame}{The Problem}
 
-    \begin{columns}
-        \begin{column}{0.9\textwidth}
-            Given
-            \medskip
-            {
-                $$
-                    \left\{
-                    \begin{array}{rcl}
-                        \dot{x}(t) &=& A \,x\,(t) + B \,u\,(t) \\
-                        x\,(0)      &=& x_0
-                    \end{array}
-                    \right.
-                    $$
+	\begin{columns}
+		\begin{column}{0.9\textwidth}
+			Given
+			\medskip
+			{
+				$$
+					\left\{
+					\begin{array}{rcl}
+						\dot{x}(t) & = & A \,x\,(t) + B \,u\,(t) \\
+						x\,(0)     & = & x_0
+					\end{array}
+					\right.
+				$$
 
-                \begin{itemize}
-                    \setlength{\itemsep}{\bulletSpacing}
-                    \item We restrict $u\,(t)$ to be in the class of piecewise constant functions and denote it as $\overline{u}\,(t)$
-                    \item Finite horizon $[0, T]$
-                    \item Number $N$ of control updates
-                \end{itemize}
-            }
-            find
-            \begin{itemize}
-                \item Sampling instants $0=t_1<\ldots<t_N=T$
-                \item Piecewise constant $\overline{u}\,(t)=u_k, \quad \forall t \in [t_{k-1}, t_k)$
-            \end{itemize}
-            that minimizes the performance index
-            \begin{itemize}
-                \item $\mathcal{J}(\overline{u}) = \int_0^T \big( x'(t)\,Q\,x\,(t) + \overline{u}'(t)\,R\,\overline{u}\,(t) \big) dt + x'(T)\,S\,x\,(T)$
-            \end{itemize}
-       \end{column}
-    \end{columns}
+				\begin{itemize}
+					\setlength{\itemsep}{\bulletSpacing}
+					\item We restrict $u\,(t)$ to be in the class of piecewise constant functions and denote it as $\overline{u}\,(t)$
+					\item Finite horizon $[0, T]$
+					\item Number $N$ of control updates
+				\end{itemize}
+			}
+			find
+			\begin{itemize}
+				\item Sampling instants $0=t_1<\ldots<t_N=T$
+				\item Piecewise constant $\overline{u}\,(t)=u_k, \quad \forall t \in [t_{k-1}, t_k)$
+			\end{itemize}
+			that minimizes the performance index
+			\begin{itemize}
+				\item $\displaystyle
+					      \mathcal{J}(\overline{u})
+					      = \int_0^T \big(
+					      x'(t)\,Q\,x(t)
+					      + \overline{u}'(t)\,R\,\overline{u}(t)
+					      \big)\,dt
+					      + x'(T)\,S\,x(T)
+				      $
+			\end{itemize}
+		\end{column}
+	\end{columns}
 \end{frame}
+
+\commentslide{"find" looks weird?}
 
 
 % ==========================================================================
 
 \begin{frame}{Quadratic Performance Index}
-    \[
-    \mathcal{J}(\overline{u}) = \int_0^T \big( x'(t)\underbracket{\,Q\,}_{\succeq} x\,(t) + \overline{u}'(t) \underbracket{\,R\vphantom{Q}\,}_{\succ} \overline{u}'(t) \big) dt + x'(T) \underbracket{\,S\vphantom{Q}\,}_{\succeq} x\,(T)
-    \]
-    
-    \centering
-s.t.    
-    \(
-        \left\{
-            \begin{array}{rcl}
-                \dot{x}(t) &=& A\, x\,(t) + B \, u\,(t) \\
-                x\,(0)      &=& x_0
-            \end{array}
-        \right.
-    \)
-\bigskip
-\begin{tcolorbox}[
-        width=7cm,  
-        colback=darkcerulean!30!white,
-        colframe=darkcerulean,
-        ]
-        \centering
-    \begin{itemize}
-        \item $x\,(t) \in \mathbb{R}^n$: system state
-        \item $u\,(t) \in \mathbb{R}^m$: system input
-        \item $A,\,B,\,Q,\,R,\,S$ : constant matrices 
-    \end{itemize}
-    \end{tcolorbox}
+	\[
+		\mathcal{J}(\overline{u}) = \int_0^T \big( x'(t)\underbracket{\,Q\,}_{\succeq} x\,(t) + \overline{u}'(t) \underbracket{\,R\vphantom{Q}\,}_{\succ} \overline{u}'(t) \big) dt + x'(T) \underbracket{\,S\vphantom{Q}\,}_{\succeq} x\,(T)
+	\]
+
+	\centering
+	s.t.
+	\(
+	\left\{
+	\begin{array}{rcl}
+		\dot{x}(t) & = & A\, x\,(t) + B \, u\,(t) \\
+		x\,(0)     & = & x_0
+	\end{array}
+	\right.
+	\)
+	\bigskip
+	\begin{tcolorbox}[
+			width=7cm,
+			colback=darkcerulean!30!white,
+			colframe=darkcerulean,
+		]
+		\centering
+		\begin{itemize}
+			\item $x\,(t) \in \mathbb{R}^n$: system state
+			\item $u\,(t) \in \mathbb{R}^m$: system input
+			\item $A,\,B,\,Q,\,R,\,S$ : constant matrices
+		\end{itemize}
+	\end{tcolorbox}
 
 \end{frame}
 
 
 % ==========================================================================
 
-\begin{frame}{Outline}
-    \begin{itemize}
-        \setlength{\itemsep}{\bulletSpacing}
-        \item Computation of optimal control $u\,(t)$ for continuous-time systems
-        \item Discretization Process for given $\{t_0, \, \ldots, t_N \}$
-        \begin{enumerate}
-            \item System Discretization
-            \item Computation of optimal control $\left(u_k\right)_{k \in \{0, \, \ldots, \, N\}}$  for the discrete-time system
-        \end{enumerate}
-        \item Sampling Density and Sampling Method Cost
-    \end{itemize}
-    \begin{todobox}
-        Slide animation with the plot
-    \end{todobox}
-    \begin{todobox}
-        Update Results bullet point
-    \end{todobox}
-\end{frame}
-% ==========================================================================
+
 
 \begin{frame}{Outline}
-    \begin{itemize}
-        \setlength{\itemsep}{\bulletSpacing}
-        \item Computation of optimal control $u\,(t)$ for continuous-time systems
-        \item Discretization Process for given $\{t_0, \, \ldots, t_N \}$
-        \begin{enumerate}
-            \item System Discretization
-            \item Computation of optimal control $\{u_1, \, \ldots, u_{N} \}$  for the discrete-time system
-        \end{enumerate}
-        \item Sampling Density and Sampling Method Cost
-        \item Sampling Methods for finding $\{t_0, \, \ldots, t_N \}$
-        \begin{enumerate}
-            \item Periodic sampling
-            \item Lebesgue sampling
-            \item Quantization-based sampling
-        \end{enumerate}
-        \item Results
-    \end{itemize}
+	\begin{itemize}
+		\setlength{\itemsep}{\bulletSpacing}
+		\item Computation of optimal control $u\,(t)$ for continuous-time systems
+		\item Discretization Process for given $\{t_0, \, \ldots, t_N \}$
+		      \begin{enumerate}
+			      \item System Discretization
+			      \item Computation of optimal control $\left(u_k\right)_{k \in \{0, \, \ldots, \, N\}}$  for the discrete-time system
+		      \end{enumerate}
+	\end{itemize}
+
+	\begin{overlayarea}{\textwidth}{5cm}
+
+		\only<1>{
+\newcommand{\arrowlenshort}{2.2cm}
+\newcommand{\arrowlen}{2.9cm}
+\vspace{0.5cm}
+\hspace*{-1.7cm}
+\begin{tikzpicture}[
+    >=stealth,
+    block/.style={draw, rectangle, minimum height=1.2cm, minimum width=2.2cm},
+    node distance=\arrowlen
+]
+
+\node[block,align=center] (u) {System\\Discretization};
+\node[block, right=of u, align=center] (sys) {Discretize\\Perf. Index $\mathcal{J}$};\node[block, right=of sys,xshift=-0.7cm, align=center] (dp) {Dynamic\\Programming};
+
+\draw[->] ($(u.west)+(-\arrowlenshort,0.2cm)$) -- ($(u.west)+(0,0.2cm)$)
+    node[midway, above] {$\dot{x}= Ax + Bu$};
+
+\draw[->] ($(u.west)+(-\arrowlenshort,-0.2cm)$) -- ($(u.west)+(0,-0.2cm)$)
+    node[midway, below] {$\{ t_0, \, \ldots, t_N \}$};
+
+\draw[->]
+  ($(u.east)+(0,0.2cm)$) -- ++(\arrowlen,0)
+  node[midway, above] {$x_{k+1}=\overline{A} x_k + \overline{B} u_k$};
+
+\draw[->]
+  ($(sys.east)+(0,0.2cm)$) -- ++(\arrowlenshort,0)
+  node[midway, above] {$\mathcal{J}_{k}$};
+
+  \draw[->] 
+  (dp.south) 
+  -- ++(0,-0.3)
+  -- ++(2cm,0)
+  node[pos=0.5, align=center, yshift=-5.5mm] {Optimal control $u_k$ \\ with minimal cost $\mathcal{J}$};
+
+  \draw[->] 
+  (2.8cm,-1.1cm)
+  -- (2.8cm, -0.2cm)
+  -- ($(sys.west)+(0,-0.2cm)$)
+  node[midway, below] {$Q,\, R$};
+\end{tikzpicture}
+		}
+
+		\only<2>{
+			\begin{itemize}
+				\setlength{\itemsep}{\bulletSpacing}
+				\item Sampling Density and Sampling Method Cost
+				\item Sampling Methods for finding $\{t_0, \, \ldots, t_N \}$
+				      \begin{enumerate}
+					      \item Periodic sampling
+					      \item Lebesgue sampling
+					      \item Quantization-based sampling
+				      \end{enumerate}
+				\item Results
+			\end{itemize}
+		}
+	\end{overlayarea}
 \end{frame}
 
 % ==========================================================================
 
 \begin{frame}{Optimal Control: Continuous-Time Systems}
 
-\medskip
-\begin{tcolorbox}[
-        width=13cm,  
-        colback=darkcerulean!30!white,
-        colframe=darkcerulean,
-        ]
-\[
-\operatorname{minimize}_{u}
-\;
-\int_{0}^{T}
-\Big(
-x'(t) \,Q\, x\,(t)
-+
-u'(t) \,R\, u\,(t)
-\Big)\, dt
-+
-x(T)' \,S\, x\,(T)
-\]
-
-\end{tcolorbox}
-
-\medskip
+	\medskip
+	\begin{equationbox}
+		\operatorname{minimize}_{u}
+		\;
+		\int_{0}^{T}
+		\Big(
+		x'(t)\,Q\,x(t)
+		+
+		u'(t)\,R\,u(t)
+		\Big)\,dt
+		+
+		x(T)'\,S\,x(T)
+	\end{equationbox}
 
 
-Riccati equation for continuous-time systems
-    {
-        \[
-\left\{
-\begin{array}{rcl}
-\dot{K}\,(t) &=& K\,(t)\,B\,R^{-1}\,B'\,K\,(t) - A' K\,(t) - K\,(t)\,A - Q, \\[6pt]
-K\,(T) &=& S
-\end{array}
-\right.
-\]
+	\medskip
 
-}
 
-which gives us the optimal control $\,u\,(t) = - R^{-1} B'\, K\,(t)\, x\,(t)$
-    
-\vspace{0.5cm}
-with achieved cost
-{
-    \[
-\mathcal{J}_{\infty} = x_0'\,K\,(0)\, x_0
-\]
+	Riccati equation for continuous-time systems
+		{
+			\[
+				\left\{
+				\begin{array}{rcl}
+					\dot{K}\,(t) & = & K\,(t)\,B\,R^{-1}\,B'\,K\,(t) - A' K\,(t) - K\,(t)\,A - Q, \\[6pt]
+					K\,(T)       & = & S
+				\end{array}
+				\right.
+			\]
 
-}
+		}
+
+	which gives us the optimal control $\,u\,(t) = - R^{-1} B'\, K\,(t)\, x\,(t)$
+
+	\vspace{0.5cm}
+	with achieved cost
+		{
+			\[
+				\mathcal{J}_{\infty} = x_0'\,K\,(0)\, x_0
+			\]
+
+		}
 
 \end{frame}
 

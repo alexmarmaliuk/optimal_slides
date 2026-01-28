@@ -7,38 +7,39 @@
 \usepackage{amsmath}
 \usepackage{tikz}
 
+\input{../template/custom_colors.tex}
+
 \begin{document}
 \begin{tikzpicture}
 
-\definecolor{prediction}{HTML}{ffa300}
-\begin{axis}[
-    width=10cm,
-    height=3cm,
-    axis x line=center,
-    axis y line=none,ymin=0,ymax=1,
-    axis line style={line width=1.5pt},
-    line width=1.5pt,
-    xlabel={Time \,$t$},
-    xlabel style={at={(axis description cs:0.5,-0.3)}, anchor=north},
-    xmin=0, xmax=6,
-    xtick={0,1,2,3,4,5}, 
-    xticklabels={0,1,2,3,4,5},
-    extra x ticks={0,1,4,5},
-    extra x tick labels={$t_0$,$t_1$,$t_2$,$t_3$},
-    extra x tick style={
-    ticklabel pos=upper,
-    tick label style={color=prediction, anchor=south,yshift=2pt},
-    grid=none
-},
-    ]
+	\begin{axis}[
+			width=10cm,
+			height=3cm,
+			axis x line=center,
+			axis y line=none,ymin=0,ymax=1,
+			axis line style={line width=1.5pt},
+			line width=1.5pt,
+			xlabel={Time \,$t$},
+			xlabel style={at={(axis description cs:0.5,-0.3)}, anchor=north},
+			xmin=0, xmax=6,
+			xtick={0,1,2,3,4,5},
+			xticklabels={0,1,2,3,4,5},
+			extra x ticks={0,1,4,5},
+			extra x tick labels={$t_0$,$t_1$,$t_2$,$t_3$},
+			extra x tick style={
+					ticklabel pos=upper,
+					tick label style={color=prediction, anchor=south,yshift=2pt},
+					grid=none
+				},
+		]
 
-    \addplot[color = prediction, mark=*,  mark size=1.5pt, only marks, ultra thick] coordinates {(0,0) (1,0) (4,0) (5,0)};
-
+		\addplot[color = prediction, mark=*,  mark size=1.5pt, only marks, ultra thick] coordinates {(0,0) (1,0) (4,0) (5,0)};
 
 
-    
 
 
-\end{axis}
+
+
+	\end{axis}
 \end{tikzpicture}
 \end{document}

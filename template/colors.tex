@@ -42,11 +42,11 @@
 
 % Presentation Commands
 \newcommand<>{\highlight}[2][primary]{%
-\alt#3{\ifthenelse{\equal{#1}{primary}}{{\color{bluegreen}{#2}}}{}%
-\ifthenelse{\equal{#1}{secondary}}{{\color{trinidad}{#2}}}{}%
-\ifthenelse{\equal{#1}{warning}}{{\color{buttercup}{#2}}}{}%
-\ifthenelse{\equal{#1}{blue}}{{\color{darkcerulean}{#2}}}{}%
-\ifthenelse{\equal{#1}{red}}{{\color{fireenginered}{#2}}}{}%
-\ifthenelse{\equal{#1}{green}}{{\color{OliveGreen}{#2}}}{}%
-\ifthenelse{\equal{#1}{alert}}{{\color{alertboxleft}{#2}}}{}%
-\ifthenelse{\equal{#1}{black}}{{\color{black}{#2}}}{}}{#2}}
+	\alt#3{\ifthenelse{\equal{#1}{primary}}{{\color{bluegreen}{#2}}}{}%
+		\ifthenelse{\equal{#1}{secondary}}{{\color{trinidad}{#2}}}{}%
+		\ifthenelse{\equal{#1}{warning}}{{\color{buttercup}{#2}}}{}%
+		\ifthenelse{\equal{#1}{blue}}{{\color{darkcerulean}{#2}}}{}%
+		\ifthenelse{\equal{#1}{red}}{{\color{fireenginered}{#2}}}{}%
+		\ifthenelse{\equal{#1}{green}}{{\color{OliveGreen}{#2}}}{}%
+		\ifthenelse{\equal{#1}{alert}}{{\color{alertboxleft}{#2}}}{}%
+		\ifthenelse{\equal{#1}{black}}{{\color{black}{#2}}}{}}{#2}}

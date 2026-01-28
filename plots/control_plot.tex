@@ -4,92 +4,80 @@
 \usepackage{tikz,pgfplots}
 \usepackage{pgfplotstable}
 
+\input{../template/custom_colors}
+
+\newcommand{\tauplace}{15}
+
 \begin{document}
 
 \begin{tikzpicture}
 
-\newcommand{\tauplace}{15}
+	\begin{axis}[
+			width=11cm,
+			height=7cm,
+			axis lines=middle,
+			clip=false,
+			axis line style={line width=1.5pt},
+			line width=1.5pt,
+			xlabel={Time \,$t$},
+			xlabel style={at={(axis description cs:0.5,-0.1)}, anchor=north},
+			ylabel={Control \,$u\,(t)$},
+			ylabel style={at={(axis description cs:-0.08,0.5)}, rotate=90, anchor=south},
+			grid=both,
+			grid style = {black!20, densely dashed},
+			ymin=-30, ymax=10,
+			%minor ytick={-8,-4,...,4},
+			ytick={-20,-10,0},
+			xtick={0,1,...,5},
+			%minor xtick={0.5,1.5,2.5},
+			tick style={line width=0.8pt},
+			extra x ticks={0,0.34,0.8,1.6,2.6,5.4},
+			extra x tick labels={$t_0$,$t_1$,$t_2$,$t_3$,$t_4$,$t_5$},
+			extra x tick style={tick label style={text=prediction, yshift=2.7cm}, grid=none, tick style={draw=none}},
+			set layers=standard,
+			axis line style={black!50}
+			%grid=both,
+			%xticklabels=\empty
+		]
 
-   
-\begin{axis}[
-    width=11cm,
-    height=7cm,
-    axis lines=middle,
-    clip=false,
-    axis line style={line width=1.5pt},
-    line width=1.5pt,
-    xlabel={Time \,$t$},
-    xlabel style={at={(axis description cs:0.5,-0.1)}, anchor=north},
-    ylabel={State \,$x\,(t)$},
-    ylabel style={at={(axis description cs:-0.08,0.5)}, rotate=90, anchor=south},
-    grid=both,
-    grid style = {black!20, densely dashed},
-    ymin=-30, ymax=10,
-    %minor ytick={-8,-4,...,4},
-    ytick={-20,-10,0},
-    xtick={0,1,...,5},
-    %minor xtick={0.5,1.5,2.5},
-    tick style={line width=0.8pt},
-    extra x ticks={0,0.34,0.8,1.6,2.6,5.4},
-    extra x tick labels={$t_0$,$t_1$,$t_2$,$t_3$,$t_4$,$t_5$},
-    extra x tick style={tick label style={text=prediction, yshift=2.7cm}, grid=none, tick style={draw=none}},
-    set layers=standard,
-    axis line style={black!50}
-    %grid=both,
-    %xticklabels=\empty
-    ]
-    
-    \definecolor{sample dots}{RGB}{238,119,51}
-    \definecolor{prediction}{HTML}{b30000}
-    \colorlet{stateRed}{black}
-    \colorlet{controlColor}{black}
-    \definecolor{piecewise}{HTML}{0d88e6}
+		\addplot[on layer=axis background, no marks, controlColor, ultra thick] table[x index=0, y index=6, col sep=comma] {./lqr_system_r1.csv};
 
+		\addplot[color = prediction, mark=*,  mark size=1.5pt, only marks, ultra thick] coordinates {(0,-26.6524758424985) (0.34,-14.623269567667) (0.8,-5.68958348067886) (1.6,0.013544041170317) (2.6, 1.0679270414344) (5.4,0.210141789096175)};
 
-\addplot[on layer=axis background, no marks, controlColor, ultra thick] table[x index=0, y index=6, col sep=comma] {./lqr_system_r1.csv}; 
+		% \addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0,\tauplace) (0,-26.6524758424985)};
+		% \addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0.34,\tauplace) (0.34,-14.623269567667)};
+		% \addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0.8,\tauplace) (0.8,-5.68958348067886)};
+		% \addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(1.6,\tauplace) (1.6,0)};
+		% \addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(2.6,\tauplace) (2.6,0)};
+		% \addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(5.4,\tauplace) (5.4,0)};
 
-\addplot[color = prediction, mark=*,  mark size=1.5pt, only marks, ultra thick] coordinates {(0,-26.6524758424985) (0.34,-14.623269567667) (0.8,-5.68958348067886) (1.6,0.013544041170317) (2.6, 1.0679270414344) (5.4,0.210141789096175)};
+		\draw[<->, thick, tauArrows]
+		(axis cs:0.02,\tauplace) -- (axis cs:0.32,\tauplace)
+		node[midway, below] {$\tau_0$};
 
-\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0,\tauplace) (0,-26.6524758424985)};
-\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0.34,\tauplace) (0.34,-14.623269567667)};
-\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0.8,\tauplace) (0.8,-5.68958348067886)};
-\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(1.6,\tauplace) (1.6,0)};
-\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(2.6,\tauplace) (2.6,0)};
-\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(5.4,\tauplace) (5.4,0)};
+		\draw[<->, thick, tauArrows]
+		(axis cs:0.36,\tauplace) -- (axis cs:0.78,\tauplace)
+		node[midway, below] {$\tau_1$};
+		\draw[<->, thick, tauArrows]
+		(axis cs:0.82,\tauplace) -- (axis cs:1.58,\tauplace)
+		node[midway, below] {$\tau_2$};
 
+		\draw[<->, thick, tauArrows]
+		(axis cs:1.62,\tauplace) -- (axis cs:2.58,\tauplace)
+		node[midway, below] {$\tau_3$};
 
-\colorlet{tauarrows}{darkgray}
-
-\draw[<->, thick, tauarrows]
-(axis cs:0.02,\tauplace) -- (axis cs:0.32,\tauplace)
-node[midway, below] {$\tau_0$};
-
-\draw[<->, thick, tauarrows]
-(axis cs:0.36,\tauplace) -- (axis cs:0.78,\tauplace)
-node[midway, below] {$\tau_1$};
-\draw[<->, thick, tauarrows]
-(axis cs:0.82,\tauplace) -- (axis cs:1.58,\tauplace)
-node[midway, below] {$\tau_2$};
-
-\draw[<->, thick, tauarrows]
-(axis cs:1.62,\tauplace) -- (axis cs:2.58,\tauplace)
-node[midway, below] {$\tau_3$};
-
-\draw[<->, thick, tauarrows]
-(axis cs:2.62,\tauplace) -- (axis cs:5.38,\tauplace)
-node[midway, below] {$\tau_4$};
+		\draw[<->, thick, tauArrows]
+		(axis cs:2.62,\tauplace) -- (axis cs:5.38,\tauplace)
+		node[midway, below] {$\tau_4$};
 
 
-\addplot[color=piecewise, ultra thick, mark=none] coordinates {(0, -26.65) (0.34, -26.65)};
-\addplot[color=piecewise, ultra thick, mark=none] coordinates {(0.34, -14.62) (0.8, -14.62)};
-\addplot[color=piecewise, ultra thick, mark=none] coordinates {(0.8, -5.69) (1.6, -5.69)};
-\addplot[color=piecewise, ultra thick, mark=none] coordinates {(1.6, 0.01) (2.6, 0.01)};
-\addplot[color=piecewise, ultra thick, mark=none] coordinates {(2.6, 1.06) (5.4, 1.06)};
+		\addplot[color=piecewise, ultra thick, mark=none] coordinates {(0, -26.65) (0.34, -26.65)};
+		\addplot[color=piecewise, ultra thick, mark=none] coordinates {(0.34, -14.62) (0.8, -14.62)};
+		\addplot[color=piecewise, ultra thick, mark=none] coordinates {(0.8, -5.69) (1.6, -5.69)};
+		\addplot[color=piecewise, ultra thick, mark=none] coordinates {(1.6, 0.01) (2.6, 0.01)};
+		\addplot[color=piecewise, ultra thick, mark=none] coordinates {(2.6, 1.06) (5.4, 1.06)};
 
-
-%\draw[->] (axis cs:1.5,0.5) node[above] {my text} -- (axis cs:1.5,-0.25);
-
-\end{axis}
+	\end{axis}
 
 \end{tikzpicture}
 

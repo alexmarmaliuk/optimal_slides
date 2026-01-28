@@ -1,335 +1,273 @@
 \begin{frame}{Dynamic Programming: Bellman Equation}
 
+	\vspace{0em}
 
-\vspace{0em}
+	\begin{block}{Bellman Equation}
+		{
+			For $k \in \{\,0,\,\ldots,\,N\,\}$, we define the function $\mathcal{J}_k : \mathbb{R}^n \to \mathbb{R}$, which gives the minimal cost achievable from stage $k$ onward,
+			given the state $x_k$ as
+				{
+					% \centering
+					\medskip
 
-\begin{block}{Bellman Equation}
-{
-    For $k \in \{\,0,\,\ldots,\,N\,\}$, we define the function $\mathcal{J}_k : \mathbb{R}^n \to \mathbb{R}$, which gives the minimal cost achievable from stage $k$ onward,
-given the state $x_k$ as
-{
-% \centering
-\medskip
+					\resizebox{\textwidth}{!}{
+						\(\left\{
+						\begin{array}{rcll}
+							\mathcal{J}_k\,(x_k)
+							                   & =                                          &
+							\min\limits_{u}
+							\Big[
+							\underbrace{x_k' \,\overline Q_k\, x_k}_{\substack{\text{State}                \\\text{penalty}}}
+								+
+							\underbrace{u'\, \overline R_k \,u}_{\substack{\text{Control}                  \\\text{penalty}}}
+								\,+\,
+								\underbrace{2 x_k' \,\overline P_k\, u}_{\text{Cross term}}
+								\,+\,
+								\mathcal{J}_{k+1}(x_{k+1})
+								\Big]
+							                   & \text{for } k \in \{\,0,\,\ldots,\,N-1\,\}
+							\\[2.4ex]\\
+							\mathcal{J}_N\,(x) & =                                          & x' S \,x & .
+						\end{array}
+						\right.
+						\)
+					}
+				}
+		}
+	\end{block}
 
-\resizebox{\textwidth}{!}{
-\(\left\{
-\begin{array}{rcll}
-\mathcal{J}_k\,(x_k)
-&=&
-\min\limits_{u}
-\Big[
-    \underbrace{x_k' \,\overline Q_k\, x_k}_{\substack{\text{State}\\\text{penalty}}}
-    +
-    \underbrace{u'\, \overline R_k \,u}_{\substack{\text{Control}\\\text{penalty}}}
-    \,+\,
-    \underbrace{2 x_k' \,\overline P_k\, u}_{\text{Cross term}}
-    \,+\,
-    \mathcal{J}_{k+1}(x_{k+1})
-    \Big]
-&  \text{for } k \in \{\,0,\,\ldots,\,N-1\,\}
-\\[2.4ex]\\
-\mathcal{J}_N\,(x) &=& x' S \,x&.
-\end{array}
-\right.
-\)
-}
-}
+	\vspace{0.5em}
 
+	\only<1>{
+		\textbf{Intuition:}
+		define a \textit{backward recursive function} that gives the minimal achievable cost from the current state onward.
+	}
 
-}
-\end{block}
-\vspace{0.5em}
-
-\textbf{Intuition:}
-define a \textit{backward recursive function} that gives the minimal achievable cost from the current state onward.
-
-% \[
-% x_{k+1} = A_k x_k + B_k u_k
-% \]
-
-
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\begin{frame}{Dynamic Programming: Bellman Equation}
-
-
-\vspace{0em}
-
-\begin{block}{Bellman Equation}
-{
-    For $k \in \{\,0,\,\ldots,\,N\,\}$, we define the function $\mathcal{J}_k : \mathbb{R}^n \to \mathbb{R}$, which gives the minimal cost achievable from stage $k$ onward,
-given the state $x_k$ as
-{
-% \centering
-\medskip
-
-\resizebox{\textwidth}{!}{
-\(\left\{
-\begin{array}{rcll}
-\mathcal{J}_k\,(x_k)
-&=&
-\min\limits_{u}
-\Big[
-    \underbrace{x_k' \,\overline Q_k\, x_k}_{\substack{\text{State}\\\text{penalty}}}
-    +
-    \underbrace{u'\, \overline R_k \,u}_{\substack{\text{Control}\\\text{penalty}}}
-    \,+\,
-    \underbrace{2 x_k' \,\overline P_k\, u}_{\text{Cross term}}
-    \,+\,
-    \mathcal{J}_{k+1}(x_{k+1})
-    \Big]
-&  \text{for } k \in \{\,0,\,\ldots,\,N-1\,\}
-\\[2.4ex]\\
-\mathcal{J}_N\,(x) &=& x' S \,x&.
-\end{array}
-\right.
-\)
-}
-}
-
-
-}
-\end{block}
-\vspace{0.5em}
-\centering
-\begin{tcolorbox}[
-                width=0.5\textwidth,
-                colback=darkcerulean!30!white,
-                colframe=darkcerulean,
-                ]
-    \[
-    x_{k+1} = \overline A_k x_k + \overline B_k u_k
-    \]
-\end{tcolorbox}
-
+	\only<2>{
+		\centering
+		\begin{equationbox}[6cm]
+			x_{k+1} = \overline A_k x_k + \overline B_k u_k
+		\end{equationbox}
+	}
 
 \end{frame}
 
+\questionslide{
+	same issue: the first block moves
+}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ==========================================================================
+
+\newcommand{\ArrowScale}{2.5}
 
 \begin{frame}{Dynamic Programming: Quadratic Form}
 
-\centering
-\begin{tikzpicture}[
-    scale=1.1,
-    every node/.style={scale=1.1},
-    >=Stealth
-]
-\begin{scope}[xshift=-2.6cm]
+	\centering
+	\begin{tikzpicture}[
+			scale=1.1,
+			every node/.style={scale=1.1},
+			>=Stealth
+		]
+		\hspace{-1.3cm}
+		\begin{scope}[xshift=-5.6cm]
 
-\node (Jquad) at (0,0)
-{$\mathcal{J}_k(x) = x' \overline K_k \,x$};
+			\node (Jquad) at (0,0) {$\mathcal{J}_k(x) = x' \overline K_k \,x$};
 
-\node[gray] (quadtext) at (-4,0.6)
-{$\mathcal{J}_k(x)$ is a quadratic form of $x$};
+			\node[gray] (quadtext) at (-4,0.6) {$\mathcal{J}_k(x)$ is a quadratic form of $x$};
+			\draw[->, gray] (quadtext) -- (Jquad);
 
-\draw[->, gray] (quadtext) -- (Jquad);
+			\node[red] (unknown) at (4,0.6) {\emph{Unknown at this point!}};
+			\draw[->, red] (unknown) -- (Jquad);
 
-\node[red] (unknown) at (4,0.6)
-{\emph{Unknown at this point!}};
+			\node[scale=\ArrowScale] at (0,-1) {$\Downarrow$};
 
-\draw[->, red] (unknown) -- (Jquad);
+			\node (Jnext) at (0,-2) {$
+					\mathcal{J}_{k+1}(\overline A_k x + \overline B_k u)
+					=
+					(\overline A_k x + \overline B_k u)' \,\overline K_{k+1}\,(\overline A_k x + \overline B_k u)
+				$};
 
-\node[scale=3] at (0,-1) {$\Downarrow$};
+			\node[gray] (plug) at (4,-3.1) {Plug into \textbf{Bellman equation}};
+			\node[scale=\ArrowScale] at (0,-3.1) {$\Downarrow$};
 
-\node (Jnext) at (0,-2)
-{$
-\mathcal{J}_{k+1}(\overline A_k x + \overline B_k u)
-=
-(\overline A_k x + \overline B_k u)' \,\overline K_{k+1}\,(\overline A_k x + \overline B_k u)
-$};
-
-\node[gray] (plug) at (4,-3.1)
-{Plug into \textbf{Bellman equation}};
-
-\node at (0,-3.1) {$\Downarrow$};
-
-\node (expanded) at (0,-5)
-% {$
-% \begin{aligned}
-% \mathcal{J}_k(x)
-% =&\;
-% x'
-% \underbrace{(\overline Q_k + \overline A_k'\, \overline K_{k+1} \overline A_k)}_{\hat Q_k}
-% x
-% +
-% u'
-% \underbrace{(R_k + \overline B_k' \overline K_{k+1} \overline B_k)}_{\hat R_k}
-% u \\
-% &\;
-% +
-% 2x'
-% \underbrace{(\overline P_k + \overline A_k'\, \overline K_{k+1}\, \overline B_k)}_{\hat S_k}
-% u
-% \end{aligned}
-% $};
-{$
-% \begin{aligned}
-\mathcal{J}_k(x)
-=\;
-x'
-\underbrace{(\overline Q_k + \overline A_k'\, \overline K_{k+1} \overline A_k)}_{\hat Q_k}
-x
-+
-u'
-\underbrace{(R_k + \overline B_k' \overline K_{k+1} \overline B_k)}_{\hat R_k}
-u
-\;
-+
-2x'
-\underbrace{(\overline P_k + \overline A_k'\, \overline K_{k+1}\, \overline B_k)}_{\hat S_k}
-u
-$};
-\end{scope}
-
-\end{tikzpicture}
-
+			\node (expanded) at (0,-5) [align=center] {
+				\only<1>{$
+						\mathcal{J}_k(x)
+						=\;
+						x'
+						\underbrace{(\overline Q_k + \overline A_k'\, \overline K_{k+1} \overline A_k)}_{\hat Q_k}
+						x
+						+
+						u'
+						\underbrace{(R_k + \overline B_k' \overline K_{k+1} \overline B_k)}_{\hat R_k}
+						u
+						\;
+						+
+						2x'
+						\underbrace{(\overline P_k + \overline A_k'\, \overline K_{k+1}\, \overline B_k)}_{\hat S_k}
+						u
+					$}
+				\only<2->{
+					\begin{equationbox}[8cm]
+						\mathcal{J}_k(x)
+						=\;
+						x'
+						\,{\hat Q_k}\,
+						x
+						+
+						u'
+						\,{\hat R_k}\,
+						u
+						\;
+						+
+						2x'
+						\,{\hat S_k}\,
+						u
+					\end{equationbox}
+				}
+			};
+		\end{scope}
+	\end{tikzpicture}
 \end{frame}
 
-
-% Question slide
-\begin{frame}{NOTES}
-        \begin{questionbox}
-            can't move the whole thing to the left
-        \end{questionbox}
-
-        \begin{questionbox}
-            a frame for the last eq? or copy it to the next slide
-        \end{questionbox}
-\end{frame}
-
+% ==========================================================================
 
 \begin{frame}{Dynamic Programming: Minimization}
 
-\vspace{0.6cm}
+	\vspace{0.6cm}
 
-\begin{flushleft}
-We aim to \textbf{minimize} the cost:
-\end{flushleft}
+	\begin{flushleft}
+		We aim to \textbf{minimize} the cost:
+	\end{flushleft}
 
-\vspace{-0.3cm}
+	\vspace{-0.3cm}
 
-\[
-\min_{u}
-\Bigl(
-x'\,
-\hat Q_k\,
-x
-+
-u'\,
-\hat R_k\,
-u
-+
-2x'\,
-\hat S_k\,
-u\,
-\Bigr)
-\]
+	\[
+		\min_{u}
+		\Bigl(
+		x'\,
+		\hat Q_k\,
+		x
+		+
+		u'\,
+		\hat R_k\,
+		u
+		+
+		2x'\,
+		\hat S_k\,
+		u\,
+		\Bigr)
+	\]
 
-\vspace{0.5cm}
+	\vspace{0.5cm}
 
-\begin{flushleft}
-\textbf{Optimality} condition:
-\end{flushleft}
+	\begin{flushleft}
+		\textbf{Optimality} condition:
+	\end{flushleft}
 
-\vspace{-0.3cm}
+	\vspace{-0.3cm}
 
-\[
-\frac{\partial}{\partial u}(\,\cdot\,)=0
-\quad\Longrightarrow\quad
-\overline R_k\,u + \overline S_k' x = 0
-\]
+	\[
+		\frac{\partial}{\partial u}(\,\cdot\,)=0
+		\quad\Longrightarrow\quad
+		\overline R_k\,u + \overline S_k' x = 0
+	\]
 
-\vspace{0.2cm}
+	\vspace{0.2cm}
 
-\begin{center}
-$\Downarrow$\quad
-{\color{gray}Solving for $u$}
-\end{center}
+	% \hspace{-3cm}
 
-\vspace{-0.1cm}
+	%     \node[scale=\ArrowScale] at (0,-1) {		$\Downarrow$\quad {\color{gray}Solving for $u$}
+	% };
 
-\[
-u_k^\ast
-=
--\,\overline R_k^{-1}\,\overline S_k' \, x_k
-\]
+	\begin{tikzpicture}
+		% VERY BAD!
+		\path (-5,0) -- (5,0);
+		\node[align=center] at (1.2,0) {
+			$\Downarrow$\qquad {\small\color{gray}Solving for $u$}
+		};
+	\end{tikzpicture}
+	\vspace{-0.1cm}
+	\[
+		\hspace{-2.5cm}
+		u_k^\ast
+		=
+		-\,\hat R_k^{-1}\,\hat S_k' \, x_k
+	\]
 
 \end{frame}
 
-
-
+% ==========================================================================
 
 \begin{frame}{Dynamic Programming: Riccati Solution}
 
-\vspace{0.6cm}
+	\vspace{0.6cm}
 
-\begin{flushleft}
-We plug $u_k^\ast$ into the \textbf{Bellman equation:}
-\end{flushleft}
+	\begin{flushleft}
+		We plug $u_k^\ast$ into the \textbf{Bellman equation:}
+	\end{flushleft}
 
-\vspace{0.4cm}
+	\vspace{0.4cm}
 
-\[
-\mathcal{J}_k(x)
-=
-x'
-\Bigl(
-\hat Q_k
--
-\hat B_k \,
-\hat R_k^{-1}\,
-\hat B_k'
-\Bigr)
-x
-\]
+	\[
+		\mathcal{J}_k(x)
+		=
+		x'
+		\Bigl(
+		\hat Q_k
+		-
+		\hat B_k \,
+		\hat R_k^{-1}\,
+		\hat B_k'
+		\Bigr)
+		x
+	\]
 
-% \vspace{0.9cm}
+	% \vspace{0.9cm}
 
-% \begin{flushleft}
-% \end{flushleft}
+	% \begin{flushleft}
+	% \end{flushleft}
 
-\vspace{0.2cm}
+	\vspace{0.2cm}
 
-% \begin{center}
-% $\Downarrow$
-% \end{center}
+	% \begin{center}
+	% $\Downarrow$
+	% \end{center}
+	\vspace{-0.3cm}
 
-\begin{center}
-$\Downarrow$
-\end{center}
-
-\vspace{-0.8cm}
-
-\hfill{\color{gray}Recall $\;\mathcal{J}_k(x) = x' K_k x$}
+	\begin{tikzpicture}
+		\path (-5,0) -- (5,0);
+		\node[gray] (plug) at (4,0) {Recall $\;\mathcal{J}_k(x) = x' \overline K_k x$};
+		\node[scale=\ArrowScale] at (1,0) {$\Downarrow$};
+	\end{tikzpicture}
 
 
-\vspace{-0.1cm}
+	\vspace{-0.3cm}
 
-\[
-    \overline
-    K_k
-    =
-    \hat Q_k
-    -
-    \hat S_k \,
-    \hat R_k^{-1}\,
-    \hat S_k'
-    \]
-    
-    
-\begin{flushleft}
-    Minimal cost equals
-\end{flushleft}
+	% \hfill{\color{gray}Recall $\;\mathcal{J}_k(x) = x' K_k x$}
 
-    \vspace{-0.3cm}
-\[
-\mathcal{J} = x_0' \, \overline K_0 \, x_0
-\]
+
+	\vspace{-0.1cm}
+
+	\[
+		\overline
+		K_k
+		=
+		\hat Q_k
+		-
+		\hat S_k \,
+		\hat R_k^{-1}\,
+		\hat S_k'
+	\]
+
+
+	\begin{flushleft}
+		Minimal cost equals
+	\end{flushleft}
+
+	\vspace{-0.3cm}
+	\[
+		\mathcal{J} = x_0' \, \overline K_0 \, x_0
+	\]
 
 \end{frame}
