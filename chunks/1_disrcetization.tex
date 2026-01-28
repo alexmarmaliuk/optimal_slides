@@ -116,13 +116,13 @@
 			&&\hspace{-1.7cm}\int_0^T \left( x'(t)\,Q\,x\,(t) + \overline{u}'(t)\,R\,\overline{u}\,(t) \right) dt + x'(T)\,S\,x\,(T)\\[3mm]
 			% Используем \unskip\visible для корректной работы внутри eqnarray
 			\only<1>{
-				&&\hspace{-1.7cm}= \sum_{k=0}^{N-1} \int_{t_k}^{t_{k+1}} \left( x'(t)\,Q\,x\,(t) + \overline{u}'(t)\,R\,\overline{u}\,(t) \right) dt + x'(T)\,S\,x\,(T)\\[3mm]
+				&&\hspace{-1.7cm}= \sum_{k=0}^{N-1} Bigg[\int_{t_k}^{t_{k+1}} \left( x'(t)\,Q\,x\,(t) + \overline{u}'(t)\,R\,\overline{u}\,(t) \right) dt + x'(T)\,S\,x\,(T)Bigg]\\[3mm]
 				&&\hspace{-1.7cm}= \sum_{k=0}^{N-1} \left[ \int_{t_k}^{t_{k+1}} \left( \Phi\,x_k + \Gamma\,u_k\right)'\,Q\, \left( \Phi\,x_k + \Gamma\,u_k \right)dt + \int_{t_k}^{t_{k+1}} u'_{k} \,R\,u_{k} \right] + x'(T)\,S\,x\,(T)\\[3mm]
 			}
-			&&\hspace{-1.7cm}= x_k' \underbrace{\left( \int_{t_k}^{t_{k+1}} \Phi' Q\, \Phi \, dt \right) }_{\overline{Q}}x_k +u_k'\underbrace{ \Bigg(
-				\int_{t_k}^{t_{k+1}} \Gamma' Q \Gamma dt
-				+ \underbrace{\int_{t_k}^{t_{k+1}} R dt}_{\tau_k R}
-				\Bigg) }_{\overline{R}} u_k + 2 x_k' \underbrace{\left( \int_{t_k}^{t_{k+1}} \Phi' Q\, \Gamma \,dt \right)}_{\overline{P}}u_k + x'(T)\,S\,x\,(T)\\
+			&&\hspace{-1.7cm}= \sum_{k=0}^{N-1} \Bigg[x_k' \underbrace{\Bigg( \int_{t_k}^{t_{k+1}} \Phi' Q\, \Phi \, dt \Bigg) }_{\overline{Q}}x_k +u_k'\underbrace{ \Bigg(
+					\int_{t_k}^{t_{k+1}} \Gamma' Q \Gamma dt
+					+ \underbrace{\int_{t_k}^{t_{k+1}} R dt}_{\tau_k R}
+					\Bigg) }_{\overline{R}} u_k + 2 x_k' \underbrace{\Bigg( \int_{t_k}^{t_{k+1}} \Phi' Q\, \Gamma \,dt \Bigg)}_{\overline{P}}u_k\Bigg] + x'(T)\,S\,x\,(T)\\
 		\end{eqnarray*}
 	}
 

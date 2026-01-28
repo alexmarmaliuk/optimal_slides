@@ -117,47 +117,47 @@
 
 \begin{frame}{Picture}
 
-\newcommand{\arrowlenshort}{2.2cm}
-\newcommand{\arrowlen}{2.9cm}
-\hspace*{-1.7cm}
-\begin{tikzpicture}[
-    >=stealth,
-    block/.style={draw, rectangle, minimum height=1.2cm, minimum width=2.2cm},
-    node distance=\arrowlen
-]
+	\newcommand{\arrowlenshort}{2.2cm}
+	\newcommand{\arrowlen}{2.9cm}
+	\hspace*{-1.7cm}
+	\begin{tikzpicture}[
+			>=stealth,
+			block/.style={draw, rectangle, minimum height=1.2cm, minimum width=2.2cm},
+			node distance=\arrowlen
+		]
 
-\node[block,align=center] (u) {System\\Discretization};
-\node[block, right=of u, align=center] (sys) {Discretize\\Perf. Index $\mathcal{J}$};\node[block, right=of sys,xshift=-0.7cm, align=center] (dp) {Dynamic\\Programming};
+		\node[block,align=center] (u) {System\\Discretization};
+		\node[block, right=of u, align=center] (sys) {Discretize\\Perf. Index $\mathcal{J}$};\node[block, right=of sys,xshift=-0.7cm, align=center] (dp) {Dynamic\\Programming};
 
-\draw[->] ($(u.west)+(-\arrowlenshort,0.2cm)$) -- ($(u.west)+(0,0.2cm)$)
-    node[midway, above] {$\dot{x}= Ax + Bu$};
-
-
-\draw[->] ($(u.west)+(-\arrowlenshort,-0.2cm)$) -- ($(u.west)+(0,-0.2cm)$)
-    node[midway, below] {$\{ t_0, \, \ldots, t_N \}$};
-
-\draw[->]
-  ($(u.east)+(0,0.2cm)$) -- ++(\arrowlen,0)
-  node[midway, above] {$x_{k+1}=\overline{A} x_k + \overline{B} u_k$};
-
-\draw[->]
-  ($(sys.east)+(0,0.2cm)$) -- ++(\arrowlenshort,0)
-  node[midway, above] {$\mathcal{J}_{k}$};
-
-  \draw[->] 
-  (dp.south) 
-  -- ++(0,-0.5)        % vertical segment
-  -- ++(2cm,0)                     % horizontal segment to the right
-  node[pos=0.5, align=center, yshift=-5.5mm] {Optimal control $u_k$ \\ with minimal cost $\mathcal{J}$};
-
-  \draw[->] 
-  (2.8cm,-1.1cm)                 % Startpunkt unterhalb
-  -- (2.8cm, -0.2cm)            % vertikale Linie bis Höhe der Box
-  -- ($(sys.west)+(0,-0.2cm)$)  % horizontal zur Box
-  node[midway, below] {$Q,\, R$};
+		\draw[->] ($(u.west)+(-\arrowlenshort,0.2cm)$) -- ($(u.west)+(0,0.2cm)$)
+		node[midway, above] {$\dot{x}= Ax + Bu$};
 
 
-\end{tikzpicture}
+		\draw[->] ($(u.west)+(-\arrowlenshort,-0.2cm)$) -- ($(u.west)+(0,-0.2cm)$)
+		node[midway, below] {$\{ t_0, \, \ldots, t_N \}$};
+
+		\draw[->]
+		($(u.east)+(0,0.2cm)$) -- ++(\arrowlen,0)
+		node[midway, above] {$x_{k+1}=\overline{A} x_k + \overline{B} u_k$};
+
+		\draw[->]
+		($(sys.east)+(0,0.2cm)$) -- ++(\arrowlenshort,0)
+		node[midway, above] {$\mathcal{J}_{k}$};
+
+		\draw[->]
+		(dp.south)
+		-- ++(0,-0.5)        % vertical segment
+		-- ++(2cm,0)                     % horizontal segment to the right
+		node[pos=0.5, align=center, yshift=-5.5mm] {Optimal control $u_k$ \\ with minimal cost $\mathcal{J}$};
+
+		\draw[->]
+		(2.8cm,-1.1cm)                 % Startpunkt unterhalb
+		-- (2.8cm, -0.2cm)            % vertikale Linie bis Höhe der Box
+		-- ($(sys.west)+(0,-0.2cm)$)  % horizontal zur Box
+		node[midway, below] {$Q,\, R$};
+
+
+	\end{tikzpicture}
 \end{frame}
 
 
@@ -179,45 +179,45 @@
 	\begin{overlayarea}{\textwidth}{5cm}
 
 		\only<1>{
-\newcommand{\arrowlenshort}{2.2cm}
-\newcommand{\arrowlen}{2.9cm}
-\vspace{0.5cm}
-\hspace*{-1.7cm}
-\begin{tikzpicture}[
-    >=stealth,
-    block/.style={draw, rectangle, minimum height=1.2cm, minimum width=2.2cm},
-    node distance=\arrowlen
-]
+			\newcommand{\arrowlenshort}{2.2cm}
+			\newcommand{\arrowlen}{2.9cm}
+			\vspace{0.5cm}
+			\hspace*{-1.7cm}
+			\begin{tikzpicture}[
+					>=stealth,
+					block/.style={draw, rectangle, minimum height=1.2cm, minimum width=2.2cm},
+					node distance=\arrowlen
+				]
 
-\node[block,align=center] (u) {System\\Discretization};
-\node[block, right=of u, align=center] (sys) {Discretize\\Perf. Index $\mathcal{J}$};\node[block, right=of sys,xshift=-0.7cm, align=center] (dp) {Dynamic\\Programming};
+				\node[block,align=center] (u) {System\\Discretization};
+				\node[block, right=of u, align=center] (sys) {Discretize\\Perf. Index $\mathcal{J}$};\node[block, right=of sys,xshift=-0.7cm, align=center] (dp) {Dynamic\\Programming};
 
-\draw[->] ($(u.west)+(-\arrowlenshort,0.2cm)$) -- ($(u.west)+(0,0.2cm)$)
-    node[midway, above] {$\dot{x}= Ax + Bu$};
+				\draw[->] ($(u.west)+(-\arrowlenshort,0.2cm)$) -- ($(u.west)+(0,0.2cm)$)
+				node[midway, above] {$\dot{x}= Ax + Bu$};
 
-\draw[->] ($(u.west)+(-\arrowlenshort,-0.2cm)$) -- ($(u.west)+(0,-0.2cm)$)
-    node[midway, below] {$\{ t_0, \, \ldots, t_N \}$};
+				\draw[->] ($(u.west)+(-\arrowlenshort,-0.2cm)$) -- ($(u.west)+(0,-0.2cm)$)
+				node[midway, below] {$\{ t_0, \, \ldots, t_N \}$};
 
-\draw[->]
-  ($(u.east)+(0,0.2cm)$) -- ++(\arrowlen,0)
-  node[midway, above] {$x_{k+1}=\overline{A} x_k + \overline{B} u_k$};
+				\draw[->]
+				($(u.east)+(0,0.2cm)$) -- ++(\arrowlen,0)
+				node[midway, above] {$x_{k+1}=\overline{A} x_k + \overline{B} u_k$};
 
-\draw[->]
-  ($(sys.east)+(0,0.2cm)$) -- ++(\arrowlenshort,0)
-  node[midway, above] {$\mathcal{J}_{k}$};
+				\draw[->]
+				($(sys.east)+(0,0.2cm)$) -- ++(\arrowlenshort,0)
+				node[midway, above] {$\mathcal{J}_{k}$};
 
-  \draw[->] 
-  (dp.south) 
-  -- ++(0,-0.3)
-  -- ++(2cm,0)
-  node[pos=0.5, align=center, yshift=-5.5mm] {Optimal control $u_k$ \\ with minimal cost $\mathcal{J}$};
+				\draw[->]
+				(dp.south)
+				-- ++(0,-0.3)
+				-- ++(2cm,0)
+				node[pos=0.5, align=center, yshift=-5.5mm] {Optimal control $u_k$ \\ with minimal cost $\mathcal{J}$};
 
-  \draw[->] 
-  (2.8cm,-1.1cm)
-  -- (2.8cm, -0.2cm)
-  -- ($(sys.west)+(0,-0.2cm)$)
-  node[midway, below] {$Q,\, R$};
-\end{tikzpicture}
+				\draw[->]
+				(2.8cm,-1.1cm)
+				-- (2.8cm, -0.2cm)
+				-- ($(sys.west)+(0,-0.2cm)$)
+				node[midway, below] {$Q,\, R$};
+			\end{tikzpicture}
 		}
 
 		\only<2>{

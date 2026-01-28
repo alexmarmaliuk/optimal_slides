@@ -1,0 +1,49 @@
+\documentclass[tikz]{standalone}
+
+\usepackage{amsmath}
+\usepackage{tikz,pgfplots}
+\usepackage{pgfplotstable}
+
+\input{../template/custom_colors}
+
+\newcommand{\tauplace}{15}
+
+\begin{document}
+
+\begin{tikzpicture}
+
+	\begin{axis}[
+			width=11cm,
+			height=7cm,
+			axis lines=middle,
+			clip=false,
+			axis line style={line width=1.5pt},
+			line width=1.5pt,
+			xlabel={Time \,$t$},
+			xlabel style={at={(axis description cs:0.5,-0.1)}, anchor=north},
+			ylabel={Control \,$u\,(t)$},
+			ylabel style={at={(axis description cs:-0.08,0.5)}, rotate=90, anchor=south},
+			grid=both,
+			grid style = {black!20, densely dashed},
+			ymin=0.4, ymax=2.5,
+			%minor ytick={-8,-4,...,4},
+			ytick={-20,-10,0},
+			xtick={0,1,...,5},
+			%minor xtick={0.5,1.5,2.5},
+			tick style={line width=0.8pt},
+			extra x ticks={0,0.34,0.8,1.6,2.6,5.4},
+			extra x tick labels={$t_0$,$t_1$,$t_2$,$t_3$,$t_4$,$t_5$},
+			extra x tick style={tick label style={text=prediction, yshift=2.7cm}, grid=none, tick style={draw=none}},
+			set layers=standard,
+			axis line style={black!50}
+			%grid=both,
+			%xticklabels=\empty
+		]
+
+		\addplot[on layer=axis background, no marks, controlColor, ultra thick] table[x index=0, y index=1, col sep=comma] {./normalized_cost_vs_N.csv};
+
+	\end{axis}
+
+\end{tikzpicture}
+
+\end{document}
