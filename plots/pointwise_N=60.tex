@@ -4,7 +4,7 @@
 \usepackage{tikz,pgfplots}
 \usepackage{pgfplotstable}
 
-\input{../template/custom_colors}
+\input{../template/custom_colors.tex}
 
 \newcommand{\tauplace}{15}
 
@@ -31,17 +31,12 @@
 			xtick={0,1,...,5},
 			%minor xtick={0.5,1.5,2.5},
 			tick style={line width=0.8pt},
-			extra x ticks={0,0.34,0.8,1.6,2.6,5.4},
-			extra x tick labels={$t_0$,$t_1$,$t_2$,$t_3$,$t_4$,$t_5$},
-			extra x tick style={tick label style={text=prediction, yshift=2.7cm}, grid=none, tick style={draw=none}},
-			set layers=standard,
-			axis line style={black!50}
-			%grid=both,
-			%xticklabels=\empty
+			axis line style={black!50},
+			axis on top
 		]
 
-
-		\addplot[on layer=axis background, no marks, controlColor, ultra thick] table[x index=0, y index=1, col sep=comma] {./stepwise_control_N=60.csv};
+		\addplot[on layer=axis background, no marks, color=controlColor, ultra thick] table[x index=0, y index=6, col sep=comma] {./lqr_system_r1.csv};
+		\addplot[on layer=axis background, no marks, color=piecewise, ultra thick,const plot] table[x index=0, y index=1, col sep=comma] {./stepwise_control_N=60.csv};
 
 	\end{axis}
 
