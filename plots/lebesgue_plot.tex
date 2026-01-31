@@ -23,12 +23,12 @@
 			axis line style={line width=1.5pt},
 			line width=1.5pt,
 			xlabel={Time \,$t$},
-			xlabel style={at={(axis description cs:0.5,-0.1)}, anchor=north},
+			xlabel style={at={(axis description cs:0.5,-0.05)}, anchor=north},
 			ylabel={State \,$x\,(t)$},
 			ylabel style={at={(axis description cs:-0.08,0.5)}, rotate=90, anchor=south},
 			grid=both,
 			grid style = {black!20, densely dashed},
-			ymin=-22, ymax=10,
+			ymin=-30, ymax=10,
 			%minor ytick={-8,-4,...,4},
 			ytick={-20,-10,0},
 			xtick={0,1,...,5},
@@ -36,7 +36,7 @@
 			tick style={line width=0.8pt},
 			extra x ticks={0,0.19,0.44,0.85,2.54},
 			extra x tick labels={$t_0$,$t_1$,$t_2$,$t_3$,$t_4$},
-			extra x tick style={tick label style={text=prediction, yshift=2.3cm}, grid=none, tick style={draw=none}},
+			extra x tick style={tick label style={text=prediction, yshift=2.0cm}, grid=none, tick style={draw=none}},
 			set layers=standard,
 			axis line style={black!50}
 		]
@@ -58,6 +58,7 @@
 		\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(2.54, \tauplace) (2.54, 1.06993515408551)};
 
 		% Delta lines
+		\addplot[piecewise, thick] coordinates {(\DeltaLinesX,-26.65) (0,-26.65)};
 		\addplot[piecewise, thick] coordinates {(\DeltaLinesX,-19.1930968872663) (0,-19.1930968872663)};
 		\addplot[piecewise, thick] coordinates {(\DeltaLinesX,-12.1044988669404) (0,-12.1044988669404)};
 		\addplot[piecewise, thick] coordinates {(\DeltaLinesX,-5.05679292680688) (0,-5.05679292680688)};
@@ -69,9 +70,14 @@
 		(axis cs:\DeltaX, -19) -- (axis cs:\DeltaX, -12.2)
 		node[midway, right] {$\Delta$};
 
+		%\draw[decorate, decoration={brace, mirror}, thick]
+		%(axis cs:\DeltaX, -11.8) -- (axis cs:\DeltaX, -5)
+		%node[midway, right] {$\Delta$};
+
 		\draw[decorate, decoration={brace, mirror}, thick]
-		(axis cs:\DeltaX, -11.8) -- (axis cs:\DeltaX, -5)
+		(axis cs:\DeltaX, -26.2) -- (axis cs:\DeltaX, -19.4)
 		node[midway, right] {$\Delta$};
+
 
 	\end{axis}
 

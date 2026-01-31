@@ -317,7 +317,7 @@ t_k &= k\,\tau = k\,\frac{T}{N},
 \pause
 	For $N \in \mathbb{N}$, we get the constant sampling density
 	\[
-		\sigma_{per, N}(t) = \frac{1}{N\cdot \tau_k}
+		\sigma_{per, \,N}(t) = \frac{1}{N\cdot \tau_k}
 		= \frac{1}{N}\cdot \frac{N}{T}
 		= \frac{1}{T}
 	\]
@@ -420,18 +420,18 @@ t_k &= k\,\tau = k\,\frac{T}{N},
 	\end{columns}
 
 	\newcommand{\LineSpacing}{0.4mm}
-	{\footnotesize	\begin{eqnarray*}
+	\begin{eqnarray*}
 			c_{\text{per}} & = & \lim\limits_{N \to \infty} \frac{N^2}{T^2} \, \frac{x_{0}' \, \overline{K}(\tau)\, x_0 - x_{0}' \, {K}_{\infty}\, x_0}{x_{0}' \, K_\infty \,x_0} \\[\LineSpacing]
             \pause
 			& = & \lim\limits_{N \to \infty} \frac{N^2}{T^2} \, \frac{x_{0}' \, \left( K_\infty + X\cdot \frac{\tau^2}{2} + o(\tau^2) \right) \, x_0 - x_{0}' \, {K}_{\infty}\, x_0}{x_{0}' \, K_\infty \,x_0} \\[\LineSpacing]
             \pause
 			& = & \lim\limits_{N \to \infty} \frac{N^2}{T^2} \, \frac{x_{0}' \, \left( K_\infty + X\cdot \frac{T^2}{2N^2} + o\left(\frac{T^2}{2N^2}\right) \right) \, x_0 - x_{0}' \, {K}_{\infty}\, x_0}{x_{0}' \, K_\infty \,x_0} \\[\LineSpacing]
             \pause
-			& = & \lim\limits_{N \to \infty} \frac{N^2}{T^2} \, \frac{x_0' \,\frac{XT^2}{2N^2} \, x_0 + x_0' \,o\left(N^{-2}\right)\,x_0}{x_{0}' \, K_\infty \,x_0} \\[\LineSpacing]
+			& = & \lim\limits_{N \to \infty} \frac{N^2}{T^2} \, \frac{x_0' \,\frac{XT^2}{2N^2} \, x_0 + x_0' \,o\left(N^{-2}\right)\,x_0}{x_{0}' \, K_\infty \,x_0}
             \pause
-			& = & \frac{x_0' \, X \, x_0}{2\, x_0'\, K_{\infty} \, x_0}
+			\, = \, \frac{x_0' \, X \, x_0}{2\, x_0'\, K_{\infty} \, x_0}
 		\end{eqnarray*}
-	}
+	
 
 \note{\begin{itemize}
 \item on the left we recall formula for normalized cost and on right the expression for the controller
@@ -492,7 +492,7 @@ t_k &= k\,\tau = k\,\frac{T}{N},
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Lebesgue Sampling %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Deterministic Lebesgue Sampling}
-
+    \only<1>{
 	\begin{itemize}
 		\item \textbf{Intuition:} Sample more frequently where the control changes faster
 		\item Sample whenever the optimal $u$ changes by a fixed threshold $\Delta$, so after any sampling instant $t_k$, the next $t_{k+1}$ is determined s.t.
@@ -507,13 +507,10 @@ t_k &= k\,\tau = k\,\frac{T}{N},
         \centering
         \includegraphics[height=3cm]{plots/lebesgue_plot.pdf} 
 	\end{example}
-
-\end{frame}
-
+    }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{frame}{Deterministic Lebesgue Sampling: Example}
+    \only<2>{
     \centering
     \vspace{-0.3cm}
 	\begin{equationbox}[6cm]
@@ -524,8 +521,164 @@ t_k &= k\,\tau = k\,\frac{T}{N},
         \centering
         \includegraphics[height=5.4cm]{plots/lebesgue_plot.pdf} 
 	\end{example}
+    }
 
+
+\note<1>{\begin{itemize}
+\item the intuition behind lebesgue sampling is to sample more frequently in regions where the control changes rapidly
+\item less often when it is relatively constant
+\item instead of sampling at fixed time intervals, we let the behavior of the optimal continuous-time control determine the sampling instants
+\item so of course we first need to calculate the optimal continuous-time control $u(t)$ for $t$ in $[0,T]$
+\item then we set a fixed threshold $\Delta$ that defines how much the control needs to change before we take a new sample
+\item we sample whenever the optimal control input changes by this fixed threshold $\Delta$
+\item this means that after each sampling instant $t_k$, we determine the next sampling instant $t_{k+1}$ such that the norm of the difference between the optimal control at $t_{k+1}$ and $t_k$ equals $\Delta$
+\item so after sampling at $t_k$, we monitor the optimal control $u(t)$ until it changes by $\Delta$, and we set that time as the next sampling instant $t_{k+1}$
+\item this approach allows us to adapt the sampling instants based on the dynamics of the control input
+\item in regions where the control changes rapidly, threshold is reached quickly and we will have more frequent sampling,
+\item in regions where the control changes slowly, takes longer and we will have less frequent sampling
+\item by adjusting $\Delta$, small values lead to more frequent sampling, while larger values result in fewer samples
+\item this adaptive strategy aims to capture the important variations in the control input more effectively (where discretization errors would be larger) than fixed-interval sampling methods
+\end{itemize}}
+
+\note<2>{\begin{itemize}
+\item here is an example to illustrate the concept of lebesgue sampling
+\item we set the threshold $\Delta$ to 7
+\item the black curve represents the optimal continuous-time control input $u(t)$ over the time interval
+\item the red dots indicate the sampling instants determined by the lebesgue sampling method
+\item as we can see, the sampling instants are not evenly spaced in time
+\item instead, they are concentrated in regions where the control input changes rapidly
+\item in regions where the control input is relatively constant, the sampling instants are more spread out
+\item Übergang: now that we have understood how lebesgue sampling works, we want to analyze its sampling density but for this we first derive an expression relating the number of samples N to the threshold $\Delta$
+\end{itemize}}
 \end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{Deterministic Lebesgue Sampling}
+    \only<1>{
+	\begin{itemize}
+		\item \textbf{Intuition:} Sample more frequently where the control changes faster
+		\item Sample whenever the optimal $u$ changes by a fixed threshold $\Delta$, so after any sampling instant $t_k$, the next $t_{k+1}$ is determined s.t.
+		      $$
+			      \left\| \,u\,(t_{t+1}) - u(t_k)\, \right\|=\,\Delta
+		      $$
+
+		      where $u$ is the optimal continuous-time input
+	\end{itemize}
+
+	\begin{example}[$\Delta=7$]			
+        \centering
+        \includegraphics[height=3cm]{plots/lebesgue_plot.pdf} 
+	\end{example}
+    }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \only<2->{
+    \centering
+    \vspace{-0.4cm}
+	\begin{equationbox}[6cm]
+		\left\| \,u\,(t_{t+1}) - u(t_k)\, \right\|=\,\Delta
+	\end{equationbox}
+    \vspace{-0.2cm}
+	\begin{example}[$\Delta=7$]			
+        \centering
+        \begin{tikzpicture}[scale=0.98]
+            \newcommand{\DeltaX}{2.58}
+            \newcommand{\DeltaLinesX}{2.54} % default 2.54
+            \newcommand{\tauplace}{11}
+            \input{../template/custom_colors.tex}
+
+            \begin{axis}[
+			width=11cm,
+			height=6cm,
+			axis lines=middle,
+			axis line style={line width=1.5pt},
+			line width=1.5pt,
+			xlabel={Time \,$t$},
+			xlabel style={at={(axis description cs:0.5,-0.0)}, anchor=north},
+			ylabel={State \,$x\,(t)$},
+			ylabel style={at={(axis description cs:-0.08,0.5)}, rotate=90, anchor=south},
+			grid=both,
+			grid style = {black!20, densely dashed},
+			ymin=-30, ymax=10,
+			%minor ytick={-8,-4,...,4},
+			ytick={-20,-10,0},
+			xtick={0,1,...,5},
+			%minor xtick={0.5,1.5,2.5},
+			tick style={line width=0.8pt},
+			extra x ticks={0,0.19,0.44,0.85,2.54},
+			extra x tick labels={\only<3->{$t_0$},\only<4->{$t_1$},\only<5->{$t_2$},\only<6->{$t_3$},\only<7->{$t_4$}},
+			extra x tick style={tick label style={text=prediction, yshift=1.8cm}, grid=none, tick style={draw=none}},
+			set layers=standard,
+			axis line style={black!50},
+            clip=false
+		]
+        
+
+		\addplot[on layer=axis background, no marks, ultra thick] table[x index=0, y index=6, col sep=comma] {../plots/lqr_system_r1.csv};
+
+        \only<3->{
+		\addplot[color = prediction, mark=*,  mark size=1.5pt, only marks, ultra thick] coordinates {(0,-26.6524758424985)};}
+
+        \only<4->{
+        \addplot[color = prediction, mark=*,  mark size=1.5pt, only marks, ultra thick] coordinates { (0.19,-19.1930968872663) };}
+
+        \only<5->{
+        \addplot[color = prediction, mark=*,  mark size=1.5pt, only marks, ultra thick] coordinates {(0.44,-12.1044988669404) };}
+
+        \only<6->{
+        \addplot[color = prediction, mark=*,  mark size=1.5pt, only marks, ultra thick] coordinates { (0.85,-5.05679292680688) };}
+
+        \only<7->{
+        \addplot[color = prediction, mark=*,  mark size=1.5pt, only marks, ultra thick] coordinates {(2.54, 1.06993515408551)};}
+
+        \only<3->{
+		\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0,\tauplace) (0,-19.1930968872663)};}
+        \only<4->{
+		\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0.19,\tauplace) (0.19,-19.1930968872663)};}
+        \only<5->{
+		\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0.44,\tauplace) (0.44,-12.1044988669404)};}
+        \only<6->{
+		\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0.85,\tauplace) (0.85,-5.05679292680688)};}
+        \only<7->{
+		\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(2.54, \tauplace) (2.54, 1.06993515408551)};}
+
+		% Delta lines
+        \only<4->{
+		\addplot[piecewise, thick] coordinates {(\DeltaLinesX,-26.65) (0,-26.65)};
+		\addplot[piecewise, thick] coordinates {(\DeltaLinesX,-19.1930968872663) (0,-19.1930968872663)};}
+        \only<5->{
+		\addplot[piecewise, thick] coordinates {(\DeltaLinesX,-12.1044988669404) (0,-12.1044988669404)};}
+        \only<6->{
+		\addplot[piecewise, thick] coordinates {(\DeltaLinesX,-5.05679292680688) (0,-5.05679292680688)};}
+        \only<7->{
+		\addplot[piecewise, thick] coordinates {(\DeltaLinesX, 1.06993515408551) (0, 1.06993515408551)};}
+
+		% braces for Deltas
+        \only<4->{
+		\draw[decorate, decoration={brace, mirror}, thick]
+		(axis cs:\DeltaX, -26.2) -- (axis cs:\DeltaX, -19.4)
+		node[midway, right] {$\Delta$};}
+
+       \only<5->{
+        \draw[decorate, decoration={brace, mirror}, thick]
+		(axis cs:\DeltaX, -19) -- (axis cs:\DeltaX, -12.2)
+		node[midway, right] {$\Delta$};}
+        
+	\end{axis}
+
+        \end{tikzpicture}
+	\end{example}
+    }
+\end{frame}
+
+\questionslide{To make the elements appear step by step in slide 22, I did the tikzpicture directly in the frame instead of including the plot as pdf. Slide 21 is still the pdf version. I noted that they actually look different, which one is the prefered one, as so far we always include pdfs. Should we change the other plots too, to have the tikzpicture directly in the frame?}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -533,7 +686,7 @@ t_k &= k\,\tau = k\,\frac{T}{N},
 
 	\centering
 
-	\begin{equationbox}[6cm]
+    \begin{equationbox}[6cm]
 		\left\| \,u\,(t_{t+1}) - u(t_k)\, \right\|=\,\Delta
 	\end{equationbox}
         \bigskip
@@ -545,45 +698,71 @@ In the case of a scalar input ($m=1$) and a given number $N$ of sampling instanc
 
 	\begin{eqnarray*}
 		\int_{t_k}^{t_{k+1}} |\,\dot{u}\,(t)\,|\,dt & = & |\,u\,(t_{k+1}) - u\,(t_{k})\,| \, = \, \Delta \\[\LineSpacing]
-		& = & \frac{1}{N} \cdot \underbrace{\int_{0}^T \, |\, \dot{u}\,(t) \,| \, dt}_{N\cdot\Delta}
+		\pause & = & \frac{1}{N} \cdot \underbrace{\int_{0}^T \, |\, \dot{u}\,(s) \,| \, ds}_{N\cdot\Delta}
 	\end{eqnarray*}
 
+\note{\begin{itemize}
+\item we start with the defining equation for lebesgue sampling
+\item we focus on the case of a scalar input, which allows to work on absolute value instead of norm
+\item given number of sampling instances N in the time interval $[0,T]$, we can derive a relation for the sampling instants $t_k$
+\item consider two consecutive sampling instants $t_k$ and $t_{k+1}$
+\item the change of the control input between these two instants is given by the absolute difference $|u(t_{k+1}) - u(t_k)|$
+\item this difference can be written as the integral of the absolute value of the derivative of the control input over the interval from $t_k$ to $t_{k+1}$
+\item this integral represents the total change in the control input over that interval
+\item according to the lebesgue sampling definition, this total change equals the threshold $\Delta$
+\item over $[0,T]$, we have N sampling intervals in total
+\item each of them contributes a change of $\Delta$
+\item so total variation of control over $[0,T]$ is $N\cdot \Delta$
+\item therefore, we can express $\Delta$ as the total change divided by N
+\item Übergang: now that we have this relation, we can use it to derive the sampling density for lebesgue sampling
+\end{itemize}}
 \end{frame}
 
-\begin{frame}{Deterministic Lebesgue Sampling: Sampling Density}
+\questionslide{\begin{itemize}
+    \item For the last two reminder boxes with the equation $\left\| \,u\,(t_{t+1}) - u(t_k)\, \right\|=\,\Delta$, should we write it with the absolute value instead, so $| \,u\,(t_{t+1}) - u(t_k)\, | =\,\Delta$, as both of them are cases for scalar input?
+    \item Wanted one more transition in between for slide 22, where the last equation appears without the underbrace first and then with it. Didnt manage to do so, with only the equations changed their places and uncover didnt work :(
+        \end{itemize}}
+\begin{frame}{Deterministic Lebesgue Sampling: Asymptotic Sampling Density}
 
 	\centering
 	\begin{equationbox}[8cm]
 		\int_{t_k}^{t_{k+1}} |\,\dot{u}\,(t)\,|\,dt =
-		\frac{1}{N} \cdot {\int_{0}^T \, |\, \dot{u}\,(t) \,| \, dt}
+		\frac{1}{N} \cdot {\int_{0}^T \, |\, \dot{u}\,(s) \,| \, ds}
 	\end{equationbox}
     \vspace{-0.6cm}
-	{\Large\[
-		\begin{array}{>{\displaystyle}rcl}
-			\sigma_{\text{dls}}\, (t) & = & \frac{\vphantom{ |\,\dot{u}(t)\,|\,dt}\,1}{N\cdot\tau_k}                                        
-            \, = \, \frac{\int_{t_k}^{t_{k+1}} |\,\dot{u}(t)\,|\,dt}
-     {\int_{0}^T |\,\dot{u}(t)\,|\,dt}
+	
+		\begin{eqnarray*}
+			\sigma_{\text{dls}}\, (t) & = & \lim\limits_{N \to \infty} \frac{1}{N\cdot\tau_k}                                        
+            \, = \, \lim\limits_{N \to \infty} \frac{\int_{t_k}^{t_{k+1}} |\,\dot{u}(t)\,|\,dt}
+     {\int_{0}^T |\,\dot{u}(s)\,|\,ds}
 \cdot
-\frac{\vphantom{ |\,\dot{u}(t)\,|\,dt}\,1}{\tau_k} \\[5mm]
-            & = & \frac{\int_{t_k}^{t_{k+1}} |\,\dot{u}\,(t)\,|\,dt}{\vphantom{A^A}\tau_k} \cdot \frac{\vphantom{ |\,\dot{u}(t)\,|\,dt}\,1}{\int_{0}^T \, |\, \dot{u}\,(t) \,| \, dt} \\[5mm]
-            & = & \frac{\vphantom{A_{A^0}} |\,u\,(t_{k+1}) - u\,(t_{k})\,|}{\vphantom{A^A}t_{k+1} - t_k} \cdot \frac{\vphantom{ |\,\dot{u}(t)\,|\,dt}\,1}{\int_{0}^T \, |\, \dot{u}\,(t) \,| \, dt}\\[5mm]
-            &=& \frac{\vphantom{A_{A^0}}|\, \dot{u}\,(t) \,|}{\int_{0}^T \, |\, \dot{u}\,(t) \,| \, dt}
-		\end{array}
-	\]}
+\frac{1}{\tau_k} \\[0.4mm]
+            \pause
+            & = & \lim\limits_{N \to \infty}  \frac{\int_{t_k}^{t_{k+1}} |\,\dot{u}\,(t)\,|\,dt}{\tau_k} \cdot \frac{1}{\int_{0}^T \, |\, \dot{u}\,(s) \,| \, ds} \\[0.4mm]
+            \pause
+            & = & \lim\limits_{N \to \infty}  \frac{|\,u\,(t_{k+1}) - u\,(t_{k})\,|}{t_{k+1} - t_k} \cdot \frac{1}{\int_{0}^T \, |\, \dot{u}\,(s) \,| \, ds}\\[0.4mm]
+            \pause
+            &=& \frac{|\, \dot{u}\,(t) \,|}{\int_{0}^T \, |\, \dot{u}\,(s) \,| \, ds}
+		\end{eqnarray*}
+	
 
-	% 	\newcommand{\LineSpacing}{-0mm}
-	% {\tiny\begin{eqnarray*}
-	%     \sigma_{\text{dls}}\, (t) & = & \frac{1}{N\cdot\tau_k} \\[\LineSpacing]
-	%                               & = & \frac{\displaystyle\int_{t_k}^{t_{k+1}} |\,\dot{u}\,(t)\,|\,dt}{\int_{0}^T \, |\, \dot{u}\,(t) \,| \, dt} \cdot \frac{1}{\tau_k} \\[\LineSpacing]
-	%                               & = & \frac{\displaystyle\int_{t_k}^{t_{k+1}} |\,\dot{u}\,(t)\,|\,dt}{\tau_k} \cdot \frac{1}{\displaystyle\int_{0}^T \, |\, \dot{u}\,(t) \,| \, dt} \\[\LineSpacing]
-	%                               & = & \frac{|\,u\,(t_{k+1}) - u\,(t_{k})\,|}{t_{k+1} - t_k} \cdot \frac{1}{\int_{0}^T \, |\, \dot{u}\,(t) \,| \, dt}
-	% \end{eqnarray*}
-	% }
-
-	% \begin{itemize}
-	% 	\item Sampling intervals vary depending on $|\,\dot{u \, (t)}\,|$
-	% 	\item No closed formula for the asymptotic normalized cost $c_{\text{dls}}$
-	% \end{itemize}
+\note{\begin{itemize}
+\item we start with the relation we just derived for lebesgue sampling
+\item now we can use this relation to compute the sampling density for lebesgue sampling
+\item we start with the definition of sampling density
+\item we substitute the expression for $N$ from the previous slide into the sampling density formula
+\item we then rearrange the terms
+\item we recognize that the integral from $t_k$ to $t_{k+1}$ is equal to the absolute difference $|u(t_{k+1}) - u(t_k)|$
+\item $\frac{|u(t_{k+1}) - u(t_k)|}{t_{k+1} - t_k}$ is the difference quotient, i.e. the average rate of change of the control input over the interval $[t_k, t_{k+1}]$
+\item By the mean value theorem, this difference quotient equals the derivative $\dot{u}(t)$ at some point t between t_k and t_{k+1}.
+\item as $N$ goes to infinity, the interval $[t_k, t_{k+1}]$ shrinks to the point t in our interval, so the difference quotient converges to $\dot{u}(t)$
+\item If $u(t)$ changes quickly at time $t$, $|\dot{u}(t)|$ is large, so the density $\sigma_{\text{dls}}(t)$ is large and more samples are placed there
+\item If $u(t)$ changes slowly, $|\dot{u}(t)|$ is small, so the density is small and fewer samples.
+\item denominator normalizes the density so that it integrates to 1 over $[0,T]$
+\item this final expression shows that the sampling density for lebesgue sampling is proportional to the rate of change of the control input
+\item Unlike periodic sampling, here the inter-sample intervals $\tau_k = t_{k+1} - t_k$ are not constant; they depend on the control signal and vary over time. Because of this, we cannot write down a simple closed-form expression for the normalized cost as we did for periodic sampling. The varying $\tau_k$ prevent us from solving the discrete-time Riccati equation analytically, so we have to rely on numerical evaluation to compute the cost for Lebesgue sampling.
+\item Übergang: next quantization sampling
+\end{itemize}}
 
 \end{frame}
 
