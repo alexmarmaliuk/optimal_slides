@@ -36,6 +36,8 @@
 
 % ==========================================================================
 
+\newcommand{\LeftMargin}{0.4cm}
+
 \begin{frame}{The Problem}
 
 	\begin{columns}
@@ -53,6 +55,7 @@
 				$$
 
 				\begin{itemize}
+					\setlength{\itemindent}{\LeftMargin}
 					\setlength{\itemsep}{\bulletSpacing}
 					\item We restrict $u\,(t)$ to be in the class of piecewise constant functions and denote it as $\overline{u}\,(t)$
 					\item Finite horizon $[0, T]$
@@ -61,11 +64,14 @@
 			}
 			find
 			\begin{itemize}
+				\setlength{\itemindent}{\LeftMargin}
+				\setlength{\itemsep}{\bulletSpacing}
 				\item Sampling instants $0=t_1<\ldots<t_N=T$
 				\item Piecewise constant $\overline{u}\,(t)=u_k, \quad \forall t \in [t_{k-1}, t_k)$
 			\end{itemize}
 			that minimizes the performance index
 			\begin{itemize}
+				\setlength{\itemindent}{\LeftMargin}
 				\item $\displaystyle
 					      \mathcal{J}(\overline{u})
 					      = \int_0^T \big(
@@ -78,9 +84,6 @@
 		\end{column}
 	\end{columns}
 \end{frame}
-
-\commentslide{"find" looks weird?}
-
 
 % ==========================================================================
 
@@ -115,50 +118,50 @@
 
 \end{frame}
 
-\begin{frame}{Picture}
+% \begin{frame}{Picture}
 
-	\newcommand{\arrowlenshort}{2.2cm}
-	\newcommand{\arrowlen}{2.9cm}
-	\hspace*{-1.7cm}
-	\begin{tikzpicture}[
-			>=stealth,
-			block/.style={draw, rectangle, minimum height=1.2cm, minimum width=2.2cm},
-			node distance=\arrowlen
-		]
+% 	\newcommand{\arrowlenshort}{2.2cm}
+% 	\newcommand{\arrowlen}{2.9cm}
+% 	\hspace*{-1.7cm}
+% 	\begin{tikzpicture}[
+% 			>=stealth,
+% 			block/.style={draw, rectangle, minimum height=1.2cm, minimum width=2.2cm},
+% 			node distance=\arrowlen
+% 		]
 
-		\node[block,align=center] (u) {System\\Discretization};
-		\node[block, right=of u, align=center] (sys) {Discretize\\Perf. Index $\mathcal{J}$};\node[block, right=of sys,xshift=-0.7cm, align=center] (dp) {Dynamic\\Programming};
+% 		\node[block,align=center] (u) {System\\Discretization};
+% 		\node[block, right=of u, align=center] (sys) {Discretize\\Perf. Index $\mathcal{J}$};\node[block, right=of sys,xshift=-0.7cm, align=center] (dp) {Dynamic\\Programming};
 
-		\draw[->] ($(u.west)+(-\arrowlenshort,0.2cm)$) -- ($(u.west)+(0,0.2cm)$)
-		node[midway, above] {$\dot{x}= Ax + Bu$};
-
-
-		\draw[->] ($(u.west)+(-\arrowlenshort,-0.2cm)$) -- ($(u.west)+(0,-0.2cm)$)
-		node[midway, below] {$\{ t_0, \, \ldots, t_N \}$};
-
-		\draw[->]
-		($(u.east)+(0,0.2cm)$) -- ++(\arrowlen,0)
-		node[midway, above] {$x_{k+1}=\overline{A} x_k + \overline{B} u_k$};
-
-		\draw[->]
-		($(sys.east)+(0,0.2cm)$) -- ++(\arrowlenshort,0)
-		node[midway, above] {$\mathcal{J}_{k}$};
-
-		\draw[->]
-		(dp.south)
-		-- ++(0,-0.5)        % vertical segment
-		-- ++(2cm,0)                     % horizontal segment to the right
-		node[pos=0.5, align=center, yshift=-5.5mm] {Optimal control $u_k$ \\ with minimal cost $\mathcal{J}$};
-
-		\draw[->]
-		(2.8cm,-1.1cm)                 % Startpunkt unterhalb
-		-- (2.8cm, -0.2cm)            % vertikale Linie bis Höhe der Box
-		-- ($(sys.west)+(0,-0.2cm)$)  % horizontal zur Box
-		node[midway, below] {$Q,\, R$};
+% 		\draw[->] ($(u.west)+(-\arrowlenshort,0.2cm)$) -- ($(u.west)+(0,0.2cm)$)
+% 		node[midway, above] {$\dot{x}= Ax + Bu$};
 
 
-	\end{tikzpicture}
-\end{frame}
+% 		\draw[->] ($(u.west)+(-\arrowlenshort,-0.2cm)$) -- ($(u.west)+(0,-0.2cm)$)
+% 		node[midway, below] {$\{ t_0, \, \ldots, t_N \}$};
+
+% 		\draw[->]
+% 		($(u.east)+(0,0.2cm)$) -- ++(\arrowlen,0)
+% 		node[midway, above] {$x_{k+1}=\overline{A} x_k + \overline{B} u_k$};
+
+% 		\draw[->]
+% 		($(sys.east)+(0,0.2cm)$) -- ++(\arrowlenshort,0)
+% 		node[midway, above] {$\mathcal{J}_{k}$};
+
+% 		\draw[->]
+% 		(dp.south)
+% 		-- ++(0,-0.5)        % vertical segment
+% 		-- ++(2cm,0)                     % horizontal segment to the right
+% 		node[pos=0.5, align=center, yshift=-5.5mm] {Optimal control $u_k$ \\ with minimal cost $\mathcal{J}$};
+
+% 		\draw[->]
+% 		(2.8cm,-1.1cm)                 % Startpunkt unterhalb
+% 		-- (2.8cm, -0.2cm)            % vertikale Linie bis Höhe der Box
+% 		-- ($(sys.west)+(0,-0.2cm)$)  % horizontal zur Box
+% 		node[midway, below] {$Q,\, R$};
+
+
+% 	\end{tikzpicture}
+% \end{frame}
 
 
 % ==========================================================================

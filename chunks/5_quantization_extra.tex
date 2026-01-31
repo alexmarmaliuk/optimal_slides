@@ -1,0 +1,203 @@
+\begin{frame}{Quantization of Continuous-Time Control}
+
+	\vspace{0em}
+
+	\begin{block}{Quantization Problem}
+		{
+		Given a continuous-time optimal control signal
+		$u : x \to \mathbb{R}^m$,
+		we approximate it by a \emph{piecewise-constant} control
+		$\overline u$ with $N$ updates,
+		by minimizing an $L^p$ approximation error:
+		{
+		\medskip
+
+		% \resizebox{\textwidth}{!}{
+		\(
+		\left\{
+		\begin{array}{lcll}
+			\displaystyle
+			\min_{\{\tau_k,\,u_k\}}
+			\;
+			\int_{\Omega}
+			\underbrace{
+				\| u(x) - \overline u(x) \|_p
+			}_{\substack{\text{Approximation} \\ \text{error}}}
+			\, dx
+			\\
+			\text{s.t. }\quad
+			\overline u(x) = u_k,\quad
+			x \in [\tau_k, \tau_{k+1}),
+			 & k = 0,\ldots,N-1
+		\end{array}
+		\right.
+		\)
+		% }
+		}
+		}
+	\end{block}
+
+	\vspace{0.5em}
+
+	\only<1>{
+		\textbf{Idea:}
+		replace the continuous optimal solution by a piecewise-constant one
+		that is \emph{closest in the $L^p(\Omega)$ sense}.
+	}
+
+\end{frame}
+
+\questionslide{
+	\begin{itemize}
+		\item is $\min\limits_{\{\tau_k,\,u_k\}}$ valid? or should be $\{\tau_1, \ldots, \tau_k\}$ instead?
+		\item $\Omega$ undefined is fine?
+	\end{itemize}
+}
+
+% ============================================================================================
+
+\begin{frame}{Quantization Problem: Example}
+
+	\begin{example}[Input space dimension $m=1$]
+		\centering
+		\begin{tikzpicture}[
+				scale=0.9,
+				every node/.style={scale=1.05},
+				>=Stealth
+			]
+
+			\begin{scope}[xshift=-4.5cm]
+				\centering
+
+				\node (cont) at (2,0) {
+					$
+						\min \limits_{u}
+						\displaystyle\int_{\Omega}
+						\big| u(x) - \overline u(x) \big|^2
+						\, dx
+					$
+				};
+
+
+				\node[scale=\ArrowScale] at (2,-1.0) {$\Downarrow$};
+
+				\node (sum) at (2,-2.2) {
+					$
+						\displaystyle\sum_{k=0}^{N-1}
+						\displaystyle\int_{\tau_k}^{\tau_{k+1}}
+						\big| u(x) - u_k \big|^2
+						\, dx
+					$
+				};
+
+				\node[gray] (partition) at (6.4,-2.2) {partition $x$};
+				\draw[->, gray] (partition) -- (sum);
+
+				\node[scale=\ArrowScale] at (2,-3.3) {$\Downarrow$};
+
+				\node[red] (opt) at (5.8,-3.2) {\emph{Optimality condition}};
+				\draw[->, red] (opt) -- (2.5,-3.2);
+				\node (cond) at (2,-5.2) {
+					\begin{equationbox}[7cm]
+						\left| u_{k-1} - u(t_k) \right|^2
+						=
+						\left| u_k - u(t_k) \right|^2
+					\end{equationbox}
+				};
+
+			\end{scope}
+		\end{tikzpicture}
+
+	\end{example}
+
+	\vspace{0.4em}
+
+\end{frame}
+
+% =======================================================================================
+
+\begin{frame}{Quantization: Intuition}
+	\centering
+
+	\begin{equationbox}[7cm]
+		\left| u_{k-1} - u(t_k) \right|^2
+		=
+		\left| u_k - u(t_k) \right|^2
+	\end{equationbox}
+	\centering
+	\includegraphics[width=0.9\textwidth]{resources/quant.png}
+\end{frame}
+
+
+
+% =====================================================================================
+
+\begin{frame}{Quantization-Based Sampling: Algorithm ($m=1$, $p=2$)}
+
+
+	\begin{block}{Iterative Procedure}
+		\only<1>{\footnotesize}\only<2->{\tiny}
+		\begin{enumerate}
+			\item \textbf{Initialization}
+			      Set
+			      \[
+				      t_k^{(0)} = \frac{k}{N}T,
+				      \quad k=0,\ldots,N .
+			      \]
+
+			\item \textbf{Centroid update} (fix $\{t_k^{(r)}\}$)
+			      For each interval $k=0,\ldots,N-1$, compute
+			      \[
+				      \overline u_k^{(r+1)}
+				      =
+				      \frac{1}{t_{k+1}^{(r)} - t_k^{(r)}}
+				      \int_{t_k^{(r)}}^{t_{k+1}^{(r)}}
+				      u(t)\, dt .
+			      \]
+
+			\item \textbf{Boundary update} (fix $\{u_k^{(r+1)}\}$)
+			      For each $k=1,\ldots,N-1$, update $t_k^{(r+1)}$ as the solution of
+			      \[
+				      u(t_k)
+				      =
+				      \frac{\overline u_{k-1}^{(r+1)} + \overline u_k^{(r+1)}}{2},
+				      \qquad
+				      t_{k-1}^{(r+1)} < t_k < t_{k+1}^{(r)} .
+			      \]
+
+			\item \textbf{Repeat} steps 2–3 until convergence.
+		\end{enumerate}
+	\end{block}
+
+
+	\vspace{0.3em}
+
+	\uncover<2>{
+		\begin{columns}
+			\begin{column}{0.7\textwidth}
+
+				{
+					\color{gray!80}
+					\textit{
+						$\ldots$ centroids minimize error inside intervals, boundaries balance errors between neighboring intervals.
+					}
+				}
+			\end{column}
+		\end{columns}
+	}
+
+
+
+\end{frame}
+
+\questionslide{
+	\begin{itemize}
+		\item does the algorithm actually make sense? it was not in the paper explicitly, I think.
+		\item Is the algorithm too small on the second slide?
+		\item We cannot use a screenshot and need a proper plot
+	\end{itemize}
+
+}
+
+
+%
