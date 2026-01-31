@@ -24,18 +24,30 @@
 			ylabel={Normalized Cost \,$\mathcal{J}_{N,\text{per}}$},
 			ylabel style={at={(axis description cs:-0.06,0.5)}, rotate=90, anchor=south},
 			grid=both,
+			xminorgrids=false,
 			grid style = {black!20, densely dashed},
 			ymin=0, ymax=2.5,
 			minor ytick={0.5,1.5},
 			xmin=0,xmax=500,
 			ytick={0,1,2},
-			xtick={10,100,200,300,400},
-			%minor xtick={0.5,1.5,2.5},
+			xtick={100,200,300,400},
+			extra x ticks={10,60},
 			tick style={line width=0.8pt},
-			axis line style={black!50}
+			extra x tick labels={10,60},
+			extra x tick style={
+					opacity=0.7, grid=none,prediction,
+					tick style = {draw=none}
+				}
 		]
 
 		\addplot[on layer=axis background, no marks, prediction, ultra thick] table[x index=0, y index=1, col sep=comma] {./normalized_cost_vs_N.csv};
+
+		\addplot[color = prediction, mark=*,  mark size=1.5pt, only marks, ultra thick] coordinates {(10,2.295) (60,0.60335)};
+
+		\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(60,0.60335) (60,0)};
+
+		\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(10,2.295) (10,0)};
+
 
 	\end{axis}
 

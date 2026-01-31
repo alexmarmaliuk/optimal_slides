@@ -13,7 +13,7 @@
 			\only<1>{
 				\begin{block}{Sampling}
 					\begin{itemize}
-						\item $\{\,t_0,\, t_1, \ldots, t_N\}$: Sampling pattern
+						\item $\{\,t_0,\, t_1, \ldots, t_N\,\}$: Sampling pattern
 						\item $t_k$: Sampling instants
 						\item $\tau_k = t_{k+1} - t_k$: Interarrival times
 					\end{itemize}
@@ -103,18 +103,15 @@
 	\right.
 	\)
 	\bigskip
-	\begin{tcolorbox}[
-			width=7cm,
-			colback=darkcerulean!30!white,
-			colframe=darkcerulean,
-		]
+	\begin{equationboxtext}[7cm]
 		\centering
 		\begin{itemize}
 			\item $x\,(t) \in \mathbb{R}^n$: system state
 			\item $u\,(t) \in \mathbb{R}^m$: system input
-			\item $A,\,B,\,Q,\,R,\,S$ : constant matrices
+			\item $A,\,B,\,Q,\,R,\,S$: constant matrices
 		\end{itemize}
-	\end{tcolorbox}
+		% }
+	\end{equationboxtext}
 
 \end{frame}
 
@@ -181,7 +178,7 @@
 
 	\begin{overlayarea}{\textwidth}{5cm}
 
-		\only<1>{
+		\only<2>{
 			\newcommand{\arrowlenshort}{2.2cm}
 			\newcommand{\arrowlen}{2.9cm}
 			\vspace{0.5cm}
@@ -223,7 +220,7 @@
 			\end{tikzpicture}
 		}
 
-		\only<2>{
+		\only<3>{
 			\begin{itemize}
 				\setlength{\itemsep}{\bulletSpacing}
 				\item Sampling Density and Sampling Method Cost

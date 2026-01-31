@@ -1,6 +1,6 @@
 % ==========================================================================
 \begin{frame}{Optimal Control: Discrete-Time Systems}
-	Given the time points $\{ t_0, \ldots, t_N\}$, with interarrivals $\tau_k, k \in \{ 0, \ldots, N \} $, the discrete-time state space equations are:
+	Given the time points $\{ t_0, \ldots, t_N\}$, with interarrivals $\tau_k, \,k \in \{ 0, \ldots, N \} $, the discrete-time state space equations are:
 
 	\bigskip
 	\centering
@@ -15,16 +15,8 @@
 
 	\bigskip
 	\pause
-	\begin{tcolorbox}[
-			width=13cm,
-			colback=darkcerulean!30!white,
-			colframe=darkcerulean,
-		]
-		\centering
-		% \begin{itemize}
-		% 	\item $\overline{A}_k = \Phi(\tau_k), \qquad \Phi(\tau) = e^{A \tau}\text{: State Transition Operator}$
-		% 	\item $\displaystyle\overline{B}_k = {\Gamma}(\tau_k), \qquad {\Gamma}(\tau) = \int_0^{\tau}\, e^{A (\tau - t)}\, dt\, B \text{: }$
-		% \end{itemize}
+	\centering
+	\begin{equationboxtext}
 		\begin{center}
 			\begin{tabular}{@{} l c l @{}}
 				$\overline{A}_k = \Phi(\tau_k)$
@@ -38,23 +30,26 @@
 			\end{tabular}
 		\end{center}
 		\vspace{-0.4cm}
-	\end{tcolorbox}
+	\end{equationboxtext}
 
 \end{frame}
 
 
 % ==========================================================================
 
+\newcommand{\LineMove}{-2.1cm}
+
 \begin{frame}{Performance Index for Discrete-Time Systems}
 
-	{\footnotesize
+	% we want to put pause between each of these equation lines, doesn't work -- eq just disappears
+	{\small
 		\begin{eqnarray*}
-			&&\hspace{-1.7cm}\int_0^T \left( x'(t)\,Q\,x\,(t) + \overline{u}'(t)\,R\,\overline{u}\,(t) \right) dt + x'(T)\,S\,x\,(T)\\[3mm]
+			&&\hspace{\LineMove}\int_0^T \left( x'(t)\,Q\,x\,(t) + \overline{u}'(t)\,R\,\overline{u}\,(t) \right) dt + x'(T)\,S\,x\,(T)\\[3mm]
 			\only<1>{
-				&&\hspace{-1.7cm}= \sum_{k=0}^{N-1} \Bigg[\int_{t_k}^{t_{k+1}} \left( x'(t)\,Q\,x\,(t) + \overline{u}'(t)\,R\,\overline{u}\,(t) \right) dt + x'(T)\,S\,x\,(T)\Bigg]\\[3mm]
-				&&\hspace{-1.7cm}= \sum_{k=0}^{N-1} \Bigg[ \int_{t_k}^{t_{k+1}} \left( \Phi\,x_k + \Gamma\,u_k\right)'\,Q\, \left( \Phi\,x_k + \Gamma\,u_k \right)dt + \int_{t_k}^{t_{k+1}} u'_{k} \,R\,u_{k} \Bigg] + x'(T)\,S\,x\,(T)\\[3mm]
+				&& \hspace{\LineMove}= \sum_{k=0}^{N-1} \Bigg[\int_{t_k}^{t_{k+1}} \left( x'(t)\,Q\,x\,(t) + \overline{u}'(t)\,R\,\overline{u}\,(t) \right) dt + x'(T)\,S\,x\,(T)\Bigg]\\[3mm]
+				&& \hspace{\LineMove}= \sum_{k=0}^{N-1} \Bigg[ \int_{t_k}^{t_{k+1}} \left( \Phi\,x_k + \Gamma\,u_k\right)'\,Q\, \left( \Phi\,x_k + \Gamma\,u_k \right)dt + \int_{t_k}^{t_{k+1}} u'_{k} \,R\,u_{k} \Bigg] + x'(T)\,S\,x\,(T)\\[3mm]
 			}
-			&&\hspace{-1.7cm}= \sum_{k=0}^{N-1} \Bigg[x_k' \underbrace{\Bigg( \int_{t_k}^{t_{k+1}} \Phi' Q\, \Phi \, dt \Bigg) }_{\overline{Q}}x_k +u_k'\underbrace{ \Bigg(
+			&&\hspace{\LineMove}= \sum_{k=0}^{N-1} \Bigg[x_k' \underbrace{\Bigg( \int_{t_k}^{t_{k+1}} \Phi' Q\, \Phi \, dt \Bigg) }_{\overline{Q}}x_k +u_k'\underbrace{ \Bigg(
 					\int_{t_k}^{t_{k+1}} \Gamma' Q \Gamma dt
 					+ \underbrace{\int_{t_k}^{t_{k+1}} R dt}_{\tau_k R}
 					\Bigg) }_{\overline{R}} u_k + 2 x_k' \underbrace{\Bigg( \int_{t_k}^{t_{k+1}} \Phi' Q\, \Gamma \,dt \Bigg)}_{\overline{P}}u_k\Bigg] + x'(T)\,S\,x\,(T)\\
@@ -62,15 +57,14 @@
 	}
 
 	\only<2>{
-		\begin{tcolorbox}[
-				width=13cm,
-				colback=darkcerulean!30!white,
-				colframe=darkcerulean,
-			]
-			\[
-				\mathcal{J}(\overline{u}) = \sum_{k=0}^{N-1} \Big( x_k' \,\overline{Q}\, x_k + u_k' \,\overline{R}\, u_k + 2 x_k' \,\overline{P}\, u_k \Big) + x_N' \,S\, x_N
-			\]
-		\end{tcolorbox}
+		% \begin{tcolorbox}[
+		% 		width=13cm,
+		% 		colback=darkcerulean!30!white,
+		% 		colframe=darkcerulean,
+		% 	]
+		\begin{equationbox}[13cm]
+			\mathcal{J}(\overline{u}) = \sum_{k=0}^{N-1} \Big( x_k' \,\overline{Q}\, x_k + u_k' \,\overline{R}\, u_k + 2 x_k' \,\overline{P}\, u_k \Big) + x_N' \,S\, x_N
+		\end{equationbox}
 	}
 
 \end{frame}
@@ -78,7 +72,7 @@
 
 \commentslide{
 	\begin{itemize}
-		\item we used \textbackslash footnotesize; not too small?
-		\item cannot use \textbackslash within eqarray (so that equations on the first "Performance Index for Discrete-Time Systems" slide appear one by one). any alternatives, without deconstruction into separate equations?
+		\item cannot use \textbackslash pause within eqarray (so that equations on the first "Performance Index for Discrete-Time Systems" slide appear one by one). any alternatives, without deconstruction into separate equations? Additional comment in code!
+		\item and the first line of equations shouldnt jump!
 	\end{itemize}
 }
