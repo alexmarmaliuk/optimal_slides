@@ -1,0 +1,378 @@
+\begin{frame}{Optimal Sampling}
+	
+	\begin{block}{Discrete-Time Optimal Cost}
+		For a fixed sampling pattern $\{\tau_0,\dots,\tau_{N-1}\}$,
+		the optimal cost is
+		\[
+			\mathcal{J} = x_0^\top \bar{K}_0 x_0,
+		\]
+		where $\bar{K}_k$ satisfies the Riccati recursion
+		\[
+			\bar{K}_k = r(\tau_k, \bar{K}_{k+1}), 
+			\bar{K}_N = S.
+		\]
+		
+	\end{block}
+	
+	
+	$\bar{K}_k$ depends only on the current and future
+	sampling intervals $\{\tau_k,\tau_{k+1},\dots,\tau_{N-1}\}$.
+	Hence,
+	\[
+		h < k \;\Rightarrow\;
+		\frac{\partial \bar{K}_k}{\partial \tau_h} = 0.
+	\]
+	
+	
+	
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}{Optimal Sampling: Necessary Optimality Condition}
+	
+	\begin{block}{KKT Optimality Condition}
+		The sampling intervals satisfy
+		\[
+			\sum_{k=0}^{N-1} \tau_k = T.
+		\]
+		At the optimal sampling pattern, the gradient of the cost
+		must be proportional to $[1,\,1,\,\dots,\,1]$
+		which implies that
+		\[
+			\frac{\partial \mathcal{J}}{\partial \tau_h}
+			=
+			\frac{\partial \mathcal{J}}{\partial \tau_{h+1}},
+			\qquad h = 0,\dots,N-2.
+		\]
+	\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+	\begin{block}{Riccati-Based Condition}
+		Using the chain rule on the Riccati recursion, this condition
+		can be rewritten as
+		\[
+			x_0^\top
+			\left[
+				\frac{\partial r}{\partial \tau}
+				\bigl(\tau_h,\, \bar{K}_{h+1}\bigr)
+				-
+				\frac{\partial r}{\partial \bar{K}}
+				\bigl(\tau_h,\, \bar{K}_{h+1}\bigr)
+				\,
+				\frac{\partial r}{\partial \tau}
+				\bigl(\tau_{h+1},\, \bar{K}_{h+2}\bigr)
+				\right]
+			= 0
+		\]
+		
+	\end{block}
+	
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Optimal Sampling: First Order Systems}
+	\begin{block}{Discrete-Time Riccati Recursion}
+		In discrete time, the Riccati recursion has the form:
+		\[
+			\bar{K}_k = r(\tau_k, \bar{K}_{k+1})
+		\]
+		
+		\vspace{-1em}
+		For a first-order system ($n=1$), the recurrence function $r$ becomes 
+		a scalar rational function of $\tau$ and $\bar{K}$.
+		
+		\[r(\tau, \bar{K}) = \frac{ \bar{Q}_k \bar{R}_k - \bar{P}_k^2 + (\bar{A}_k^2 \bar{R}_k - 2 \bar{A}_k \bar{B}_k \bar{P}_k + \bar{B}_k^2 \bar{Q}_k) \bar{K}
+			}{ \bar{R}_k + \bar{B}_k^2 \bar{K} }.
+		\]
+		
+		\vspace{-1em}
+		\bigskip
+		With partial derivatives of $r(\tau, \bar{K}): \frac{\partial r}{\partial \tau}, \frac{\partial r}{\partial \bar{K}}$
+		
+	\end{block}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Normalized Cost %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Necessary Condition for Optimal Sampling}
+	\begin{block}{General Optimality Condition}
+		The general necessary condition for optimality is
+		\[
+			\frac{\partial \mathcal{J}}{\partial \tau_h} = 0.
+		\]
+	\end{block}
+	
+	Using the Riccati recursion and the chain rule, this condition becomes
+	\[
+		\frac{\partial r}{\partial \tau}
+		\bigl(\tau_h,\, r(\tau_{h+1}, \bar{K}_{h+2})\bigr)
+		-
+		\frac{\partial r}{\partial \bar{K}}
+		\bigl(\tau_h,\, r(\tau_{h+1}, \bar{K}_{h+2})\bigr)
+		\cdot
+		\frac{\partial r}{\partial \tau}
+		\bigl(\tau_{h+1},\, \bar{K}_{h+2}\bigr)
+		= 0
+	\]
+	
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Normalized Cost %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Quantization-Based Sampling}
+	\begin{block}{Quantization based Sampling}
+		Quantization-based sampling approximates a continuous input $u(t)$
+		by a piecewise-constant function $\bar{u}(t)$ with $N$ values,
+		aiming to minimize the approximation error. This method provides a near-minimal cost.
+	\end{block}
+	
+	The quantization error is defined as
+	\[
+		E_{\text{qnt}} =
+		\sum_{k=0}^{N-1}
+		\int_{t_k}^{t_{k+1}}
+		|u(t) - u_k|^2 \, dt.
+	\]
+	
+	\begin{itemize}
+		\item Unknowns: constants $u_k$ and instants $t_k$
+		\item Both values and sampling instants are optimized
+	\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Normalized Cost %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Quantization: Optimality Conditions}
+	Differentiating $E_{\text{qnt}}$ with respect to $u_k$ yields
+	\[
+		u_k =
+		\frac{1}{t_{k+1}-t_k}
+		\int_{t_k}^{t_{k+1}} u(t)\,dt.
+	\]
+	
+	\bigskip
+	
+	Differentiating $E_{\text{qnt}}$ with respect to $t_k$ gives
+	\[
+		|u_{k-1} - u(t_k)|^2
+		=
+		|u_k - u(t_k)|^2
+	\]
+	
+	\begin{itemize}
+		\item This method is appplicable for any linear system with dimension of input space $m = 1$ and any dimension $n$ of the state space.
+		\item Sampling instants are chosen so that the approximation error is
+		      balanced across intervals.
+	\end{itemize}
+	
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Asymptotic Quantization}
+	As $N \to \infty$, $\tau_k = 0$:
+	\begin{itemize}
+		\item Sampling intervals shrink
+		\item Piecewise-constant approximation becomes dense
+		\item Sampling pattern converges to a sampling density
+	\end{itemize}
+	
+	For a scalar input ($m=1$), known results from optimal quantization imply
+	\[
+		\sigma(t) \propto |\dot{u}(t)|^{\frac{p}{p+1}}.
+	\]
+	
+	Choosing $p=2$ (norm = $2$), we obtain the quantization density
+	\[
+		\sigma_{\text{qnt}}(t) =
+		\frac{
+			|\dot{u}(t)|^{2/3}
+		}{
+			\int_0^T |\dot{u}(s)|^{2/3} ds
+		}
+	\]
+	
+\end{frame}
+
+
+% Question slide
+\begin{frame}{NOTES}
+	\begin{questionbox}
+		Explanation for denominator s and should eqn.28 be added?(sampling instants)
+	\end{questionbox}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Lemma 6}
+	
+	For the first-order systems, the asymptotic quantization density $\sigma_{\text{qnt}}$ coincides with the optimal sampling density $\sigma_{\text{opt}}$.
+	
+	\bigskip
+	{Assumptions (for simplification):}
+	\begin{itemize}
+		\item $B = 1$, $R = 1$
+		\item $Q = 0$, $A > 0$
+		\item $S = K_\infty = A + \sqrt{A^2 + Q}$
+	\end{itemize}
+	\bigskip
+	These assumptions enables us to have an expression for optimal continuous-time input u:
+	$u(t) = -x_0 (A + \sqrt{A^2 + Q}) e^{-\sqrt{A^2 + Q}\, t}.$
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Asymptotic Optimal Sampling Density}
+	For small sampling intervals:
+	\begin{itemize}
+		\item $A_k R_k \neq B_k P_k$
+		\item $\tau_h \to \tau_{h+1}$ as both tend to zero
+	\end{itemize}
+	
+	We obtain the expansion
+	\[
+		\tau_h
+		=
+		\alpha \tau_{h+1}
+		+
+		\beta \tau_{h+1}^2
+		+
+		o(\tau_{h+1}^2)
+	\]
+	
+	
+	Equating constant terms yields
+	\[
+		\alpha = 1,
+		\qquad
+		\beta = -\frac{2}{3}
+		\frac{(Q+A^2)\bar{K}_{h+2}}{Q + A \bar{K}_{h+2}}.
+	\]
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Asymptotic Optimal Sampling Density}
+	
+	
+	The asymptotic sampling density of the optimal pattern
+	$\sigma_{\text{opt}}(t)$ satisfies the differential equation
+	\[
+		\dot{\sigma}_{\text{opt}}(t)
+		=
+		-\frac{2}{3}
+		\frac{(Q+A^2)\,K(t)}{Q + A K(t)}
+		\,\sigma_{\text{opt}}(t),
+	\]
+	where $K(t)$ is the solution of the continuous-time Riccati equation.
+	
+	
+	When $S = K_\infty = A + \sqrt{A^2 + Q}$
+	\[
+		\dot{\sigma}_{\text{opt}}(t)
+		=
+		-\frac{2}{3}\sqrt{Q+A^2}\,\sigma_{\text{opt}}(t),
+	\]
+	results in
+	\[
+		\sigma_{\text{opt}}(t)
+		=
+		c\,e^{-\frac{2}{3}\sqrt{Q+A^2}\,t},
+		\qquad
+		\int_0^T \sigma_{\text{opt}}(t)\,dt = 1.
+	\]
+	
+	
+	\begin{block}{Key Result}
+		Using the expression of the optimal continuous-time input,
+		\[
+			\sigma_{\text{opt}}(t) \;\propto\; |\dot{u}(t)|^{2/3}.
+		\]
+		
+	\end{block}
+	
+\end{frame}
+
+
+% Question slide
+\begin{frame}{NOTES}
+	\begin{questionbox}
+		Layout issue in the Key result block
+	\end{questionbox}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}{Lemma 7: Asymptotic Normalized Cost}
+	\begin{block}{Lemma 7}
+		For a sampling method $m_\alpha$ with asymptotic density
+		\[
+			\sigma_{m_\alpha}(t)
+			=
+			\frac{\alpha(S-A)}{1 - e^{-\alpha(S-A)T}}
+			e^{-\alpha(S-A)t}
+			\propto |\dot{u}(t)|^\alpha,
+		\]
+		the asymptotic normalized cost is
+		\[
+			c_{m_\alpha}
+			=
+			\frac{S}{12 (S-A) T^2}
+			\,
+			\frac{1 - e^{-2(1-\alpha)(S-A)T}}{2(1-\alpha)}
+			\,
+			\frac{1 - e^{-\alpha (S-A)T}}{\alpha}
+		\]
+		
+	\end{block}
+\end{frame}
+
+
+
+% Question slide
+\begin{frame}{NOTES}
+	\begin{questionbox}
+		Are backup slides enough for lemma 6 and lemma 7?
+	\end{questionbox}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}{Results}
+	
+	\begin{itemize}
+		\item Optimal sampling for linear control systems depends on the system dynamics and cost.
+		      
+		\item For first-order systems, the optimal sampling pattern can be
+		      characterized by an \textbf{asymptotic sampling density}.
+		      
+		\item The optimal density admits the closed-form structure
+		      \[
+			      \sigma_{\text{opt}}(t) \propto |\dot{u}(t)|^{2/3}.
+		      \]
+		      
+		\item This density coincides with that obtained from
+		      \textbf{quantization-based sampling} of the optimal continuous-time input.
+		      
+		\item Optimal and quantization-based sampling achieve a
+		      \textbf{lower asymptotic cost} than periodic sampling.
+	\end{itemize}
+	
+	
+\end{frame}
+
+% Question slide
+\begin{frame}{NOTES}
+	\begin{questionbox}
+		Is result content fine or should I add more explanation?
+	\end{questionbox}
+\end{frame}
