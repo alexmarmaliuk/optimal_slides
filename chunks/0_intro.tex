@@ -1,8 +1,9 @@
 \begin{frame}{Sampling}
-	\begin{columns}
+	\begin{columns}[c]
 
 		% LEFT: always visible
 		\begin{column}{0.6\textwidth}
+			\vspace{3mm}
 			\includegraphics[width=\textwidth]{plots/state_plot_new.pdf}
 		\end{column}
 
@@ -10,6 +11,7 @@
 		\begin{column}{0.6\textwidth}
 
 			% Overlay 1: text block
+			\begin{overprint}
 			\only<1>{
 				\begin{block}{Sampling}
 					\begin{itemize}
@@ -19,12 +21,11 @@
 					\end{itemize}
 				\end{block}
 			}
-
 			% Overlay 2: control plot
 			\only<2>{
 				\includegraphics[width=\textwidth]{plots/control_plot.pdf}
 			}
-
+			\end{overprint}
 		\end{column}
 
 	\end{columns}
