@@ -152,7 +152,7 @@
 
 	\note<1>{\begin{itemize}
 			\item as mentioned earlier, sampling density tells us how the sampling instants are distributed over time
-			\item we divide the interval $[0,T]$ into $N$ subintervals $$[t_k, t_{k+1})$$ based on the sampling instants
+			\item we divide the interval $[0,T]$ into $N$ subintervals $[t_k, t_{k+1})$ based on the sampling instants
 			\item now sampling density is defined within each subinterval
 			\item it is defined as the inverse of the product of the number of samples and the interarrival time
 			\item this means that if the interarrival time is small (smaller subintervals), the sampling density is high, indicating that we are sampling more frequently in that interval
@@ -319,7 +319,7 @@
 	\pause
 	For $N \in \mathbb{N}$, we get the constant sampling density
 	\[
-		\sigma_{per, \,N}(t) = \frac{1}{N\cdot \tau_k}
+		\sigma_{N,\,\text{per}}(t) = \frac{1}{N\cdot \tau_k}
 		= \frac{1}{N}\cdot \frac{N}{T}
 		= \frac{1}{T}
 	\]
@@ -427,9 +427,9 @@
 		\pause
 		& = & \lim\limits_{N \to \infty} \frac{N^2}{T^2} \, \frac{x_{0}' \, \left( K_\infty + X\cdot \frac{\tau^2}{2} + o(\tau^2) \right) \, x_0 - x_{0}' \, {K}_{\infty}\, x_0}{x_{0}' \, K_\infty \,x_0} \\[\LineSpacing]
 		\pause
-		& = & \lim\limits_{N \to \infty} \frac{N^2}{T^2} \, \frac{x_{0}' \, \left( K_\infty + X\cdot \frac{T^2}{2N^2} + o\left(\frac{T^2}{2N^2}\right) \right) \, x_0 - x_{0}' \, {K}_{\infty}\, x_0}{x_{0}' \, K_\infty \,x_0} \\[\LineSpacing]
+		& = & \lim\limits_{N \to \infty} \frac{N^2}{T^2} \, \frac{x_{0}' \, \left( K_\infty + X\cdot \frac{T^2}{2N^2} + o\left(\frac{T^2}{N^2}\right) \right) \, x_0 - x_{0}' \, {K}_{\infty}\, x_0}{x_{0}' \, K_\infty \,x_0} \\[\LineSpacing]
 		\pause
-		& = & \lim\limits_{N \to \infty} \frac{N^2}{T^2} \, \frac{x_0' \,\frac{XT^2}{2N^2} \, x_0 + x_0' \,o\left(N^{-2}\right)\,x_0}{x_{0}' \, K_\infty \,x_0}
+		& = & \lim\limits_{N \to \infty} \frac{N^2}{T^2} \, \frac{x_0' \,X\frac{T^2}{2N^2} \, x_0 + x_0' \,o\left(N^{-2}\right)\,x_0}{x_{0}' \, K_\infty \,x_0}
 		\pause
 		\, = \, \frac{x_0' \, X \, x_0}{2\, x_0'\, K_{\infty} \, x_0}
 	\end{eqnarray*}
@@ -756,7 +756,7 @@
 			\item we then rearrange the terms
 			\item we recognize that the integral from $t_k$ to $t_{k+1}$ is equal to the absolute difference $|u(t_{k+1}) - u(t_k)|$
 			\item $\frac{|u(t_{k+1}) - u(t_k)|}{t_{k+1} - t_k}$ is the difference quotient, i.e. the average rate of change of the control input over the interval $[t_k, t_{k+1}]$
-			\item By the mean value theorem, this difference quotient equals the derivative $\dot{u}(t)$ at some point t between t_k and t_{k+1}.
+			\item By the mean value theorem, this difference quotient equals the derivative $\dot{u}(t)$ at some point t between $t_k$ and $t_{k+1}$.
 			\item as $N$ goes to infinity, the interval $[t_k, t_{k+1}]$ shrinks to the point t in our interval, so the difference quotient converges to $\dot{u}(t)$
 			\item If $u(t)$ changes quickly at time $t$, $|\dot{u}(t)|$ is large, so the density $\sigma_{\text{dls}}(t)$ is large and more samples are placed there
 			\item If $u(t)$ changes slowly, $|\dot{u}(t)|$ is small, so the density is small and fewer samples.
