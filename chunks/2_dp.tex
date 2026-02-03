@@ -76,19 +76,19 @@
 			\node[red] (unknown) at (4,0.6) {\emph{Unknown at this point!}};
 			\draw[->, red] (unknown) -- (Jquad);
 
-			\node[scale=\ArrowScale] at (0,-1) {$\Downarrow$};
+			\onslide<2->{\node[scale=\ArrowScale] at (0,-1) {$\Downarrow$};}
 
-			\node (Jnext) at (0,-2) {$
+			\onslide<2->{\node (Jnext) at (0,-2) {$
 					\mathcal{J}_{k+1}(\overline A_k x + \overline B_k u)
 					=
 					(\overline A_k x + \overline B_k u)' \,\overline K_{k+1}\,(\overline A_k x + \overline B_k u)
-				$};
+				$};}
 
-			\node[gray] (plug) at (4,-3.1) {Plug into \textbf{Bellman equation}};
-			\node[scale=\ArrowScale] at (0,-3.1) {$\Downarrow$};
+			\onslide<3->{\node[gray] (plug) at (4,-3.1) {Plug into \textbf{Bellman equation}};}
+			\onslide<3->{\node[scale=\ArrowScale] at (0,-3.1) {$\Downarrow$};}
 
-			\node (expanded) at (0,-5) [align=center] {
-				\only<1>{$
+			\onslide<3->{\node (expanded) at (0,-5) [align=center] {
+				\only<3>{$
 						\mathcal{J}_k(x)
 						=\;
 						x'
@@ -104,7 +104,7 @@
 						\underbrace{(\overline P_k + \overline A_k'\, \overline K_{k+1}\, \overline B_k)}_{\hat S_k}
 						u
 					$}
-				\only<2->{
+				\only<4->{
 					\begin{equationbox}[8cm]
 						\mathcal{J}_k(x)
 						=\;
@@ -122,7 +122,7 @@
 						u
 					\end{equationbox}
 				}
-			};
+			};}
 		\end{scope}
 	\end{tikzpicture}
 \end{frame}
