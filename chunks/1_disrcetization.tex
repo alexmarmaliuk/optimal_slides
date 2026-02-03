@@ -44,35 +44,24 @@
 	% we want to put pause between each of these equation lines, doesn't work -- eq just disappears
 	{\small
 		\begin{eqnarray*}
-			&&\hspace{\LineMove}\int_0^T \left( x'(t)\,Q\,x\,(t) + \overline{u}'(t)\,R\,\overline{u}\,(t) \right) dt + x'(T)\,S\,x\,(T)\\[3mm]
-			\only<1>{
-				&& \hspace{\LineMove}= \sum_{k=0}^{N-1} \Bigg[\int_{t_k}^{t_{k+1}} \left( x'(t)\,Q\,x\,(t) + \overline{u}'(t)\,R\,\overline{u}\,(t) \right) dt + x'(T)\,S\,x\,(T)\Bigg]\\[3mm]
-				&& \hspace{\LineMove}= \sum_{k=0}^{N-1} \Bigg[ \int_{t_k}^{t_{k+1}} \left( \Phi\,x_k + \Gamma\,u_k\right)'\,Q\, \left( \Phi\,x_k + \Gamma\,u_k \right)dt + \int_{t_k}^{t_{k+1}} u'_{k} \,R\,u_{k} \Bigg] + x'(T)\,S\,x\,(T)\\[3mm]
-			}
-			&&\hspace{\LineMove}= \sum_{k=0}^{N-1} \Bigg[x_k' \underbrace{\Bigg( \int_{t_k}^{t_{k+1}} \Phi' Q\, \Phi \, dt \Bigg) }_{\overline{Q}}x_k +u_k'\underbrace{ \Bigg(
+			\onslide<1->{&&\hspace{\LineMove}\int_0^T \left( x'(t)\,Q\,x\,(t) + \overline{u}'(t)\,R\,\overline{u}\,(t) \right) dt + x'(T)\,S\,x\,(T)\\}
+				\only<1-3>{&& \hspace{\LineMove}= \sum_{k=0}^{N-1} \Bigg[\int_{t_k}^{t_{k+1}} \left( x'(t)\,Q\,x\,(t) + \overline{u}'(t)\,R\,\overline{u}\,(t) \right) dt + x'(T)\,S\,x\,(T)\Bigg]\\}
+				\only<2-3>{&& \hspace{\LineMove}= \sum_{k=0}^{N-1} \Bigg[ \int_{t_k}^{t_{k+1}} \left( \Phi\,x_k + \Gamma\,u_k\right)'\,Q\, \left( \Phi\,x_k + \Gamma\,u_k \right)dt + \int_{t_k}^{t_{k+1}} u'_{k} \,R\,u_{k} \Bigg] + x'(T)\,S\,x\,(T)\\}
+			\onslide<3->{&&\hspace{\LineMove}= \sum_{k=0}^{N-1} \Bigg[x_k' \underbrace{\Bigg( \int_{t_k}^{t_{k+1}} \Phi' Q\, \Phi \, dt \Bigg) }_{\overline{Q}}x_k +u_k'\underbrace{ \Bigg(
 					\int_{t_k}^{t_{k+1}} \Gamma' Q \Gamma dt
 					+ \underbrace{\int_{t_k}^{t_{k+1}} R dt}_{\tau_k R}
-					\Bigg) }_{\overline{R}} u_k + 2 x_k' \underbrace{\Bigg( \int_{t_k}^{t_{k+1}} \Phi' Q\, \Gamma \,dt \Bigg)}_{\overline{P}}u_k\Bigg] + x'(T)\,S\,x\,(T)\\
+					\Bigg) }_{\overline{R}} u_k + 2 x_k' \underbrace{\Bigg( \int_{t_k}^{t_{k+1}} \Phi' Q\, \Gamma \,dt \Bigg)}_{\overline{P}}u_k\Bigg] + x'(T)\,S\,x\,(T)\\}
 		\end{eqnarray*}
 	}
 
-	\only<2>{
 		% \begin{tcolorbox}[
 		% 		width=13cm,
 		% 		colback=darkcerulean!30!white,
 		% 		colframe=darkcerulean,
 		% 	]
+		\onslide<4->{
 		\begin{equationbox}[13cm]
 			\mathcal{J}(\overline{u}) = \sum_{k=0}^{N-1} \Big( x_k' \,\overline{Q}\, x_k + u_k' \,\overline{R}\, u_k + 2 x_k' \,\overline{P}\, u_k \Big) + x_N' \,S\, x_N
-		\end{equationbox}
-	}
+		\end{equationbox}}
 
 \end{frame}
-
-
-\commentslide{
-	\begin{itemize}
-		\item cannot use \textbackslash pause within eqarray (so that equations on the first "Performance Index for Discrete-Time Systems" slide appear one by one). any alternatives, without deconstruction into separate equations? Additional comment in code!
-		\item and the first line of equations shouldnt jump!
-	\end{itemize}
-}

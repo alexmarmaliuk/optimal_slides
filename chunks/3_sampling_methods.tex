@@ -120,16 +120,7 @@
 	\vspace{-0.3cm}
 
 	\begin{overlayarea}{\textwidth}{6cm}
-		\only<3>{
-			\begin{block}{Asymptotic Sampling Density}
-				To remove the dependency on $N$, we define the \emph{asymptotic sampling density} as $\sigma_{m}:[0,T] \to \mathbb{R}^{+}$ as the limit
-				\[
-					\sigma_{m}(t) = \lim_{N \to \infty} \sigma_{N,m}(t)
-				\]
-			\end{block}
-		}
-
-		\uncover<4->{\begin{example}[$T=5$, $N=4$]
+		\only<3-4>{\begin{example}[$T=5$, $N=4$]
 
 				\begin{tabular}{@{}p{0.5\linewidth}@{} p{0.5\linewidth}@{}}
 					\hspace{-0.1cm}
@@ -137,7 +128,7 @@
 
 					\includegraphics[width=\linewidth]{plots/density_plot.pdf}
 					 &
-					\uncover<5>{
+					\only<4>{
 						\vspace{-0.3cm}
 						\begin{itemize}
 							\item $\sigma_4\,(t) = \frac{1}{4\,\cdot\,1} = \frac{1}{4}, \quad \forall t \in [0,1)$\\[0.3cm]
@@ -147,6 +138,14 @@
 				\end{tabular}
 
 			\end{example}
+		}
+		\uncover<5->{
+			\begin{block}{Asymptotic Sampling Density}
+				To remove the dependency on $N$, we define the \emph{asymptotic sampling density} as $\sigma_{m}:[0,T] \to \mathbb{R}^{+}$ as the limit
+				\[
+					\sigma_{m}(t) = \lim_{N \to \infty} \sigma_{N,m}(t)
+				\]
+			\end{block}
 		}
 	\end{overlayarea}
 
@@ -183,8 +182,6 @@
 		\end{itemize}}
 
 \end{frame}
-
-\questionslide{Is it okay that the derivation for sampling density being normalized is shown afterwards or should it also be shown directly? Right now it also stays for the following slides, should the item for the normalized disappear afterwards?}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Normalized Cost %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
