@@ -293,13 +293,6 @@
 
 \end{frame}
 
-\questionslide{
-	\begin{itemize}
-		\item Is it okay that we started at $N=10$ and also the way we denoted it in the graph, or is the x axis too chaotic?
-		\item Plot good? do $x$ labels $10$ and $60$ look weird?
-	\end{itemize}
-}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Periodic Sampling %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{Periodic Sampling}
@@ -345,14 +338,13 @@
 \end{frame}
 
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Periodic Sampling: Optimal Control}
 	For sampling period $\tau$, the solution $\overline{K}\,(\tau)$ of the discrete-time Riccati equation can be determined analytically as
 
 	\[
-		\overline{K}\,(\tau) = K_{\infty} + X \cdot \frac{\tau^2}{2} + o(\tau^2) \quad [1]
+		\overline{K}\,(\tau) = K_{\infty} + X \cdot \frac{\tau^2}{2} + o(\tau^2)
 	\]
 
 	where $K_{\infty}$ is the solution of the Riccati equation in continuous-time, and $X$ is the solution of a Lyapunov equation\footnote{}
@@ -394,11 +386,6 @@
 		\end{itemize}}
 
 \end{frame}
-
-% Question slide
-\questionslide{
-	Should there be a [1] in the equation, or only after Lyapunov equation?
-}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -673,7 +660,6 @@
 	}
 \end{frame}
 
-\questionslide{To make the elements appear step by step in slide 22, I did the tikzpicture directly in the frame instead of including the plot as pdf. Slide 21 is still the pdf version. I noted that they actually look different, which one is the prefered one, as so far we always include pdfs. Should we change the other plots too, to have the tikzpicture directly in the frame?}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -697,7 +683,11 @@
 
 	\begin{eqnarray*}
 		\int_{t_k}^{t_{k+1}} \left|\,\dot{u}\,(t)\,\right|\,dt & = & |\,u\,(t_{k+1}) - u\,(t_{k})\,| \, = \, \Delta \\[\LineSpacing]
-		\pause & = & \frac{1}{N} \cdot \underbrace{\int_{0}^T \, \left|\, \dot{u}\,(s) \,\right| \, ds}_{N\cdot\Delta}
+		\pause & = & \frac{1}{N} \cdot
+		\only<1>{\vphantom{\underbrace{\int_{0}^T \, \left|\, \dot{u}\,(s) \,\right| \, ds}_{N\cdot\Delta}}}
+		\only<2>{\vphantom{\underbrace{\int_{0}^T \, \left|\, \dot{u}\,(s) \,\right| \, ds}_{N\cdot\Delta}}
+		   \int_{0}^T \, \left|\, \dot{u}\,(s) \,\right| \, ds}
+		\only<3>{\,\underbrace{\int_{0}^T \, \left|\, \dot{u}\,(s) \,\right| \, ds}_{N\cdot\Delta}}
 	\end{eqnarray*}
 
 	\note{\begin{itemize}
@@ -717,10 +707,6 @@
 		\end{itemize}}
 \end{frame}
 
-\questionslide{\begin{itemize}
-		\item For the last two reminder boxes with the equation $\left\| \,u\,(t_{t+1}) - u(t_k)\, \right\|=\,\Delta$, should we write it with the absolute value instead, so $| \,u\,(t_{t+1}) - u(t_k)\, | =\,\Delta$, as both of them are cases for scalar input?
-		\item Wanted one more transition in between for slide 22, where the last equation appears without the underbrace first and then with it. Didnt manage to do so, with only the equations changed their places and uncover didnt work :(
-	\end{itemize}}
 \begin{frame}{Deterministic Lebesgue Sampling: Asymptotic Sampling Density}
 
 	\centering
@@ -764,10 +750,3 @@
 		\end{itemize}}
 
 \end{frame}
-
-
-\questionslide{
-	should we use \textbackslash displaystile for the integrals in fractions?
-	If we do, integral sign looks better, but the expression explodes a bit.
-
-}
