@@ -484,7 +484,7 @@
 			\item \textbf{Intuition:} Sample more frequently where the control changes faster
 			\item Sample whenever the optimal $u$ changes by a fixed threshold $\Delta$, so after any sampling instant $t_k$, the next $t_{k+1}$ is determined s.t.
 			      $$
-				      \left\| \,u\,(t_{t+1}) - u(t_k)\, \right\|=\,\Delta
+				      \left\| \,u\,(t_{k+1}) - u(t_k)\, \right\|=\,\Delta
 			      $$
 
 			      where $u$ is the optimal continuous-time input
@@ -502,7 +502,7 @@
 		\centering
 		\vspace{-0.4cm}
 		\begin{equationbox}[6cm]
-			\left\| \,u\,(t_{t+1}) - u(t_k)\, \right\|=\,\Delta
+			\left\| \,u\,(t_{k+1}) - u(t_k)\, \right\|=\,\Delta
 		\end{equationbox}
 		\vspace{-0.2cm}
 		\begin{example}[$\Delta=7$]
@@ -641,7 +641,7 @@
 	\centering
 
 	\begin{equationbox}[6cm]
-		\left\| \,u\,(t_{t+1}) - u(t_k)\, \right\|=\,\Delta
+		\left\| \,u\,(t_{k+1}) - u(t_k)\, \right\|=\,\Delta
 	\end{equationbox}
 	\bigskip
 
