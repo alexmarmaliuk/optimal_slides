@@ -107,7 +107,7 @@
 	\vspace{-0.5cm}
 
 	\begin{block}{Sampling Density}
-		Given $x_0$, $A$, $B$, $Q$, $R$, and $S$, and interval length $T$, and a number of samples $N$, the \emph{sampling density} $\sigma_{N,m}:[0,T] \to \mathbb{R}^{+}$ of any sampling method $m$ is defined as
+		Given a sampling sequence $t_0=0,\,t_1,\, \ldots, t_N =T$, we define the \emph{sampling density} $\sigma_{N,m}:[0,T) \to \mathbb{R}^{+}$ of any sampling method $m$ as
 		\[
 			\sigma_{N,m}(t) = \frac{1}{N\,\tau_{k}} \quad \forall t \in [t_k, t_{k+1}), \quad k \in \{0, \ldots, N-1\}
 		\]
@@ -128,7 +128,7 @@
 
 					\includegraphics[width=\linewidth]{plots/density_plot.pdf}
 					 &
-					\only<4>{
+					\uncover<4>{
 						\vspace{-0.3cm}
 						\begin{itemize}
 							\item $\sigma_4\,(t) = \frac{1}{4\,\cdot\,1} = \frac{1}{4}, \quad \forall t \in [0,1)$\\[0.3cm]
@@ -189,7 +189,7 @@
 \begin{frame}{Comparing Sampling Methods: Normalized Cost}
 
 	\begin{block}{Normalized Cost}
-		Given $x_0$, $A$, $B$, $Q$, $R$, and $S$, and interval length $T$, and a number of samples $N$, the \emph{normalized cost} of any sampling method $m$ is defined as
+		Given an interval length $T$, and a number of samples $N$, the \emph{normalized cost} $c_{N,m}$ of any sampling method $m$ is defined as
 		\[
 			c_{N,m} =\frac{N^2}{T^2} \frac{\mathcal{J}_{N,m} - \mathcal{J}_\infty}{\mathcal{J}_\infty}
 		\]
@@ -213,6 +213,7 @@
 			\item dividing by $\mathcal{J}_\infty$ normalizes this difference, giving us a relative measure of how much worse the sampled cost is compared to the optimal continuous-time cost, this makes it comparable across different systems and cost scales
 			\item this difference is then scaled by the square of the number of samples divided by the square of the total time interval
 			\item this scaling accounts for the fact that if we can achieve same cost with fewer samples, we want a penalty for taking more samples
+			\item what is the gain by taking a sample and what is the cost by sampling it
 			\item we divide by $T^2$ to normalize this scaling with respect to the length of the time interval
 			\item thus, a lower normalized cost indicates that the sampling method is more effective in approximating the continuous-time optimal control
 		\end{itemize}}
@@ -393,7 +394,7 @@
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
 			\begin{equationbox}[1\textwidth]
-				c_{N,\text{per}} =\frac{N^2}{T^2} \frac{\mathcal{J}_{N,\text{per}} - \mathcal{J}_\infty}{\mathcal{J}_\infty}
+				c_{N,\,\text{per}} =\frac{N^2}{T^2} \frac{\mathcal{J}_{N,\,\text{per}} - \mathcal{J}_\infty}{\mathcal{J}_\infty}
 			\end{equationbox}
 		\end{column}
 
@@ -496,70 +497,6 @@
 	}
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\only<2>{
-		\centering
-		\vspace{-0.3cm}
-		\begin{equationbox}[6cm]
-			\left\| \,u\,(t_{t+1}) - u(t_k)\, \right\|=\,\Delta
-		\end{equationbox}
-		\vspace{-0.2cm}
-		\begin{example}[$\Delta=7$]
-			\centering
-			\includegraphics[height=5.4cm]{plots/lebesgue_plot.pdf}
-		\end{example}
-	}
-
-
-	\note<1>{\begin{itemize}
-			\item the intuition behind lebesgue sampling is to sample more frequently in regions where the control changes rapidly
-			\item less often when it is relatively constant
-			\item instead of sampling at fixed time intervals, we let the behavior of the optimal continuous-time control determine the sampling instants
-			\item so of course we first need to calculate the optimal continuous-time control $u(t)$ for $t$ in $[0,T]$
-			\item then we set a fixed threshold $\Delta$ that defines how much the control needs to change before we take a new sample
-			\item we sample whenever the optimal control input changes by this fixed threshold $\Delta$
-			\item this means that after each sampling instant $t_k$, we determine the next sampling instant $t_{k+1}$ such that the norm of the difference between the optimal control at $t_{k+1}$ and $t_k$ equals $\Delta$
-			\item so after sampling at $t_k$, we monitor the optimal control $u(t)$ until it changes by $\Delta$, and we set that time as the next sampling instant $t_{k+1}$
-			\item this approach allows us to adapt the sampling instants based on the dynamics of the control input
-			\item in regions where the control changes rapidly, threshold is reached quickly and we will have more frequent sampling,
-			\item in regions where the control changes slowly, takes longer and we will have less frequent sampling
-			\item by adjusting $\Delta$, small values lead to more frequent sampling, while larger values result in fewer samples
-			\item this adaptive strategy aims to capture the important variations in the control input more effectively (where discretization errors would be larger) than fixed-interval sampling methods
-		\end{itemize}}
-
-	\note<2>{\begin{itemize}
-			\item here is an example to illustrate the concept of lebesgue sampling
-			\item we set the threshold $\Delta$ to 7
-			\item the black curve represents the optimal continuous-time control input $u(t)$ over the time interval
-			\item the red dots indicate the sampling instants determined by the lebesgue sampling method
-			\item as we can see, the sampling instants are not evenly spaced in time
-			\item instead, they are concentrated in regions where the control input changes rapidly
-			\item in regions where the control input is relatively constant, the sampling instants are more spread out
-			\item Übergang: now that we have understood how lebesgue sampling works, we want to analyze its sampling density but for this we first derive an expression relating the number of samples N to the threshold $\Delta$
-		\end{itemize}}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Deterministic Lebesgue Sampling}
-	\only<1>{
-		\begin{itemize}
-			\item \textbf{Intuition:} Sample more frequently where the control changes faster
-			\item Sample whenever the optimal $u$ changes by a fixed threshold $\Delta$, so after any sampling instant $t_k$, the next $t_{k+1}$ is determined s.t.
-			      $$
-				      \left\| \,u\,(t_{t+1}) - u(t_k)\, \right\|=\,\Delta
-			      $$
-
-			      where $u$ is the optimal continuous-time input
-		\end{itemize}
-
-		\begin{example}[$\Delta=7$]
-			\centering
-			\includegraphics[height=3cm]{plots/lebesgue_plot.pdf}
-		\end{example}
-	}
-
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	\only<2->{
 		\centering
@@ -583,9 +520,9 @@
 						axis line style={line width=1.5pt},
 						line width=1.5pt,
 						xlabel={Time \,$t$},
-						xlabel style={at={(axis description cs:0.5,-0.0)}, anchor=north},
-						ylabel={State \,$x\,(t)$},
-						ylabel style={at={(axis description cs:-0.08,0.5)}, rotate=90, anchor=south},
+						xlabel style={at={(axis description cs:0.5,-0.)}, anchor=north},
+						ylabel={Control \,$u\,(t)$},
+						ylabel style={at={(axis description cs:-0.09,0.5)}, rotate=90, anchor=south},
 						grid=both,
 						grid style = {black!20, densely dashed},
 						ymin=-30, ymax=10,
@@ -653,11 +590,43 @@
 						(axis cs:\DeltaX, -19) -- (axis cs:\DeltaX, -12.2)
 						node[midway, right] {$\Delta$};}
 
+                    \only<6->{
+						\draw[decorate, decoration={brace, mirror}, thick]
+						(axis cs:\DeltaX, -11.8) -- (axis cs:\DeltaX, -5.2)
+						node[midway, right] {$\Delta$};}
+
 				\end{axis}
 
 			\end{tikzpicture}
 		\end{example}
 	}
+
+    \note<1>{\begin{itemize}
+			\item the intuition behind lebesgue sampling is to sample more frequently in regions where the control changes rapidly
+			\item less often when it is relatively constant
+			\item instead of sampling at fixed time intervals, we let the behavior of the optimal continuous-time control determine the sampling instants
+			\item so of course we first need to calculate the optimal continuous-time control $u(t)$ for $t$ in $[0,T]$
+			\item then we set a fixed threshold $\Delta$ that defines how much the control needs to change before we take a new sample
+			\item we sample whenever the optimal control input changes by this fixed threshold $\Delta$
+			\item this means that after each sampling instant $t_k$, we determine the next sampling instant $t_{k+1}$ such that the norm of the difference between the optimal control at $t_{k+1}$ and $t_k$ equals $\Delta$
+			\item so after sampling at $t_k$, we monitor the optimal control $u(t)$ until it changes by $\Delta$, and we set that time as the next sampling instant $t_{k+1}$
+			\item this approach allows us to adapt the sampling instants based on the dynamics of the control input
+			\item in regions where the control changes rapidly, threshold is reached quickly and we will have more frequent sampling,
+			\item in regions where the control changes slowly, takes longer and we will have less frequent sampling
+			\item by adjusting $\Delta$, small values lead to more frequent sampling, while larger values result in fewer samples
+			\item this adaptive strategy aims to capture the important variations in the control input more effectively (where discretization errors would be larger) than fixed-interval sampling methods
+		\end{itemize}}
+
+	\note<2>{\begin{itemize}
+			\item here is an example to illustrate the concept of lebesgue sampling
+			\item we set the threshold $\Delta$ to 7
+			\item the black curve represents the optimal continuous-time control input $u(t)$ over the time interval
+			\item the red dots indicate the sampling instants determined by the lebesgue sampling method
+			\item as we can see, the sampling instants are not evenly spaced in time
+			\item instead, they are concentrated in regions where the control input changes rapidly
+			\item in regions where the control input is relatively constant, the sampling instants are more spread out
+			\item Übergang: now that we have understood how lebesgue sampling works, we want to analyze its sampling density but for this we first derive an expression relating the number of samples N to the threshold $\Delta$
+		\end{itemize}}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
