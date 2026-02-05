@@ -47,8 +47,8 @@
 	{\small
 		\begin{eqnarray*}
 			\onslide<1->{&&\hspace{\LineMove}\int_0^T \left( x'(t)\,Q\,x\,(t) + \overline{u}'(t)\,R\,\overline{u}\,(t) \right) dt + x'(T)\,S\,x\,(T)\\}
-				\only<1-3>{&& \hspace{\LineMove}= \sum_{k=0}^{N-1} \Bigg[\int_{t_k}^{t_{k+1}} \left( {\color{prediction}x'(t)}\,Q\, {\color{piecewise}x(t)} + \overline{u}'(t)\,R\,\overline{u}\,(t) \right) dt + x'(T)\,S\,x\,(T)\Bigg]\\}
-				\only<2-3>{&& \hspace{\LineMove}= \sum_{k=0}^{N-1} \Bigg[ \int_{t_k}^{t_{k+1}} {\color{prediction} \left( \Phi\,x_k + \Gamma\,u_k\right)'}\,Q\, {\color{piecewise}\left( \Phi\,x_k + \Gamma\,u_k \right)}dt + \int_{t_k}^{t_{k+1}} u'_{k} \,R\,u_{k} \Bigg] + x'(T)\,S\,x\,(T)\\}
+				\only<1-3>{&& \hspace{\LineMove}= \sum_{k=0}^{N-1} \Bigg[\int_{t_k}^{t_{k+1}} \left( {\color{prediction}x'(t)}\,Q\, {\color{piecewise}x(t)} + \overline{u}'(t)\,R\,\overline{u}\,(t) \right) dt\Bigg] + x'(T)\,S\,x\,(T)\\}
+				\only<2-3>{&& \hspace{\LineMove}= \sum_{k=0}^{N-1} \Bigg[ \int_{t_k}^{t_{k+1}} {\color{prediction} \left( \Phi\,x_k + \Gamma\,u_k\right)'}\,Q\, {\color{piecewise}\left( \Phi\,x_k + \Gamma\,u_k \right)}dt + \int_{t_k}^{t_{k+1}} u'_{k} \,R\,u_{k}dt \Bigg] + x'(T)\,S\,x\,(T)\\}
 			\onslide<3->{&&\hspace{\LineMove}= \sum_{k=0}^{N-1} \Bigg[x_k' \underbrace{\Bigg( \int_{t_k}^{t_{k+1}} \Phi' Q\, \Phi \, dt \Bigg) }_{\overline{Q}}x_k +u_k'\underbrace{ \Bigg(
 					\int_{t_k}^{t_{k+1}} \Gamma' Q \Gamma dt
 					+ \underbrace{\int_{t_k}^{t_{k+1}} R dt}_{\tau_k R}
