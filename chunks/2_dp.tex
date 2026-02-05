@@ -38,16 +38,9 @@
 
 	\vspace{0.5em}
 
-	\onslide<1>{
+	{
 		\textbf{Intuition:}
 		define a \textit{backward recursive function} that gives the minimal achievable cost from the current state onward.
-	}
-	\onslide<2>{
-		\vspace{-1cm}
-		\centering
-		\begin{equationbox}[6cm]
-			x_{k+1} = \overline A_k x_k + \overline B_k u_k
-		\end{equationbox}
 	}
 
 \end{frame}
@@ -77,11 +70,12 @@
 			\draw[->, red] (unknown) -- (Jquad);
 
 			\onslide<2->{\node[scale=\ArrowScale] at (0,-1) {$\Downarrow$};}
+			\onslide<2->{\node[gray] (plug) at (4,-1) {Recall $x_{k+1} = \overline A_k x_k + \overline B_k u_k$};}
 
 			\onslide<2->{\node (Jnext) at (0,-2) {$
-					\mathcal{J}_{k+1}(\overline A_k x + \overline B_k u)
+					\mathcal{J}_{k+1}(\overline A_k x_k + \overline B_k u_k)
 					=
-					(\overline A_k x + \overline B_k u)' \,\overline K_{k+1}\,(\overline A_k x + \overline B_k u)
+					(\overline A_k x_k + \overline B_k u_k)' \,\overline K_{k+1}\,(\overline A_k x_k + \overline B_k u_k)
 				$};}
 
 			\onslide<3->{\node[gray] (plug) at (4,-3.1) {Plug into \textbf{Bellman equation}};}
@@ -91,35 +85,35 @@
 				\only<3>{$
 						\mathcal{J}_k(x)
 						=\;
-						x'
+						x'_k
 						\underbrace{(\overline Q_k + \overline A_k'\, \overline K_{k+1} \overline A_k)}_{\hat Q_k}
-						x
+						x_k
 						+
-						u'
-						\underbrace{(R_k + \overline B_k' \overline K_{k+1} \overline B_k)}_{\hat R_k}
-						u
+						u'_k
+						\underbrace{(\overline{R}_k + \overline B_k' \overline K_{k+1} \overline B_k)}_{\hat R_k}
+						u_k
 						\;
 						+
-						2x'
-						\underbrace{(\overline P_k + \overline A_k'\, \overline K_{k+1}\, \overline B_k)}_{\hat S_k}
-						u
+						2x'_k
+						\underbrace{(\overline P_k + \overline A_k'\, \overline K_{k+1}\, \overline B_k)}_{\hat B_k}
+						u_k
 					$}
 				\only<4->{
 					\begin{equationbox}[8cm]
 						\mathcal{J}_k(x)
 						=\;
-						x'
+						x'_k
 						\,{\hat Q_k}\,
-						x
+						x_k
 						+
-						u'
+						u'_k
 						\,{\hat R_k}\,
-						u
+						u_k
 						\;
 						+
-						2x'
-						\,{\hat S_k}\,
-						u
+						2x'_k
+						\,{\hat B_k}\,
+						u_k
 					\end{equationbox}
 				}
 			};}
@@ -151,7 +145,7 @@
 		u
 		+
 		2x'\,
-		\hat S_k\,
+		\hat B_k\,
 		u\,
 		\Bigr)
 	\]
@@ -167,7 +161,7 @@
 	\[
 		\frac{\partial}{\partial u}(\,\cdot\,)=0
 		\quad\Longrightarrow\quad
-		\overline R_k\,u + \overline S_k' x = 0
+		\hat R_k\,u + \hat B_k' x = 0
 	\]
 
 	\vspace{0.2cm}
@@ -189,7 +183,7 @@
 		\hspace{-2.5cm}
 		u_k^\ast
 		=
-		-\,\hat R_k^{-1}\,\hat S_k' \, x_k
+		-\,\hat R_k^{-1}\,\hat B_k' \, x_k
 	\]
 
 \end{frame}
@@ -252,9 +246,9 @@
 		=
 		\hat Q_k
 		-
-		\hat S_k \,
+		\hat B_k \,
 		\hat R_k^{-1}\,
-		\hat S_k'
+		\hat B_k'
 	\]
 
 

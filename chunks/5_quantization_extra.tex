@@ -1,7 +1,32 @@
-\commentslide{
-	From now on, these slides are our thoughts on important quantization slides.
-	It must be checked with Sree's slides!
-}
+\begin{frame}{Backup Slides}
+\end{frame}
+
+\begin{frame}{Quantization: Normalized Costs}
+
+	\centering
+	\vspace{-0.3cm}
+	\includegraphics[width=0.9\textwidth]{resources/norm_cost.jpeg}
+\end{frame}
+
+\begin{frame}{Quantization: Comparison of Sampling Methods}
+
+	\centering
+	\includegraphics[width=0.9\textwidth]{resources/comparison.jpeg}
+\end{frame}
+
+
+
+\begin{frame}{Quantization: Intuition}
+	\centering
+
+	\begin{equationbox}[7cm]
+		\left| u_{k-1} - u(t_k) \right|^2
+		=
+		\left| u_k - u(t_k) \right|^2
+	\end{equationbox}
+	\centering
+	\includegraphics[width=0.9\textwidth]{resources/quant.png}
+\end{frame}
 
 
 \begin{frame}{Quantization of Continuous-Time Control}
@@ -53,13 +78,6 @@
 
 \end{frame}
 
-\questionslide{
-	\begin{itemize}
-		\item is $\min\limits_{\{\tau_k,\,u_k\}}$ valid? or should be $\{\tau_1, \ldots, \tau_k\}$ instead?
-		\item $\Omega$ undefined is fine? Should the integration limits be $\int\limits_0^T$ or $\int\limits_{0^m}^{T^m}$ instead?
-		\item in the paper, they integrate over $\Omega$ and w.r.t. $dx$. Should it be wrt $t$ and between $(0,T)$ instead?
-	\end{itemize}
-}
 
 % ============================================================================================
 
@@ -121,19 +139,7 @@
 
 \end{frame}
 
-% =======================================================================================
-
-\begin{frame}{Quantization: Intuition}
-	\centering
-
-	\begin{equationbox}[7cm]
-		\left| u_{k-1} - u(t_k) \right|^2
-		=
-		\left| u_k - u(t_k) \right|^2
-	\end{equationbox}
-	\centering
-	\includegraphics[width=0.9\textwidth]{resources/quant.png}
-\end{frame}
+% ======================================================================================
 
 
 
@@ -143,7 +149,7 @@
 
 
 	\begin{block}{Iterative Procedure}
-		\only<1>{\footnotesize}\only<2->{\tiny}
+		\only<1>{\footnotesize}
 		\begin{enumerate}
 			\item \textbf{Initialization}
 			      Set
@@ -179,32 +185,9 @@
 
 	\vspace{0.3em}
 
-	\uncover<2>{
-		\begin{columns}
-			\begin{column}{0.7\textwidth}
-
-				{
-					\color{gray!80}
-					\textit{
-						$\ldots$ centroids minimize error inside intervals, boundaries balance errors between neighboring intervals.
-					}
-				}
-			\end{column}
-		\end{columns}
-	}
-
 
 
 \end{frame}
-
-\questionslide{
-	\begin{itemize}
-		\item does the algorithm actually make sense? it was not in the paper explicitly, I think.
-		\item Is the algorithm too small on the second slide?
-		\item We cannot use a screenshot and need a proper plot
-	\end{itemize}
-
-}
 
 
 %
