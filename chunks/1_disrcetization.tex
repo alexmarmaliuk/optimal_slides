@@ -1,6 +1,8 @@
+\input{../template/custom_colors.tex}
+
 % ==========================================================================
 \begin{frame}{Optimal Control: Discrete-Time Systems}
-	Given the time points $\{ t_0, \ldots, t_N\}$, with interarrivals $\tau_k, \,k \in \{ 0, \ldots, N \} $, the discrete-time state space equations are:
+	Given the time points $\{ t_0, \ldots, t_N\}$, with interarrivals $\tau_k, \,k \in \{ 0, \ldots, N-1 \} $, the discrete-time state space equations are:
 
 	\bigskip
 	\centering
@@ -45,8 +47,8 @@
 	{\small
 		\begin{eqnarray*}
 			\onslide<1->{&&\hspace{\LineMove}\int_0^T \left( x'(t)\,Q\,x\,(t) + \overline{u}'(t)\,R\,\overline{u}\,(t) \right) dt + x'(T)\,S\,x\,(T)\\}
-				\only<1-3>{&& \hspace{\LineMove}= \sum_{k=0}^{N-1} \Bigg[\int_{t_k}^{t_{k+1}} \left( x'(t)\,Q\,x\,(t) + \overline{u}'(t)\,R\,\overline{u}\,(t) \right) dt + x'(T)\,S\,x\,(T)\Bigg]\\}
-				\only<2-3>{&& \hspace{\LineMove}= \sum_{k=0}^{N-1} \Bigg[ \int_{t_k}^{t_{k+1}} \left( \Phi\,x_k + \Gamma\,u_k\right)'\,Q\, \left( \Phi\,x_k + \Gamma\,u_k \right)dt + \int_{t_k}^{t_{k+1}} u'_{k} \,R\,u_{k} \Bigg] + x'(T)\,S\,x\,(T)\\}
+				\only<1-3>{&& \hspace{\LineMove}= \sum_{k=0}^{N-1} \Bigg[\int_{t_k}^{t_{k+1}} \left( {\color{prediction}x'(t)}\,Q\, {\color{piecewise}x(t)} + \overline{u}'(t)\,R\,\overline{u}\,(t) \right) dt + x'(T)\,S\,x\,(T)\Bigg]\\}
+				\only<2-3>{&& \hspace{\LineMove}= \sum_{k=0}^{N-1} \Bigg[ \int_{t_k}^{t_{k+1}} {\color{prediction} \left( \Phi\,x_k + \Gamma\,u_k\right)'}\,Q\, {\color{piecewise}\left( \Phi\,x_k + \Gamma\,u_k \right)}dt + \int_{t_k}^{t_{k+1}} u'_{k} \,R\,u_{k} \Bigg] + x'(T)\,S\,x\,(T)\\}
 			\onslide<3->{&&\hspace{\LineMove}= \sum_{k=0}^{N-1} \Bigg[x_k' \underbrace{\Bigg( \int_{t_k}^{t_{k+1}} \Phi' Q\, \Phi \, dt \Bigg) }_{\overline{Q}}x_k +u_k'\underbrace{ \Bigg(
 					\int_{t_k}^{t_{k+1}} \Gamma' Q \Gamma dt
 					+ \underbrace{\int_{t_k}^{t_{k+1}} R dt}_{\tau_k R}

@@ -107,7 +107,7 @@
 	\vspace{-0.5cm}
 
 	\begin{block}{Sampling Density}
-		Given a sampling sequence $t_0=0,\,t_1,\, \ldots, t_N =T$, we define the \emph{sampling density} $\sigma_{N,m}:[0,T) \to \mathbb{R}^{+}$ of any sampling method $m$ as
+		Given a sampling sequence $t_0=0,\,t_1,\, \ldots, t_N =T$, we define the \emph{sampling density} $\sigma_{N,m}:[0,T] \to \mathbb{R}^{+}$ of any sampling method $m$ as
 		\[
 			\sigma_{N,m}(t) = \frac{1}{N\,\tau_{k}} \quad \forall t \in [t_k, t_{k+1}), \quad k \in \{0, \ldots, N-1\}
 		\]
@@ -359,7 +359,7 @@
 				{
 					\color{gray!80}
 					\textit{
-						$\ldots$ informally, optimal controller of the discrete-time can be expressed as the continuous-time solution $K_\infty$ plus a correction term that is proportional to the square of the sampling period $\tau$.
+						$\ldots$ informally, the optimal controller of the discrete-time can be expressed as the continuous-time solution $K_\infty$ plus a correction term that is proportional to the square of the sampling period $\tau$.
 					}
 				}
 			\end{column}
@@ -479,7 +479,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Lebesgue Sampling %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{frame}{Deterministic Lebesgue Sampling}
-	\only<1>{
+	\uncover<1-2>{
 		\begin{itemize}
 			\item \textbf{Intuition:} Sample more frequently where the control changes faster
 			\item Sample whenever the optimal $u$ changes by a fixed threshold $\Delta$, so after any sampling instant $t_k$, the next $t_{k+1}$ is determined s.t.
@@ -490,15 +490,16 @@
 			      where $u$ is the optimal continuous-time input
 		\end{itemize}
 
+        \uncover<2>{
 		\begin{example}[$\Delta=7$]
 			\centering
 			\includegraphics[height=3cm]{plots/lebesgue_plot.pdf}
-		\end{example}
+		\end{example}}
 	}
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-	\only<2->{
+\end{frame}
+\begin{frame}{Deterministic Lebesgue Sampling: Example}
 		\centering
 		\vspace{-0.4cm}
 		\begin{equationbox}[6cm]
@@ -532,7 +533,7 @@
 						%minor xtick={0.5,1.5,2.5},
 						tick style={line width=0.8pt},
 						extra x ticks={0,0.19,0.44,0.85,2.54},
-						extra x tick labels={\only<3->{$t_0$},\only<4->{$t_1$},\only<5->{$t_2$},\only<6->{$t_3$},\only<7->{$t_4$}},
+						extra x tick labels={\only<2->{$t_0$},\only<3->{$t_1$},\only<4->{$t_2$},\only<5->{$t_3$},\only<6->{$t_4$}},
 						extra x tick style={tick label style={text=prediction, yshift=1.8cm}, grid=none, tick style={draw=none}},
 						set layers=standard,
 						axis line style={black!50},
@@ -542,55 +543,55 @@
 
 					\addplot[on layer=axis background, no marks, ultra thick] table[x index=0, y index=6, col sep=comma] {../plots/lqr_system_r1.csv};
 
-					\only<3->{
+					\only<2->{
 						\addplot[color = prediction, mark=*,  mark size=1.5pt, only marks, ultra thick] coordinates {(0,-26.6524758424985)};}
 
-					\only<4->{
+					\only<3->{
 						\addplot[color = prediction, mark=*,  mark size=1.5pt, only marks, ultra thick] coordinates { (0.19,-19.1930968872663) };}
 
-					\only<5->{
+					\only<4->{
 						\addplot[color = prediction, mark=*,  mark size=1.5pt, only marks, ultra thick] coordinates {(0.44,-12.1044988669404) };}
 
-					\only<6->{
+					\only<5->{
 						\addplot[color = prediction, mark=*,  mark size=1.5pt, only marks, ultra thick] coordinates { (0.85,-5.05679292680688) };}
 
-					\only<7->{
+					\only<6->{
 						\addplot[color = prediction, mark=*,  mark size=1.5pt, only marks, ultra thick] coordinates {(2.54, 1.06993515408551)};}
 
-					\only<3->{
+					\only<2->{
 						\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0,\tauplace) (0,-19.1930968872663)};}
-					\only<4->{
+					\only<3->{
 						\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0.19,\tauplace) (0.19,-19.1930968872663)};}
-					\only<5->{
+					\only<4->{
 						\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0.44,\tauplace) (0.44,-12.1044988669404)};}
-					\only<6->{
+					\only<5->{
 						\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(0.85,\tauplace) (0.85,-5.05679292680688)};}
-					\only<7->{
+					\only<6->{
 						\addplot[prediction, thick, densely dashed, opacity=0.5] coordinates {(2.54, \tauplace) (2.54, 1.06993515408551)};}
 
 					% Delta lines
-					\only<4->{
+					\only<3->{
 						\addplot[piecewise, thick] coordinates {(\DeltaLinesX,-26.65) (0,-26.65)};
 						\addplot[piecewise, thick] coordinates {(\DeltaLinesX,-19.1930968872663) (0,-19.1930968872663)};}
-					\only<5->{
+					\only<4->{
 						\addplot[piecewise, thick] coordinates {(\DeltaLinesX,-12.1044988669404) (0,-12.1044988669404)};}
-					\only<6->{
+					\only<5->{
 						\addplot[piecewise, thick] coordinates {(\DeltaLinesX,-5.05679292680688) (0,-5.05679292680688)};}
-					\only<7->{
+					\only<6->{
 						\addplot[piecewise, thick] coordinates {(\DeltaLinesX, 1.06993515408551) (0, 1.06993515408551)};}
 
 					% braces for Deltas
-					\only<4->{
+					\only<3->{
 						\draw[decorate, decoration={brace, mirror}, thick]
 						(axis cs:\DeltaX, -26.2) -- (axis cs:\DeltaX, -19.4)
 						node[midway, right] {$\Delta$};}
 
-					\only<5->{
+					\only<4->{
 						\draw[decorate, decoration={brace, mirror}, thick]
 						(axis cs:\DeltaX, -19) -- (axis cs:\DeltaX, -12.2)
 						node[midway, right] {$\Delta$};}
 
-                    \only<6->{
+                    \only<5->{
 						\draw[decorate, decoration={brace, mirror}, thick]
 						(axis cs:\DeltaX, -11.8) -- (axis cs:\DeltaX, -5.2)
 						node[midway, right] {$\Delta$};}
@@ -599,7 +600,7 @@
 
 			\end{tikzpicture}
 		\end{example}
-	}
+	
 
     \note<1>{\begin{itemize}
 			\item the intuition behind lebesgue sampling is to sample more frequently in regions where the control changes rapidly

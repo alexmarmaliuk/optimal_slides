@@ -24,7 +24,7 @@
 			line width=1.5pt,
 			xlabel={Time \,$t$},
 			xlabel style={at={(axis description cs:0.5,-0.05)}, anchor=north},
-			ylabel={State \,$x\,(t)$},
+			ylabel={Control \,$u\,(t)$},
 			ylabel style={at={(axis description cs:-0.08,0.5)}, rotate=90, anchor=south},
 			grid=both,
 			grid style = {black!20, densely dashed},
@@ -77,6 +77,10 @@
 		\draw[decorate, decoration={brace, mirror}, thick]
 		(axis cs:\DeltaX, -26.2) -- (axis cs:\DeltaX, -19.4)
 		node[midway, right] {$\Delta$};
+
+		\draw[decorate, decoration={brace, mirror}, thick]
+						(axis cs:\DeltaX, -11.8) -- (axis cs:\DeltaX, -5.2)
+						node[midway, right] {$\Delta$};
 
 
 	\end{axis}
